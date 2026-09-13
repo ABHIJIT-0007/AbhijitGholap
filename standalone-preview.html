@@ -1,0 +1,1390 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Abhijit Gholap — Architecture Portfolio | B.Arch</title>
+  
+  <!-- Google Fonts: Plus Jakarta Sans & Space Grotesk -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['Plus Jakarta Sans', '-apple-system', 'sans-serif'],
+            mono: ['Space Grotesk', 'monospace'],
+          },
+          colors: {
+            architectural: {
+              dark: '#0C0C0C',
+              surface: '#141414',
+              accent: '#B85D3B',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- React 18 & Babel CDN -->
+  <script crossorigin src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+  <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+  <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+  <style>
+    :root {
+      color-scheme: dark;
+    }
+    body {
+      background-color: #0C0C0C;
+      color: #FFFFFF;
+      font-family: 'Plus Jakarta Sans', -apple-system, sans-serif;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+    }
+    ::-webkit-scrollbar {
+      width: 6px;
+    }
+    ::-webkit-scrollbar-track {
+      background: #0C0C0C;
+    }
+    ::-webkit-scrollbar-thumb {
+      background: #252525;
+    }
+    ::-webkit-scrollbar-thumb:hover {
+      background: #B85D3B;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .animate-fadeIn {
+      animation: fadeIn 0.35s ease-out forwards;
+    }
+    @media print {
+      body { background: #fff !important; color: #000 !important; }
+      header, nav, #work, #about, #approach, #experience, #drawings, #skills, #education, #contact { display: none !important; }
+    }
+  </style>
+</head>
+<body class="bg-[#0C0C0C] text-white selection:bg-[#B85D3B] selection:text-white antialiased">
+  <div id="root"></div>
+
+  <script type="text/babel">
+    const { useState, useEffect } = React;
+
+    // ==========================================
+    // DATA MODULE
+    // ==========================================
+    const personalInfo = {
+      name: 'Abhijit Gholap',
+      title: 'Architecture Student',
+      degree: 'Bachelor of Architecture (B.Arch)',
+      currentLevel: 'Semester VII',
+      university: 'Mumbai University',
+      location: 'Navi Mumbai, India',
+      email: 'abhijitgholap000@gmail.com',
+      alternateEmail: 'abhijitgholap79@gmail.com',
+      phone: '+91 9834330754',
+      heroIntro: 'Exploring architecture through design, planning, sustainability and innovative spatial solutions.',
+      aboutBio: 'A dedicated and enthusiastic Architecture student passionate about architectural design, planning and sustainable development. I enjoy exploring innovative design solutions that balance functionality, aesthetics and environmental responsibility.',
+      languages: ['Marathi', 'Hindi', 'English'],
+    };
+
+    const academicProjects = [
+      {
+        id: 'student-housing',
+        number: '01',
+        name: 'Student Housing',
+        location: 'Ghansoli',
+        category: 'Academic Project — Semester VII',
+        semester: 'Semester VII',
+        area: '17,630 sq.m.',
+        description: 'Planned a sustainable student residential campus that fosters learning, interaction and a vibrant community lifestyle.',
+        coverImage: 'https://images.unsplash.com/photo-1541888946425-d0fbb186f5f8?q=80&w=1600&auto=format&fit=crop',
+        concept: 'A community-centric student enclave organizing modular residential clusters around semi-public courtyards, green spill-out zones, and shaded pedestrian arteries to encourage collaborative student life.',
+        siteAnalysis: [
+          'Site strategically positioned in Ghansoli with proximity to educational hubs and arterial transit routes.',
+          'Analysis of prevailing southwest monsoons and intense afternoon solar radiation guided building mass orientation.',
+          'Integration of natural topography to minimize cut-and-fill and establish passive storm-water collection basins.'
+        ],
+        conceptDevelopment: [
+          'Macro zoning segregating noisy sports and amphitheatre zones from contemplative study quads.',
+          'Decentralized cluster layout reducing institutional monotony and building micro-neighbourhoods of 24–32 students.',
+          'Vertical layering: active student amenities at ground, residential units on upper floors.'
+        ],
+        formDevelopment: [
+          'Staggered building blocks configured to create self-shading internal courtyards and wind funnels.',
+          'Perforated terracotta and concrete screen facades providing privacy while maximizing cross-ventilation.',
+          'Terraced roof gardens functioning as thermal buffer layers and student leisure decks.'
+        ],
+        plans: [
+          { title: 'Master Site Layout', type: 'Site Plan', desc: 'Pedestrian spines, bicycle pathways, emergency vehicular ring road, and landscape zones.' },
+          { title: 'Cluster Ground Floor Plan', type: 'Floor Plan', desc: 'Dining hall, student collaborative lounges, laundromat, and warden suites.' },
+          { title: 'Typical Residential Floor Plan', type: 'Floor Plan', desc: 'Twin-sharing and quad study dormitories with shared washroom modules and open loggias.' }
+        ],
+        sectionsAndElevations: [
+          { title: 'Transverse Longitudinal Section', type: 'Section', desc: 'Section through central courtyard, showing double-height atrium and passive ventilation stacks.' },
+          { title: 'North-South Courtyard Elevation', type: 'Elevation', desc: 'Rhythmic fenestration, louvered screens, and stepped green terraces.' }
+        ],
+        diagrams: [
+          'Microclimate & Wind Circulation Matrix',
+          'Solar Radiation & Shading Envelope Analysis',
+          'Pedestrian vs Service Circulation Hierarchy'
+        ],
+        sustainabilityStrategy: [
+          'Passive daylighting strategies reducing artificial lighting requirements during daytime by 65%.',
+          'Rainwater harvesting system integrated into underground storage cells for campus landscape irrigation.',
+          'Use of locally sourced fly ash bricks, terracotta jaalis, and permeable paving.'
+        ],
+        views3D: [
+          { title: 'Central Courtyard Perspective', desc: 'Gathering amphitheatre under indigenous tree canopies with textured concrete facades.' },
+          { title: 'Aerial Campus Masterview', desc: 'Axonometric view showcasing cluster rhythm and contiguous green corridors.' },
+          { title: 'Student Lounge & Double-Height Atrium', desc: 'Internal visual connectivity between study pods and recreational hubs.' }
+        ]
+      },
+      {
+        id: 'mizoram-state-bhavan',
+        number: '02',
+        name: 'Mizoram State Bhavan',
+        location: 'Vashi',
+        category: 'Academic Project — Semester VI',
+        semester: 'Semester VI',
+        area: '10,000 sq.m.',
+        description: "Designed a cultural and administrative centre celebrating Mizoram's heritage through contemporary architecture.",
+        coverImage: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1600&auto=format&fit=crop',
+        concept: 'Translating traditional Mizo craftsmanship, bamboo joinery geometries, and sloped hill settlement forms into an iconic civic and cultural landmark in urban Vashi.',
+        siteAnalysis: [
+          'Prominent urban corner plot in Vashi with high visibility from commercial boulevards.',
+          'Evaluation of pedestrian footfall from transit junctions against ceremonial vehicular arrivals.'
+        ],
+        conceptDevelopment: [
+          'Bifurcated program separating high-security state dignitary suites from public cultural exhibition pavilions.',
+          'Central ceremonial atrium functioning as a contemporary interpretation of the traditional Zawlbuk (community hall).'
+        ],
+        formDevelopment: [
+          'Geometric folding canopy inspired by traditional Mizo weaving patterns (Puan).',
+          'Podium and tower massing balancing street-level public openness with private VIP guest floors.'
+        ],
+        plans: [
+          { title: 'Ground Floor Cultural Promenade', type: 'Plan', desc: 'Exhibition galleries, craft emporium, auditorium, and banquet hall.' },
+          { title: 'Level 03 Administrative & VIP Suites', type: 'Plan', desc: 'State representative offices, conference suites, and official residence quarters.' }
+        ],
+        sectionsAndElevations: [
+          { title: 'Longitudinal Section across Cultural Atrium', type: 'Section', desc: 'Showing triple-height skylit atrium with decorative timber ceiling ribs.' }
+        ],
+        diagrams: ['Cultural Symbolism to Architectural Form Mapping', 'Security & Public Zoning Segregation Diagram'],
+        sustainabilityStrategy: [
+          'Solar responsive screen facade minimizing solar heat gain on western frontage.',
+          'Integration of engineered bamboo wall claddings for acoustic and renewable interior finishes.'
+        ],
+        views3D: [
+          { title: 'Grand Entry Plaza & Canopy View', desc: 'Hero view showing the angular illuminated roof canopy at dusk.' }
+        ]
+      },
+      {
+        id: 'the-evolving-museum',
+        number: '03',
+        name: 'The Evolving Museum',
+        location: 'Dadar',
+        category: 'Academic Project — Semester V',
+        semester: 'Semester V',
+        area: '5,000 sq.m.',
+        description: 'Created a museum that offers an interactive and dynamic journey showcasing the evolution of knowledge and culture.',
+        coverImage: 'https://images.unsplash.com/photo-1513694203232-719a280e022f?q=80&w=1600&auto=format&fit=crop',
+        concept: 'An architectural spatial spiral where visitors experience the progression of time and human knowledge through continuous vertical movement, light, and materiality.',
+        siteAnalysis: [
+          'Dense urban fabric of Dadar demanding sound mitigation and an introverted spatial experience.',
+          'Preservation of existing mature heritage trees incorporated into entry forecourts.'
+        ],
+        conceptDevelopment: [
+          'Chronological experiential ramp looping through distinct thematic eras.',
+          'Interplay of light: descending from dark, subterranean ancestral archives to sunlit contemporary galleries.'
+        ],
+        formDevelopment: [
+          'Monolithic sculpted concrete volume punctured by deliberate geometric light shafts.',
+          'Cantilevered viewing box framing Dadar urban vistas at the conclusion of the museum sequence.'
+        ],
+        plans: [
+          { title: 'Ground Level Entry & Amphitheatre Plan', type: 'Plan', desc: 'Ticketing pavilion, orientation hall, cafe, and sculpture courtyard.' }
+        ],
+        sectionsAndElevations: [
+          { title: 'Central Void Spiral Section', type: 'Section', desc: 'Continuous experiential ramp and top-lit light well illuminating all levels.' }
+        ],
+        diagrams: ['Visitor Chronological Experience Loop', 'Controlled Indirect Daylight Penetration Diagram'],
+        sustainabilityStrategy: [
+          'Thermal mass of board-marked insulated concrete keeping gallery temperatures stable.'
+        ],
+        views3D: [
+          { title: 'Monolithic Facade Composition', desc: 'Sculptural concrete planes with dramatic shadow lines in bright daylight.' }
+        ]
+      },
+      {
+        id: 'rural-development-centre',
+        number: '04',
+        name: 'Rural Development Centre',
+        location: 'Shivkar, Panvel',
+        category: 'Academic Project — Semester IV',
+        semester: 'Semester IV',
+        area: '2,100 sq.m.',
+        description: 'Designed a community-focused centre to support rural development, skill enhancement and local empowerment.',
+        coverImage: 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=1600&auto=format&fit=crop',
+        concept: 'A low-impact vernacular campus built with participatory design principles, using locally available stone, CSEB blocks, and expansive pitched roofs.',
+        siteAnalysis: ['Agrarian parcel in Shivkar with natural water runoff channels and gentle slopes.'],
+        conceptDevelopment: ['Cluster arrangement inspired by traditional Indian wada architecture with central shared chowk.'],
+        formDevelopment: ['Deep overhangs protecting rammed earth and stone masonry walls from heavy Konkan monsoons.'],
+        plans: [{ title: 'Campus Master Ground Plan', type: 'Plan', desc: 'Artisan workshops, vocational classrooms, and central courtyard.' }],
+        sectionsAndElevations: [{ title: 'Courtyard Section showing Timber Roofs', type: 'Section', desc: 'Natural ventilation through high clerestory vents.' }],
+        diagrams: ['Community Gathering & Circulation Patterns'],
+        sustainabilityStrategy: ['Compressed stabilized earth blocks (CSEB) manufactured on site using local soil.'],
+        views3D: [{ title: 'Courtyard Chowk View', desc: 'Warm earth tones, exposed timber posts, and stone plinths.' }]
+      },
+      {
+        id: 'ngo-learning-centre',
+        number: '05',
+        name: 'NGO Learning Centre',
+        location: 'Kopar Khairane',
+        category: 'Academic Project — Semester III',
+        semester: 'Semester III',
+        area: '1,000 sq.m.',
+        description: 'Developed an educational facility that promotes learning and community engagement through functional design.',
+        coverImage: 'https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1600&auto=format&fit=crop',
+        concept: 'Flexible, playful educational architecture that breaks the rigid classroom mold to nurture curiosity, collaboration, and safe play for underprivileged youth.',
+        siteAnalysis: ['Compact plot in Kopar Khairane nestled within a bustling residential neighbourhood.'],
+        conceptDevelopment: ['Movable partitions allowing classrooms to expand into larger community assembly halls.'],
+        formDevelopment: ['Interlocking geometric volumes creating varied ceiling heights to stimulate sensory experience.'],
+        plans: [{ title: 'Ground Floor Flexible Learning Plan', type: 'Plan', desc: 'Early learning studios, computer lab, and community pantry.' }],
+        sectionsAndElevations: [{ title: 'Stepped Activity Section', type: 'Section', desc: 'Multi-level play and study sequence.' }],
+        diagrams: ['Multi-Use Spatial Reconfiguration Diagrams'],
+        sustainabilityStrategy: ['Cross-ventilation reducing dependence on mechanical air conditioning.'],
+        views3D: [{ title: 'Sunlit Multi-Purpose Learning Atrium', desc: 'Bright, cheerful spaces with flexible timber modular furniture.' }]
+      },
+      {
+        id: 'weekend-getaway-bungalow',
+        number: '06',
+        name: 'Weekend Getaway Bungalow',
+        location: 'Badlapur',
+        category: 'Academic Project — Semester II',
+        semester: 'Semester II',
+        area: '170 sq.m.',
+        description: 'Planned a peaceful holiday home focused on comfort, relaxation and a strong connection with nature.',
+        coverImage: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1600&auto=format&fit=crop',
+        concept: 'A retreat pavilion blurring boundaries between indoors and outdoors, oriented towards picturesque views of the Sahyadri foothills.',
+        siteAnalysis: ['Gently contoured rural parcel in Badlapur surrounded by fruit orchards and stream frontage.'],
+        conceptDevelopment: ['Linear organization keeping living, dining, and sleeping spaces along the panoramic view edge.'],
+        formDevelopment: ['Cantilevered flat and butterfly roof planes creating dramatic horizontality.'],
+        plans: [{ title: 'Ground Floor Layout Plan', type: 'Plan', desc: 'Open-concept living lounge, kitchenette, and viewing terrace.' }],
+        sectionsAndElevations: [{ title: 'Longitudinal Elevation Facing Orchard', type: 'Elevation', desc: 'Exposed black basalt stone foundation.' }],
+        diagrams: ['Indoor-Outdoor Spatial Threshold Diagram'],
+        sustainabilityStrategy: ['Locally quarried basalt stone for thermal mass foundations.'],
+        views3D: [{ title: 'Evening Dusk View from Deck', desc: 'Illuminated living spaces opening directly to the private pool and orchard.' }]
+      },
+      {
+        id: 'artists-studio',
+        number: '07',
+        name: "Artist's Studio",
+        location: 'Vangani',
+        category: 'Academic Project — Semester I',
+        semester: 'Semester I',
+        area: '15 sq.m.',
+        description: 'Designed a creative workspace that integrates artistic activities with the natural landscape.',
+        coverImage: 'https://images.unsplash.com/photo-1513519245088-0e12902e5a38?q=80&w=1600&auto=format&fit=crop',
+        concept: 'A compact, contemplative micro-sanctuary tailored for a visual artist, celebrating northern daylight, timber warmth, and direct contact with nature.',
+        siteAnalysis: ['Secluded wooded setting in Vangani with gentle elevation and quiet acoustics.'],
+        conceptDevelopment: ['Minimalist footprint maximizing every cubic meter through built-in furniture and loft storage.'],
+        formDevelopment: ['Crisp asymmetric pavilion resting lightly on minimal pile footings to protect tree roots.'],
+        plans: [{ title: 'Studio Floor Plan & Loft Level', type: 'Plan', desc: 'Workstation, easel zone, and mezzanine rest perch.' }],
+        sectionsAndElevations: [{ title: 'Cross Section through Light Well', type: 'Section', desc: 'Demonstrating northern roof angle.' }],
+        diagrams: ['Micro-space Ergonomics & Light Angle Geometry'],
+        sustainabilityStrategy: ['Lightweight prefabricated timber frame with minimal ground disruption.'],
+        views3D: [{ title: 'Studio in the Woods', desc: 'Weathered timber facade blending organically into forest foliage.' }]
+      }
+    ];
+
+    const professionalProject = {
+      id: 'sports-complex-goa',
+      name: 'Sports Complex — Goa',
+      location: 'Goa',
+      studio: 'Mayur Naik & Associates',
+      principalArchitect: 'Ar. Mayur Naik',
+      role: 'Architectural Design Assistance',
+      description: 'A collaborative professional project developed with Mayur Naik & Associates under the guidance of Principal Architect Ar. Mayur Naik. Contributed to the architectural planning and design development of the sports complex, including organization of sports facilities, open spaces, circulation and overall site planning.',
+      highlights: [
+        'Comprehensive sports facility zoning conforming to standard sports federation guidelines (SAI norms).',
+        'Design and spatial coordination of indoor multi-purpose courts, outdoor stadium seating, and spectator amenities.',
+        'Pedestrian vehicular segregation ensuring safe movement during peak event crowds and tournament days.',
+        'Integration of tropical climate response strategies suitable for Goa coastal humidity and high monsoon rainfall.'
+      ],
+      coverImage: 'https://images.unsplash.com/photo-1574629810360-7efbbe195018?q=80&w=1600&auto=format&fit=crop',
+      gallery: [
+        { title: 'Master Site Circulation Plan', desc: 'Clear delineation of VIP, athlete, spectator, and emergency service corridors.' },
+        { title: 'Indoor Arena Volume & Roof Structure', desc: 'Long-span steel trusses with acoustic paneling and high clerestory ventilation.' },
+        { title: 'Outdoor Sports Pavilion & Seating', desc: 'Tiered spectator grandstands shaded by lightweight tensile membrane canopies.' },
+        { title: 'Landscape & Open Recreational Plaza', desc: 'Permeable sports plaza connecting the community grounds with training facilities.' }
+      ]
+    };
+
+    const workingDrawings = [
+      { id: 'wd-01', title: 'Setting Out Plan', sheetNumber: 'WD-01', scale: '1:50', category: 'Substructure', description: 'Precision boundary coordinates, grid offsets, and benchmark references for physical site staking.' },
+      { id: 'wd-02', title: 'Centre Line Plan', sheetNumber: 'WD-02', scale: '1:50', category: 'Substructure', description: 'Column grid intersections, dimensional alignments, and grid reference axes for structural execution.' },
+      { id: 'wd-03', title: 'Plinth Beam Plan', sheetNumber: 'WD-03', scale: '1:50', category: 'Structural', description: 'Plinth level tie beams, reinforcement callouts, depth notations, and foundational slab connections.' },
+      { id: 'wd-04', title: 'Ground Floor Plan', sheetNumber: 'WD-04', scale: '1:50', category: 'Architectural', description: 'Comprehensive architectural layout with masonry dimensions, door/window schedules, and level markings.' },
+      { id: 'wd-05', title: 'Terrace Plan', sheetNumber: 'WD-05', scale: '1:50', category: 'Roof & Drainage', description: 'Terrace slopes, rainwater drainage spouts, parapet details, waterproofing layers, and lift machine room.' },
+      { id: 'wd-06', title: 'Detailed Sections', sheetNumber: 'WD-06', scale: '1:25', category: 'Sectional Details', description: 'Full-height architectural section detailing foundation step-downs, lintel levels, slab thicknesses, and floor finishes.' },
+      { id: 'wd-07', title: 'Staircase Details', sheetNumber: 'WD-07', scale: '1:20', category: 'Special Details', description: 'Tread-to-riser ratios, waist slab reinforcement, handrail balustrade fixings, and nosing profiles.' }
+    ];
+
+    const skillCategories = [
+      { category: '2D Drafting', items: ['AutoCAD'] },
+      { category: '3D Modelling', items: ['SketchUp'] },
+      { category: '3D Rendering', items: ['Lumion'] },
+      { category: 'Graphic / Image Editing', items: ['Adobe Photoshop'] },
+      { category: 'Presentation', items: ['MS Office', 'Google Slides', 'Canva'] },
+      { category: 'Other Architectural Skills', items: ['Hand Sketching', 'Model Making', 'Video Editing'] }
+    ];
+
+    const educationTimeline = [
+      { period: '2024 – Present', degree: 'Bachelor of Architecture (B.Arch)', institution: 'Lokmanya Tilak Institute of Architectural and Design Studies', location: 'Mumbai University', status: 'Currently Pursuing — Semester VII', notes: 'Focus on sustainable urban design, large-scale institutional campuses, and environmental planning.' },
+      { period: '2023 – 2024', degree: 'Bachelor of Architecture (B.Arch)', institution: 'B.R. Harne College of Architecture', location: 'Mumbai University', status: 'Academic Transfer', notes: 'Core architectural design development, structural principles, and building construction technologies.' },
+      { period: '2022 – 2023', degree: 'Higher Secondary Education (12th Standard)', institution: 'Mahatma Gandhi Vidyalaya and Junior College', location: 'Dhasai', notes: 'Higher secondary coursework with emphasis on mathematics and science.' },
+      { period: '2020 – 2021', degree: 'Secondary Education (10th Standard)', institution: 'Mahatma Gandhi Vidyalaya and Junior College', location: 'Dhasai', notes: 'Secondary school certificate foundation with high academic standing.' }
+    ];
+
+    // ==========================================
+    // MAIN APP COMPONENT
+    // ==========================================
+    const App = () => {
+      const [selectedProject, setSelectedProject] = useState(null);
+      const [isCVOpen, setIsCVOpen] = useState(false);
+      const [selectedSheet, setSelectedSheet] = useState(null);
+      const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+      const [scrolled, setScrolled] = useState(false);
+      const [caseStudyTab, setCaseStudyTab] = useState('overview');
+
+      useEffect(() => {
+        const onScroll = () => setScrolled(window.scrollY > 40);
+        window.addEventListener('scroll', onScroll);
+        return () => window.removeEventListener('scroll', onScroll);
+      }, []);
+
+      const featuredProject = academicProjects[0];
+      const otherProjects = academicProjects.slice(1);
+
+      return (
+        <div className="min-h-screen bg-[#0C0C0C] text-white selection:bg-[#B85D3B] selection:text-white font-sans antialiased">
+          
+          {/* ========================================================================= */}
+          {/* FIXED NAVIGATION                                                          */}
+          {/* ========================================================================= */}
+          <header className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${scrolled ? 'bg-[#111111]/90 backdrop-blur-md border-b border-white/10 py-3.5' : 'bg-transparent py-6'}`}>
+            <div className="max-w-7xl mx-auto px-5 sm:px-8 md:px-12 flex items-center justify-between">
+              <a href="#" className="flex flex-col tracking-tight">
+                <span className="font-semibold text-sm sm:text-base tracking-[0.2em] text-white uppercase hover:text-[#B85D3B] transition-colors">
+                  Abhijit Gholap
+                </span>
+                <span className="text-[10px] tracking-[0.25em] text-neutral-400 uppercase font-mono">
+                  Architecture Portfolio / B.Arch
+                </span>
+              </a>
+
+              <nav className="hidden lg:flex items-center space-x-7 text-xs uppercase tracking-[0.18em] font-medium text-neutral-300">
+                <a href="#work" className="hover:text-white transition-colors">Work</a>
+                <a href="#about" className="hover:text-white transition-colors">About</a>
+                <a href="#approach" className="hover:text-white transition-colors">Approach</a>
+                <a href="#experience" className="hover:text-white transition-colors">Experience</a>
+                <a href="#drawings" className="hover:text-white transition-colors">Drawings</a>
+                <a href="#skills" className="hover:text-white transition-colors">Skills</a>
+                <a href="#education" className="hover:text-white transition-colors">Education</a>
+                <a href="#contact" className="hover:text-white transition-colors">Contact</a>
+              </nav>
+
+              <div className="hidden sm:flex items-center space-x-4">
+                <div className="hidden xl:flex items-center space-x-2 text-[11px] font-mono text-neutral-400 border border-white/10 px-3 py-1 rounded-full bg-white/[0.02]">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                  <span>Sem VII • Mumbai University</span>
+                </div>
+                <button
+                  onClick={() => setIsCVOpen(true)}
+                  className="text-xs uppercase tracking-[0.16em] font-medium px-4 py-2 border border-white/30 text-white hover:bg-white hover:text-black transition-all cursor-pointer"
+                >
+                  View CV
+                </button>
+              </div>
+
+              <button
+                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                className="lg:hidden p-2 text-white"
+              >
+                ☰
+              </button>
+            </div>
+
+            {/* Mobile Drawer */}
+            {mobileMenuOpen && (
+              <div className="lg:hidden fixed inset-0 top-[60px] bg-[#0E0E0E]/98 backdrop-blur-xl z-40 px-6 py-10 flex flex-col justify-between border-t border-white/10">
+                <nav className="flex flex-col space-y-6 text-sm uppercase tracking-[0.2em] text-neutral-300">
+                  {['Work', 'About', 'Approach', 'Experience', 'Drawings', 'Skills', 'Education', 'Contact'].map((item) => (
+                    <a
+                      key={item}
+                      href={`#${item.toLowerCase()}`}
+                      onClick={() => setMobileMenuOpen(false)}
+                      className="border-b border-white/5 pb-2 hover:text-[#B85D3B]"
+                    >
+                      {item}
+                    </a>
+                  ))}
+                </nav>
+                <div className="pt-6 border-t border-white/10">
+                  <button
+                    onClick={() => { setMobileMenuOpen(false); setIsCVOpen(true); }}
+                    className="w-full text-center text-xs uppercase tracking-[0.18em] py-3.5 bg-white text-black font-semibold"
+                  >
+                    View CV
+                  </button>
+                </div>
+              </div>
+            )}
+          </header>
+
+          {/* ========================================================================= */}
+          {/* HERO SECTION                                                              */}
+          {/* ========================================================================= */}
+          <section className="relative w-full min-h-screen flex flex-col justify-between pt-32 pb-12 px-5 sm:px-8 md:px-12 bg-[#0D0D0D] overflow-hidden">
+            <div className="absolute inset-0 pointer-events-none z-0">
+              <div
+                className="absolute inset-0 bg-cover bg-center opacity-30 filter grayscale contrast-125"
+                style={{ backgroundImage: `url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2000&auto=format&fit=crop')` }}
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0D0D0D] via-[#0D0D0D]/60 to-[#0D0D0D]/80" />
+            </div>
+
+            <div className="relative z-10 max-w-7xl w-full mx-auto flex flex-wrap items-center justify-between gap-4 text-xs font-mono uppercase tracking-[0.25em] text-neutral-400 border-b border-white/10 pb-4">
+              <div className="flex items-center space-x-3">
+                <span className="text-[#B85D3B]">●</span>
+                <span>B.Arch Portfolio • 2024–2026</span>
+              </div>
+              <div className="flex items-center space-x-4">
+                <span>Navi Mumbai, India</span>
+                <span>•</span>
+                <span>Mumbai University</span>
+              </div>
+            </div>
+
+            <div className="relative z-10 max-w-7xl w-full mx-auto my-auto py-12 flex flex-col items-start">
+              <div className="inline-flex items-center gap-2 mb-6 px-3.5 py-1.5 border border-white/15 bg-white/[0.03] backdrop-blur-sm">
+                <span className="w-2 h-[1px] bg-[#B85D3B]"></span>
+                <span className="text-xs uppercase tracking-[0.3em] font-medium text-neutral-300">
+                  {personalInfo.title}
+                </span>
+              </div>
+
+              <h1 className="text-5xl sm:text-7xl md:text-8xl lg:text-9xl font-black uppercase tracking-tight text-white leading-[0.92] mb-8 font-sans">
+                Abhijit<br />
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-white via-neutral-200 to-neutral-500">
+                  Gholap
+                </span>
+              </h1>
+
+              <div className="max-w-2xl border-l-2 border-[#B85D3B] pl-5 sm:pl-6 my-4">
+                <p className="text-base sm:text-xl md:text-2xl text-neutral-300 font-light leading-relaxed">
+                  "{personalInfo.heroIntro}"
+                </p>
+              </div>
+
+              <div className="mt-10 flex flex-wrap items-center gap-4 sm:gap-6">
+                <a
+                  href="#work"
+                  className="px-8 py-4 bg-white text-black font-semibold text-xs sm:text-sm uppercase tracking-[0.2em] transition-all hover:bg-[#B85D3B] hover:text-white"
+                >
+                  View Portfolio →
+                </a>
+                <a
+                  href="#about"
+                  className="px-8 py-4 border border-white/30 text-white font-medium text-xs sm:text-sm uppercase tracking-[0.2em] transition-all hover:border-white hover:bg-white/5"
+                >
+                  About Me
+                </a>
+              </div>
+            </div>
+
+            <div className="relative z-10 max-w-7xl w-full mx-auto pt-6 border-t border-white/10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+              <div className="flex items-center space-x-6 text-[11px] font-mono uppercase tracking-[0.2em] text-neutral-400">
+                <span>07 Academic Projects</span>
+                <span>•</span>
+                <span>01 Professional Collaboration</span>
+                <span>•</span>
+                <span>Working Drawings</span>
+              </div>
+
+              <a href="#work" className="inline-flex items-center gap-3 text-xs uppercase tracking-[0.25em] text-neutral-400 hover:text-white">
+                <span>Scroll to Explore</span>
+                <span className="text-[#B85D3B] animate-bounce">↓</span>
+              </a>
+            </div>
+          </section>
+
+          {/* ========================================================================= */}
+          {/* SELECTED WORK SECTION                                                     */}
+          {/* ========================================================================= */}
+          <section id="work" className="relative w-full py-28 px-5 sm:px-8 md:px-12 bg-[#0B0B0B] border-t border-white/10">
+            <div className="max-w-7xl mx-auto">
+              <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-16 border-b border-white/10 pb-6 gap-4">
+                <div>
+                  <span className="font-mono text-xs text-[#B85D3B] tracking-[0.25em] uppercase block mb-2">
+                    03 / Portfolio
+                  </span>
+                  <h2 className="text-3xl sm:text-5xl font-extrabold uppercase tracking-tight text-white">
+                    Selected Work
+                  </h2>
+                </div>
+                <div className="font-mono text-xs text-neutral-400 uppercase tracking-widest flex items-center gap-3">
+                  <span>Academic Projects</span>
+                  <span>•</span>
+                  <span>Semesters I – VII</span>
+                </div>
+              </div>
+
+              {/* 01 — Featured Project: Student Housing */}
+              <div className="mb-20">
+                <div
+                  onClick={() => { setSelectedProject(featuredProject); setCaseStudyTab('overview'); }}
+                  className="group cursor-pointer relative bg-[#141414] border border-white/15 overflow-hidden transition-all duration-500 hover:border-[#B85D3B]"
+                >
+                  <div className="grid grid-cols-1 lg:grid-cols-12">
+                    <div className="lg:col-span-8 relative aspect-[16/10] sm:aspect-[16/9] lg:aspect-auto min-h-[380px] sm:min-h-[500px] overflow-hidden bg-neutral-900">
+                      <img
+                        src={featuredProject.coverImage}
+                        alt={featuredProject.name}
+                        className="w-full h-full object-cover filter grayscale contrast-110 group-hover:scale-105 group-hover:grayscale-0 transition-all duration-700 ease-out"
+                      />
+                      <div className="absolute top-4 left-4 font-mono text-xs tracking-[0.2em] uppercase px-3 py-1.5 bg-[#B85D3B] text-white font-semibold">
+                        Featured Academic Project
+                      </div>
+                    </div>
+
+                    <div className="lg:col-span-4 p-8 sm:p-12 flex flex-col justify-between bg-[#141414]">
+                      <div>
+                        <div className="flex items-center justify-between font-mono text-xs text-neutral-400 mb-6 pb-4 border-b border-white/10">
+                          <span className="text-2xl font-bold text-white group-hover:text-[#B85D3B] transition-colors">
+                            {featuredProject.number}
+                          </span>
+                          <span className="tracking-[0.2em]">{featuredProject.area}</span>
+                        </div>
+
+                        <span className="inline-block text-[11px] font-mono text-[#B85D3B] uppercase tracking-[0.2em] mb-2">
+                          {featuredProject.category}
+                        </span>
+
+                        <h3 className="text-3xl sm:text-4xl font-extrabold uppercase tracking-tight text-white mb-4">
+                          {featuredProject.name}
+                        </h3>
+
+                        <p className="font-mono text-xs text-neutral-400 uppercase tracking-widest mb-6">
+                          Location: {featuredProject.location}
+                        </p>
+
+                        <p className="text-sm sm:text-base text-neutral-300 font-light leading-relaxed mb-8">
+                          {featuredProject.description}
+                        </p>
+                      </div>
+
+                      <div className="pt-6 border-t border-white/10 flex items-center justify-between">
+                        <span className="text-xs font-mono uppercase tracking-[0.25em] text-white group-hover:text-[#B85D3B] transition-colors">
+                          View Project Case Study →
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* 02 - 07 Remaining Academic Projects */}
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {otherProjects.map((project) => (
+                  <div
+                    key={project.id}
+                    onClick={() => { setSelectedProject(project); setCaseStudyTab('overview'); }}
+                    className="group cursor-pointer bg-[#141414] border border-white/10 overflow-hidden flex flex-col justify-between hover:border-[#B85D3B] transition-all duration-300"
+                  >
+                    <div className="relative aspect-[16/11] overflow-hidden bg-neutral-900">
+                      <img
+                        src={project.coverImage}
+                        alt={project.name}
+                        className="w-full h-full object-cover filter grayscale contrast-115 group-hover:scale-105 group-hover:grayscale-0 transition-all duration-700 ease-out"
+                        loading="lazy"
+                      />
+                      <div className="absolute top-3 left-3 font-mono text-xs px-2.5 py-1 bg-black/80 backdrop-blur-md text-white border border-white/10">
+                        {project.number}
+                      </div>
+                      <div className="absolute bottom-3 right-3 font-mono text-[11px] px-2.5 py-1 bg-black/80 backdrop-blur-md text-neutral-300 border border-white/10">
+                        {project.area}
+                      </div>
+                    </div>
+
+                    <div className="p-6 sm:p-8 flex flex-col justify-between flex-grow">
+                      <div>
+                        <div className="flex items-center justify-between text-[11px] font-mono uppercase tracking-[0.2em] text-[#B85D3B] mb-2">
+                          <span>{project.semester}</span>
+                          <span className="text-neutral-400">{project.location}</span>
+                        </div>
+
+                        <h3 className="text-xl sm:text-2xl font-bold uppercase tracking-tight text-white mb-3 group-hover:text-[#B85D3B] transition-colors">
+                          {project.name}
+                        </h3>
+
+                        <p className="text-xs sm:text-sm text-neutral-300 font-light leading-relaxed mb-6">
+                          {project.description}
+                        </p>
+                      </div>
+
+                      <div className="pt-4 border-t border-white/10 flex items-center justify-between">
+                        <span className="text-[11px] font-mono uppercase tracking-[0.2em] text-neutral-400 group-hover:text-white transition-colors">
+                          View Project
+                        </span>
+                        <span className="text-white transform group-hover:translate-x-1.5 transition-transform">
+                          →
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          {/* ========================================================================= */}
+          {/* ABOUT ME SECTION                                                          */}
+          {/* ========================================================================= */}
+          <section id="about" className="relative w-full py-28 px-5 sm:px-8 md:px-12 bg-[#121212] border-t border-white/10">
+            <div className="max-w-7xl mx-auto">
+              <div className="flex items-center gap-4 mb-16 border-b border-white/10 pb-4">
+                <span className="font-mono text-xs text-[#B85D3B] tracking-[0.25em] uppercase">01 / Profile</span>
+                <h2 className="text-3xl sm:text-4xl font-extrabold uppercase tracking-tight text-white">About Me</h2>
+              </div>
+
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+                <div className="lg:col-span-5 relative group">
+                  <div className="relative aspect-[3/4] w-full max-w-md mx-auto overflow-hidden bg-neutral-900 border border-white/10">
+                    <img
+                      src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1200&auto=format&fit=crop"
+                      alt="Abhijit Gholap"
+                      className="w-full h-full object-cover grayscale contrast-110 group-hover:scale-105 transition-transform duration-700"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#121212] via-transparent to-transparent opacity-80" />
+                    <div className="absolute bottom-4 left-4 right-4 p-4 bg-[#111111]/80 backdrop-blur-md border border-white/10">
+                      <p className="font-mono text-xs uppercase tracking-[0.2em] text-white">Abhijit Gholap</p>
+                      <p className="font-mono text-[11px] text-neutral-400">Architectural Designer • B.Arch</p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="lg:col-span-7 flex flex-col justify-between space-y-10">
+                  <div>
+                    <span className="inline-block text-xs font-mono uppercase tracking-[0.25em] text-[#B85D3B] mb-4">
+                      Architectural Statement
+                    </span>
+                    <p className="text-xl sm:text-2xl md:text-3xl font-light text-neutral-100 leading-snug">
+                      "{personalInfo.aboutBio}"
+                    </p>
+                  </div>
+
+                  <div className="bg-[#181818] border border-white/10 p-6 sm:p-8">
+                    <div className="flex items-center justify-between border-b border-white/10 pb-4 mb-6">
+                      <span className="font-mono text-xs uppercase tracking-[0.2em] text-neutral-400">
+                        Academic Credentials
+                      </span>
+                      <span className="text-[11px] font-mono text-[#B85D3B] bg-[#B85D3B]/10 px-2.5 py-0.5 border border-[#B85D3B]/30">
+                        Active
+                      </span>
+                    </div>
+
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 text-sm">
+                      <div>
+                        <span className="block text-[11px] font-mono uppercase tracking-[0.2em] text-neutral-400 mb-1">Location</span>
+                        <span className="text-base text-white font-medium">{personalInfo.location}</span>
+                      </div>
+                      <div>
+                        <span className="block text-[11px] font-mono uppercase tracking-[0.2em] text-neutral-400 mb-1">Degree</span>
+                        <span className="text-base text-white font-medium">{personalInfo.degree}</span>
+                      </div>
+                      <div>
+                        <span className="block text-[11px] font-mono uppercase tracking-[0.2em] text-neutral-400 mb-1">University</span>
+                        <span className="text-base text-white font-medium">{personalInfo.university}</span>
+                      </div>
+                      <div>
+                        <span className="block text-[11px] font-mono uppercase tracking-[0.2em] text-neutral-400 mb-1">Current Level</span>
+                        <span className="text-base text-white font-medium">{personalInfo.currentLevel}</span>
+                      </div>
+                    </div>
+
+                    <div className="mt-8 pt-6 border-t border-white/10 flex flex-wrap items-center gap-3">
+                      <span className="text-[11px] font-mono uppercase tracking-[0.2em] text-neutral-400 mr-2">Languages:</span>
+                      {personalInfo.languages.map((lang) => (
+                        <span key={lang} className="px-3 py-1 bg-white/5 border border-white/10 text-xs font-mono text-neutral-300">
+                          {lang}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div className="flex flex-wrap items-center gap-4 pt-2">
+                    <button
+                      onClick={() => setIsCVOpen(true)}
+                      className="px-8 py-4 bg-white text-black font-semibold text-xs uppercase tracking-[0.2em] hover:bg-[#B85D3B] hover:text-white transition-all cursor-pointer"
+                    >
+                      View CV ↗
+                    </button>
+                    <a
+                      href="#contact"
+                      className="px-8 py-4 border border-white/30 text-white font-medium text-xs uppercase tracking-[0.2em] hover:border-white hover:bg-white/5 transition-all"
+                    >
+                      Get in Touch
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* ========================================================================= */}
+          {/* DESIGN APPROACH (SPACES / PEOPLE / PLANET)                                */}
+          {/* ========================================================================= */}
+          <section id="approach" className="relative w-full py-28 px-5 sm:px-8 md:px-12 bg-[#0E0E0E] border-t border-white/10">
+            <div className="max-w-7xl mx-auto">
+              <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-16 border-b border-white/10 pb-6 gap-4">
+                <div>
+                  <span className="font-mono text-xs text-[#B85D3B] tracking-[0.25em] uppercase block mb-2">
+                    02 / Philosophy
+                  </span>
+                  <h2 className="text-3xl sm:text-5xl font-extrabold uppercase tracking-tight text-white">
+                    Spaces / People / Planet
+                  </h2>
+                </div>
+                <p className="text-sm font-mono text-neutral-400 max-w-sm">
+                  Three guiding tenets shaping spatial integrity, human experience, and ecological sensitivity.
+                </p>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div className="bg-[#141414] border border-white/10 p-8 sm:p-10 flex flex-col justify-between min-h-[360px] hover:border-[#B85D3B]">
+                  <div>
+                    <div className="flex items-center justify-between font-mono text-xs text-neutral-500 mb-8 pb-4 border-b border-white/5">
+                      <span className="text-[#B85D3B] font-semibold">01 / S</span>
+                      <span className="tracking-[0.2em] uppercase">Form & Meaning</span>
+                    </div>
+                    <h3 className="text-2xl sm:text-3xl font-bold uppercase tracking-tight text-white mb-4">SPACES</h3>
+                    <p className="text-sm sm:text-base text-neutral-300 font-light leading-relaxed">
+                      Creating functional, meaningful and engaging architectural environments.
+                    </p>
+                  </div>
+                  <div className="pt-8 border-t border-white/5 text-[11px] font-mono text-neutral-500">
+                    SPATIAL ENVIRONMENT
+                  </div>
+                </div>
+
+                <div className="bg-[#141414] border border-white/10 p-8 sm:p-10 flex flex-col justify-between min-h-[360px] hover:border-[#B85D3B]">
+                  <div>
+                    <div className="flex items-center justify-between font-mono text-xs text-neutral-500 mb-8 pb-4 border-b border-white/5">
+                      <span className="text-[#B85D3B] font-semibold">02 / P</span>
+                      <span className="tracking-[0.2em] uppercase">Human Scale</span>
+                    </div>
+                    <h3 className="text-2xl sm:text-3xl font-bold uppercase tracking-tight text-white mb-4">PEOPLE</h3>
+                    <p className="text-sm sm:text-base text-neutral-300 font-light leading-relaxed">
+                      Designing spaces that encourage interaction, comfort, community and human experience.
+                    </p>
+                  </div>
+                  <div className="pt-8 border-t border-white/5 text-[11px] font-mono text-neutral-500">
+                    HUMAN EXPERIENCE
+                  </div>
+                </div>
+
+                <div className="bg-[#141414] border border-white/10 p-8 sm:p-10 flex flex-col justify-between min-h-[360px] hover:border-[#B85D3B]">
+                  <div>
+                    <div className="flex items-center justify-between font-mono text-xs text-neutral-500 mb-8 pb-4 border-b border-white/5">
+                      <span className="text-[#B85D3B] font-semibold">03 / E</span>
+                      <span className="tracking-[0.2em] uppercase">Ecological Care</span>
+                    </div>
+                    <h3 className="text-2xl sm:text-3xl font-bold uppercase tracking-tight text-white mb-4">PLANET</h3>
+                    <p className="text-sm sm:text-base text-neutral-300 font-light leading-relaxed">
+                      Exploring sustainable, climate-responsive and environmentally responsible architecture.
+                    </p>
+                  </div>
+                  <div className="pt-8 border-t border-white/5 text-[11px] font-mono text-neutral-500">
+                    SUSTAINABLE STEWARDSHIP
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* ========================================================================= */}
+          {/* COLLABORATIVE PROFESSIONAL WORK                                           */}
+          {/* ========================================================================= */}
+          <section id="experience" className="relative w-full py-28 px-5 sm:px-8 md:px-12 bg-[#121212] border-t border-white/10">
+            <div className="max-w-7xl mx-auto">
+              <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-16 border-b border-white/10 pb-6 gap-4">
+                <div>
+                  <div className="flex items-center space-x-3 mb-2">
+                    <span className="font-mono text-xs text-[#B85D3B] tracking-[0.25em] uppercase">04 / Experience</span>
+                    <span className="px-2.5 py-0.5 bg-[#B85D3B]/20 border border-[#B85D3B]/40 text-[#B85D3B] font-mono text-[10px] uppercase tracking-widest">
+                      Studio Practice
+                    </span>
+                  </div>
+                  <h2 className="text-3xl sm:text-5xl font-extrabold uppercase tracking-tight text-white">
+                    Collaborative Professional Work
+                  </h2>
+                </div>
+              </div>
+
+              <div className="bg-[#181818] border-2 border-white/15 overflow-hidden">
+                <div className="p-8 sm:p-12 border-b border-white/10 grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                  <div className="lg:col-span-8">
+                    <div className="flex flex-wrap items-center gap-3 font-mono text-xs text-neutral-400 uppercase tracking-widest mb-3">
+                      <span className="text-white font-bold">{professionalProject.studio}</span>
+                      <span>•</span>
+                      <span>Principal: {professionalProject.principalArchitect}</span>
+                      <span>•</span>
+                      <span>Location: {professionalProject.location}</span>
+                    </div>
+
+                    <h3 className="text-3xl sm:text-5xl font-black uppercase tracking-tight text-white mb-6">
+                      {professionalProject.name}
+                    </h3>
+
+                    <p className="text-base sm:text-lg text-neutral-200 font-light leading-relaxed max-w-3xl">
+                      "{professionalProject.description}"
+                    </p>
+                  </div>
+
+                  <div className="lg:col-span-4 bg-[#111111] border border-white/10 p-6 flex flex-col justify-between h-full">
+                    <div>
+                      <span className="text-[11px] font-mono uppercase tracking-[0.2em] text-[#B85D3B] block mb-2">
+                        My Contribution & Role
+                      </span>
+                      <h4 className="text-xl font-bold uppercase text-white mb-4">
+                        {professionalProject.role}
+                      </h4>
+                      <p className="text-xs text-neutral-400 leading-relaxed">
+                        Collaborated on sports facilities organization, open spaces, circulation and overall site planning.
+                      </p>
+                    </div>
+                    <div className="mt-6 pt-4 border-t border-white/10 text-xs font-mono text-emerald-400">
+                      ● VERIFIED COLLABORATION
+                    </div>
+                  </div>
+                </div>
+
+                <div className="relative aspect-[21/9] sm:aspect-[16/7] w-full overflow-hidden bg-neutral-950">
+                  <img
+                    src={professionalProject.coverImage}
+                    alt={professionalProject.name}
+                    className="w-full h-full object-cover filter contrast-110 brightness-95"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#181818] via-transparent to-transparent opacity-80" />
+                </div>
+
+                <div className="p-8 sm:p-12 bg-[#151515]">
+                  <h4 className="font-mono text-xs uppercase tracking-[0.25em] text-[#B85D3B] mb-6">
+                    Scope of Architectural Involvement
+                  </h4>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                    {professionalProject.highlights.map((item, idx) => (
+                      <div key={idx} className="bg-[#1C1C1C] border border-white/5 p-6 flex flex-col justify-between">
+                        <span className="font-mono text-xs text-[#B85D3B] mb-3">0{idx + 1}</span>
+                        <p className="text-xs sm:text-sm text-neutral-300 leading-relaxed font-light">{item}</p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          {/* ========================================================================= */}
+          {/* WORKING DRAWINGS GALLERY                                                  */}
+          {/* ========================================================================= */}
+          <section id="drawings" className="relative w-full py-28 px-5 sm:px-8 md:px-12 bg-[#0C0C0C] border-t border-white/10">
+            <div className="max-w-7xl mx-auto">
+              <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-16 border-b border-white/10 pb-6 gap-4">
+                <div>
+                  <span className="font-mono text-xs text-[#B85D3B] tracking-[0.25em] uppercase block mb-2">
+                    05 / Documentation
+                  </span>
+                  <h2 className="text-3xl sm:text-5xl font-extrabold uppercase tracking-tight text-white">
+                    Working Drawings
+                  </h2>
+                </div>
+                <p className="text-xs font-mono text-neutral-400 uppercase tracking-widest max-w-xs">
+                  Clean technical drawing gallery of core architectural working sheets.
+                </p>
+              </div>
+
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                {workingDrawings.map((sheet) => (
+                  <div
+                    key={sheet.id}
+                    onClick={() => setSelectedSheet(sheet)}
+                    className="group cursor-pointer bg-[#141414] border border-white/10 p-6 flex flex-col justify-between hover:border-[#B85D3B] transition-all relative"
+                  >
+                    <div>
+                      <div className="flex items-center justify-between font-mono text-[11px] text-neutral-400 mb-4 pb-3 border-b border-white/10">
+                        <span className="text-[#B85D3B] font-bold">{sheet.sheetNumber}</span>
+                        <span>Scale {sheet.scale}</span>
+                      </div>
+                      <span className="font-mono text-[10px] text-neutral-500 uppercase tracking-widest block mb-1">
+                        {sheet.category}
+                      </span>
+                      <h3 className="text-xl font-bold uppercase tracking-tight text-white mb-4 group-hover:text-[#B85D3B] transition-colors">
+                        {sheet.title}
+                      </h3>
+                      <p className="text-xs text-neutral-400 font-light leading-relaxed mb-6">
+                        {sheet.description}
+                      </p>
+                    </div>
+
+                    <div className="aspect-[4/3] w-full bg-[#080808] border border-dashed border-white/15 p-4 flex flex-col justify-between group-hover:border-[#B85D3B]/40">
+                      <div className="flex justify-between text-[9px] font-mono text-neutral-600">
+                        <span>DWG // CAD</span>
+                        <span>MM SPECS</span>
+                      </div>
+                      <div className="text-center font-mono text-xs text-neutral-400 group-hover:text-white">
+                        Inspect Sheet +
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          {/* ========================================================================= */}
+          {/* TECHNICAL SKILLS SECTION                                                  */}
+          {/* ========================================================================= */}
+          <section id="skills" className="relative w-full py-28 px-5 sm:px-8 md:px-12 bg-[#111111] border-t border-white/10">
+            <div className="max-w-7xl mx-auto">
+              <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-16 border-b border-white/10 pb-6 gap-4">
+                <div>
+                  <span className="font-mono text-xs text-[#B85D3B] tracking-[0.25em] uppercase block mb-2">
+                    06 / Toolkit
+                  </span>
+                  <h2 className="text-3xl sm:text-5xl font-extrabold uppercase tracking-tight text-white">
+                    Software & Capabilities
+                  </h2>
+                </div>
+                <p className="text-xs font-mono text-neutral-400 uppercase tracking-widest max-w-xs">
+                  Minimalist architectural skills categorized by discipline.
+                </p>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {skillCategories.map((group, idx) => (
+                  <div key={group.category} className="bg-[#161616] border border-white/10 p-8 flex flex-col justify-between hover:border-white/30 transition-all">
+                    <div>
+                      <div className="flex items-center justify-between font-mono text-xs text-neutral-500 mb-6 pb-3 border-b border-white/5">
+                        <span className="text-[#B85D3B]">CAT-0{idx + 1}</span>
+                        <span className="uppercase tracking-widest">Proficient</span>
+                      </div>
+                      <h3 className="text-xl font-bold uppercase tracking-tight text-white mb-6">
+                        {group.category}
+                      </h3>
+                      <ul className="space-y-3 font-mono text-xs sm:text-sm text-neutral-300">
+                        {group.items.map((skill) => (
+                          <li key={skill} className="flex justify-between py-2 border-b border-white/5 last:border-0">
+                            <span className="text-white font-medium">{skill}</span>
+                            <span className="text-[10px] text-neutral-500 uppercase">Active</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          {/* ========================================================================= */}
+          {/* EDUCATION TIMELINE                                                        */}
+          {/* ========================================================================= */}
+          <section id="education" className="relative w-full py-28 px-5 sm:px-8 md:px-12 bg-[#0E0E0E] border-t border-white/10">
+            <div className="max-w-7xl mx-auto">
+              <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-16 border-b border-white/10 pb-6 gap-4">
+                <div>
+                  <span className="font-mono text-xs text-[#B85D3B] tracking-[0.25em] uppercase block mb-2">
+                    07 / Background
+                  </span>
+                  <h2 className="text-3xl sm:text-5xl font-extrabold uppercase tracking-tight text-white">
+                    Education Timeline
+                  </h2>
+                </div>
+              </div>
+
+              <div className="relative border-l border-white/15 ml-4 sm:ml-8 pl-6 sm:pl-12 space-y-12">
+                {educationTimeline.map((item, idx) => (
+                  <div key={idx} className="relative group">
+                    <div className="absolute -left-[31px] sm:-left-[55px] top-1.5 w-3.5 h-3.5 bg-[#121212] border-2 border-white/40 group-hover:border-[#B85D3B] group-hover:bg-[#B85D3B] transition-colors" />
+                    <div className="bg-[#141414] border border-white/10 p-6 sm:p-8 hover:border-white/30 transition-colors">
+                      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-white/10 pb-4 mb-4">
+                        <span className="font-mono text-xs text-[#B85D3B] uppercase tracking-[0.2em]">{item.period}</span>
+                        {item.status && (
+                          <span className="font-mono text-[11px] px-2.5 py-0.5 bg-white/5 border border-white/10 text-neutral-300 w-max">
+                            {item.status}
+                          </span>
+                        )}
+                      </div>
+                      <h3 className="text-xl sm:text-2xl font-bold uppercase tracking-tight text-white mb-2">{item.degree}</h3>
+                      <p className="text-base text-neutral-200 font-medium mb-1">{item.institution}</p>
+                      <p className="font-mono text-xs text-neutral-400 uppercase tracking-wider mb-4">{item.location}</p>
+                      {item.notes && <p className="text-xs sm:text-sm text-neutral-400 font-light">{item.notes}</p>}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          {/* ========================================================================= */}
+          {/* CONTACT SECTION                                                           */}
+          {/* ========================================================================= */}
+          <section id="contact" className="relative w-full py-28 px-5 sm:px-8 md:px-12 bg-[#0B0B0B] border-t border-white/10">
+            <div className="max-w-7xl mx-auto">
+              <div className="max-w-3xl mb-16">
+                <span className="font-mono text-xs text-[#B85D3B] tracking-[0.25em] uppercase block mb-3">08 / Contact</span>
+                <h2 className="text-4xl sm:text-6xl md:text-7xl font-black uppercase tracking-tight text-white mb-6">
+                  Let's Connect
+                </h2>
+                <p className="text-lg sm:text-xl text-neutral-300 font-light leading-relaxed">
+                  Interested in architecture, collaboration or internship opportunities? Let's connect.
+                </p>
+              </div>
+
+              <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+                <div className="lg:col-span-5 space-y-10">
+                  <div className="bg-[#141414] border border-white/10 p-8 space-y-6">
+                    <div>
+                      <span className="block font-mono text-[11px] uppercase tracking-[0.25em] text-neutral-400 mb-1">Primary Email</span>
+                      <a href={`mailto:${personalInfo.email}`} className="text-lg sm:text-xl font-mono text-white hover:text-[#B85D3B] transition-colors break-all">
+                        {personalInfo.email}
+                      </a>
+                    </div>
+                    <div>
+                      <span className="block font-mono text-[11px] uppercase tracking-[0.25em] text-neutral-400 mb-1">Location</span>
+                      <span className="text-base text-white font-medium">{personalInfo.location}</span>
+                    </div>
+                  </div>
+
+                  <div className="flex flex-col sm:flex-row gap-4">
+                    <a
+                      href={`mailto:${personalInfo.email}`}
+                      className="px-8 py-4 bg-white text-black font-semibold text-xs uppercase tracking-[0.2em] hover:bg-[#B85D3B] hover:text-white transition-all text-center"
+                    >
+                      Email Me →
+                    </a>
+                    <button
+                      onClick={() => setIsCVOpen(true)}
+                      className="px-8 py-4 border border-white/30 text-white font-medium text-xs uppercase tracking-[0.2em] hover:border-white hover:bg-white/5 transition-all text-center cursor-pointer"
+                    >
+                      Download CV ↓
+                    </button>
+                  </div>
+                </div>
+
+                <div className="lg:col-span-7 bg-[#141414] border border-white/10 p-8 sm:p-10">
+                  <h3 className="text-xl font-bold uppercase tracking-tight text-white mb-6 pb-3 border-b border-white/10">
+                    Send a Direct Inquiry
+                  </h3>
+                  <form
+                    onSubmit={(e) => {
+                      e.preventDefault();
+                      window.location.href = `mailto:${personalInfo.email}?subject=Architectural%20Inquiry`;
+                    }}
+                    className="space-y-6 text-xs font-mono"
+                  >
+                    <div>
+                      <label className="block uppercase tracking-widest text-neutral-400 mb-2">Your Name</label>
+                      <input type="text" required placeholder="e.g. Ar. Rajesh Mehta" className="w-full px-4 py-3 bg-black border border-white/20 text-white focus:outline-none focus:border-[#B85D3B]" />
+                    </div>
+                    <div>
+                      <label className="block uppercase tracking-widest text-neutral-400 mb-2">Your Email</label>
+                      <input type="email" required placeholder="studio@domain.com" className="w-full px-4 py-3 bg-black border border-white/20 text-white focus:outline-none focus:border-[#B85D3B]" />
+                    </div>
+                    <div>
+                      <label className="block uppercase tracking-widest text-neutral-400 mb-2">Message</label>
+                      <textarea required rows={4} placeholder="Inquiry regarding architectural internships, collaboration, or design work..." className="w-full px-4 py-3 bg-black border border-white/20 text-white focus:outline-none focus:border-[#B85D3B] resize-none" />
+                    </div>
+                    <button type="submit" className="w-full py-4 bg-white text-black font-bold uppercase tracking-[0.2em] hover:bg-[#B85D3B] hover:text-white transition-colors cursor-pointer">
+                      Send Email
+                    </button>
+                  </form>
+                </div>
+              </div>
+
+              <div className="mt-24 pt-8 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4 font-mono text-xs text-neutral-500">
+                <span>© {new Date().getFullYear()} Abhijit Gholap. All rights reserved.</span>
+                <span>B.Arch Portfolio • Navi Mumbai, India</span>
+              </div>
+            </div>
+          </section>
+
+          {/* ========================================================================= */}
+          {/* PROJECT CASE STUDY MODAL                                                  */}
+          {/* ========================================================================= */}
+          {selectedProject && (
+            <div className="fixed inset-0 z-50 overflow-y-auto bg-black/95 backdrop-blur-xl flex flex-col justify-start">
+              <div className="sticky top-0 z-50 bg-[#101010]/95 backdrop-blur-md border-b border-white/10 px-6 py-4 flex items-center justify-between">
+                <div className="flex items-center space-x-4">
+                  <span className="font-mono text-sm text-[#B85D3B] font-bold">{selectedProject.number}</span>
+                  <span className="hidden sm:inline text-neutral-500">/</span>
+                  <h2 className="text-base sm:text-lg font-bold uppercase text-white truncate max-w-xs sm:max-w-md">
+                    {selectedProject.name}
+                  </h2>
+                </div>
+                <button
+                  onClick={() => setSelectedProject(null)}
+                  className="p-2 border border-white/30 text-white hover:bg-[#B85D3B] hover:border-[#B85D3B] transition-colors cursor-pointer"
+                >
+                  ✕ Close
+                </button>
+              </div>
+
+              <div className="max-w-6xl w-full mx-auto px-5 sm:px-8 py-10">
+                <div className="relative aspect-[16/9] w-full overflow-hidden bg-neutral-900 border border-white/10 mb-10">
+                  <img src={selectedProject.coverImage} alt={selectedProject.name} className="w-full h-full object-cover" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent" />
+                  <div className="absolute bottom-6 left-6 right-6 flex flex-col sm:flex-row sm:items-end justify-between gap-4">
+                    <div>
+                      <span className="font-mono text-xs text-[#B85D3B] uppercase tracking-[0.25em] block mb-1">
+                        {selectedProject.category}
+                      </span>
+                      <h1 className="text-3xl sm:text-5xl font-black uppercase text-white">
+                        {selectedProject.name}
+                      </h1>
+                    </div>
+                    <div className="font-mono text-xs text-neutral-300 bg-black/80 px-4 py-2 border border-white/15">
+                      {selectedProject.location} • {selectedProject.area}
+                    </div>
+                  </div>
+                </div>
+
+                {/* Tabs */}
+                <div className="flex flex-wrap gap-2 border-b border-white/10 pb-4 mb-10 text-xs font-mono uppercase tracking-[0.2em]">
+                  {['overview', 'process', 'drawings', 'sustainability', 'renders'].map((tab) => (
+                    <button
+                      key={tab}
+                      onClick={() => setCaseStudyTab(tab)}
+                      className={`px-4 py-2 border cursor-pointer ${
+                        caseStudyTab === tab
+                          ? 'border-[#B85D3B] text-white bg-[#B85D3B]/20 font-bold'
+                          : 'border-white/10 text-neutral-400 hover:text-white'
+                      }`}
+                    >
+                      {tab}
+                    </button>
+                  ))}
+                </div>
+
+                {/* Tab Content */}
+                {caseStudyTab === 'overview' && (
+                  <div className="space-y-8 animate-fadeIn">
+                    <div className="bg-[#141414] border border-white/10 p-8">
+                      <span className="font-mono text-xs text-[#B85D3B] uppercase block mb-2">Design Concept</span>
+                      <p className="text-lg text-neutral-200 font-light leading-relaxed mb-6">{selectedProject.concept}</p>
+                      <p className="text-sm text-neutral-400 leading-relaxed">{selectedProject.description}</p>
+                    </div>
+                  </div>
+                )}
+
+                {caseStudyTab === 'process' && (
+                  <div className="space-y-8 animate-fadeIn">
+                    <div className="bg-[#141414] border border-white/10 p-8">
+                      <h4 className="text-xl font-bold uppercase text-white mb-4">Site Analysis</h4>
+                      <ul className="space-y-3">
+                        {selectedProject.siteAnalysis.map((s, i) => (
+                          <li key={i} className="text-sm text-neutral-300 pl-3 border-l border-[#B85D3B]">{s}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                )}
+
+                {caseStudyTab === 'drawings' && (
+                  <div className="space-y-8 animate-fadeIn">
+                    {selectedProject.plans.map((p, i) => (
+                      <div key={i} className="bg-[#141414] border border-white/10 p-6">
+                        <div className="flex justify-between items-center mb-4">
+                          <h4 className="text-lg font-bold uppercase text-white">{p.title}</h4>
+                          <span className="font-mono text-xs text-[#B85D3B]">{p.type}</span>
+                        </div>
+                        <p className="text-sm text-neutral-300 mb-4">{p.desc}</p>
+                        <div className="aspect-[21/9] bg-black border border-dashed border-white/20 flex items-center justify-center font-mono text-xs text-neutral-500">
+                          [Technical Sheet: {p.title}]
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                )}
+
+                {caseStudyTab === 'sustainability' && (
+                  <div className="space-y-8 animate-fadeIn">
+                    <div className="bg-[#141414] border border-white/10 p-8">
+                      <h4 className="text-xl font-bold uppercase text-white mb-4">Sustainability & Climate Response</h4>
+                      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        {selectedProject.sustainabilityStrategy.map((strat, i) => (
+                          <div key={i} className="p-4 bg-white/5 border border-white/5">
+                            <span className="font-mono text-xs text-[#B85D3B] block mb-1">Strategy 0{i + 1}</span>
+                            <p className="text-sm text-neutral-300 font-light">{strat}</p>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </div>
+                )}
+
+                {caseStudyTab === 'renders' && (
+                  <div className="space-y-8 animate-fadeIn">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                      {selectedProject.views3D.map((v, i) => (
+                        <div key={i} className="bg-[#141414] border border-white/10 overflow-hidden">
+                          <div className="aspect-[16/10] bg-neutral-900">
+                            <img src={selectedProject.coverImage} alt={v.title} className="w-full h-full object-cover" />
+                          </div>
+                          <div className="p-6">
+                            <h5 className="text-base font-bold uppercase text-white mb-2">{v.title}</h5>
+                            <p className="text-xs text-neutral-400">{v.desc}</p>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
+              </div>
+            </div>
+          )}
+
+          {/* ========================================================================= */}
+          {/* CV MODAL                                                                  */}
+          {/* ========================================================================= */}
+          {isCVOpen && (
+            <div className="fixed inset-0 z-50 overflow-y-auto bg-black/90 backdrop-blur-md flex items-center justify-center p-4 sm:p-6">
+              <div className="bg-[#121212] border border-white/20 max-w-4xl w-full max-h-[90vh] overflow-y-auto flex flex-col justify-between shadow-2xl">
+                <div className="sticky top-0 z-20 bg-[#161616] border-b border-white/10 px-6 py-4 flex items-center justify-between">
+                  <span className="font-mono text-xs text-[#B85D3B] font-bold">ABHIJIT GHOLAP — CURRICULUM VITAE</span>
+                  <div className="flex items-center space-x-3">
+                    <button onClick={() => window.print()} className="px-3 py-1.5 border border-white/20 text-white font-mono text-xs uppercase hover:bg-white hover:text-black">
+                      Print / PDF
+                    </button>
+                    <button onClick={() => setIsCVOpen(false)} className="p-1.5 border border-white/20 text-white hover:bg-[#B85D3B]">
+                      ✕
+                    </button>
+                  </div>
+                </div>
+
+                <div className="p-8 sm:p-12 space-y-8 text-neutral-300">
+                  <div className="border-b border-white/15 pb-6 flex flex-col sm:flex-row justify-between sm:items-end gap-4">
+                    <div>
+                      <h1 className="text-3xl font-extrabold uppercase text-white">{personalInfo.name}</h1>
+                      <p className="font-mono text-xs uppercase text-[#B85D3B]">{personalInfo.title} • {personalInfo.degree}</p>
+                    </div>
+                    <div className="font-mono text-xs text-neutral-400 sm:text-right">
+                      <p>{personalInfo.location}</p>
+                      <p>{personalInfo.phone}</p>
+                      <p className="text-white font-semibold">{personalInfo.email}</p>
+                    </div>
+                  </div>
+
+                  <div>
+                    <h2 className="font-mono text-xs uppercase text-[#B85D3B] border-b border-white/10 pb-2 mb-3">Education</h2>
+                    {educationTimeline.map((edu, i) => (
+                      <div key={i} className="mb-3 text-xs">
+                        <span className="font-bold text-white text-sm block">{edu.degree}</span>
+                        <span className="text-neutral-300">{edu.institution} ({edu.location}) — {edu.period}</span>
+                      </div>
+                    ))}
+                  </div>
+
+                  <div>
+                    <h2 className="font-mono text-xs uppercase text-[#B85D3B] border-b border-white/10 pb-2 mb-3">Academic Projects (Sem I–VII)</h2>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+                      {academicProjects.map((p) => (
+                        <div key={p.id} className="p-2.5 bg-white/5 border border-white/5">
+                          <span className="font-mono text-[10px] text-[#B85D3B]">{p.number} • {p.semester}</span>
+                          <p className="font-bold text-white">{p.name}</p>
+                          <p className="text-neutral-400 text-[11px]">{p.location} • {p.area}</p>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+
+                  <div>
+                    <h2 className="font-mono text-xs uppercase text-[#B85D3B] border-b border-white/10 pb-2 mb-3">Professional Experience</h2>
+                    <div className="text-xs">
+                      <p className="font-bold text-white text-sm">Sports Complex — Goa</p>
+                      <p className="text-[#B85D3B] font-mono">Mayur Naik & Associates (Principal: Ar. Mayur Naik)</p>
+                      <p className="text-neutral-400 mt-1">Role: Architectural Design Assistance</p>
+                    </div>
+                  </div>
+
+                  <div>
+                    <h2 className="font-mono text-xs uppercase text-[#B85D3B] border-b border-white/10 pb-2 mb-3">Software Skills</h2>
+                    <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 text-xs font-mono">
+                      {skillCategories.map((c, i) => (
+                        <div key={i}>
+                          <span className="text-neutral-500 uppercase block">{c.category}</span>
+                          <span className="text-white">{c.items.join(', ')}</span>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                </div>
+
+                <div className="bg-[#161616] border-t border-white/10 p-4 flex justify-end">
+                  <button onClick={() => setIsCVOpen(false)} className="px-6 py-2 bg-white text-black font-mono text-xs uppercase font-bold hover:bg-[#B85D3B] hover:text-white">
+                    Close CV
+                  </button>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* ========================================================================= */}
+          {/* SHEET INSPECTOR MODAL                                                     */}
+          {/* ========================================================================= */}
+          {selectedSheet && (
+            <div className="fixed inset-0 z-50 bg-black/90 backdrop-blur-md flex items-center justify-center p-4">
+              <div className="bg-[#141414] border border-white/20 max-w-2xl w-full p-8 relative">
+                <div className="flex items-center justify-between border-b border-white/10 pb-4 mb-6">
+                  <div>
+                    <span className="font-mono text-xs text-[#B85D3B] uppercase">{selectedSheet.sheetNumber} • Scale {selectedSheet.scale}</span>
+                    <h3 className="text-2xl font-bold uppercase text-white mt-1">{selectedSheet.title}</h3>
+                  </div>
+                  <button onClick={() => setSelectedSheet(null)} className="p-2 border border-white/20 text-white">✕</button>
+                </div>
+                <p className="text-sm text-neutral-300 leading-relaxed mb-6">{selectedSheet.description}</p>
+                <div className="aspect-[16/10] bg-black border border-white/10 flex flex-col items-center justify-center p-6 text-center font-mono text-xs text-neutral-400">
+                  <span className="text-white text-base font-bold mb-2">{selectedSheet.title} Sheet</span>
+                  <span>Drafted in AutoCAD with NBC specifications and dimensional callouts.</span>
+                </div>
+                <div className="mt-6 pt-4 border-t border-white/10 flex justify-end">
+                  <button onClick={() => setSelectedSheet(null)} className="px-6 py-2 bg-white text-black font-mono text-xs uppercase font-bold hover:bg-[#B85D3B] hover:text-white">
+                    Close Sheet
+                  </button>
+                </div>
+              </div>
+            </div>
+          )}
+
+        </div>
+      );
+    };
+
+    const root = ReactDOM.createRoot(document.getElementById('root'));
+    root.render(<App />);
+  </script>
+</body>
+</html>

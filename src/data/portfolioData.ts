@@ -41,10 +41,10 @@ export const academicProjects: Project[] = [
     featured: true,
     coverImage: './assets/ngo-isometric-view.jpg',
     portfolioSheets: [
-      './portfolio-pages/page-04.png',
-      './portfolio-pages/page-05.png',
-      './portfolio-pages/page-06.png',
-      './portfolio-pages/page-07.png',
+      './works/ngo-learning-centre/page-01.png',
+      './works/ngo-learning-centre/page-02.png',
+      './works/ngo-learning-centre/page-03.png',
+      './works/ngo-learning-centre/page-04.png',
     ],
     concept:
       'Rooted in vernacular architecture and community-first spatial planning, the project organizes child-friendly learning modules around an active central courtyard and existing sabhamandap to nurture learning through tactile curiosity and outdoor play.',
@@ -76,25 +76,35 @@ export const academicProjects: Project[] = [
         title: 'Front & Side Elevations',
         type: 'Elevation',
         desc: 'Front, left side, and rear elevations showing vernacular pitched roofs, brick textures, and timber pergolas.',
-        image: './portfolio-pages/page-06.png',
+        image: '
+  $script: ngoCount = if(!$script: ngoCount) { 0 } else { $script: ngoCount }
+  $script: ngoCount++
+  if($script: ngoCount - le 2) { './works/ngo-learning-centre/page-0' + (2 + $script: ngoCount) + '.png' }
+  else { './portfolio-pages/page-06.png' }
+',
       },
-      {
-        title: 'Sections X-X’, Y-Y’ & Z-Z’',
-        type: 'Section',
-        desc: 'Demonstrating generous vertical headroom, natural cross-ventilation draft, and perimeter shading.',
-        image: './portfolio-pages/page-06.png',
-      },
+{
+  title: 'Sections X-X’, Y-Y’ & Z-Z’',
+    type: 'Section',
+      desc: 'Demonstrating generous vertical headroom, natural cross-ventilation draft, and perimeter shading.',
+        image: '
+  $script: ngoCount = if (!$script:ngoCount) { 0 } else { $script: ngoCount }
+  $script: ngoCount++
+  if ($script: ngoCount - le 2) { './works/ngo-learning-centre/page-0' + (2 + $script:ngoCount) + '.png' }
+  else { './portfolio-pages/page-06.png' }
+  ',
+},
     ],
-    diagrams: [
-      'Passive Microclimatic Cooling & Breeze Channels',
-      'Child-Scale Ergonomics & Indoor-Outdoor Transition Hierarchy',
-      'Vernacular Material Palette & Construction Joinery',
-    ],
-    sustainabilityStrategy: [
-      'Locally sourced clay bricks, timber roof trusses, and terracotta tiles minimizing embodied carbon.',
-      '100% natural cross-ventilation eliminating mechanical cooling dependencies during school hours.',
-      'Passive daylighting through strategically positioned low and high clerestory apertures.',
-    ],
+diagrams: [
+  'Passive Microclimatic Cooling & Breeze Channels',
+  'Child-Scale Ergonomics & Indoor-Outdoor Transition Hierarchy',
+  'Vernacular Material Palette & Construction Joinery',
+],
+  sustainabilityStrategy: [
+    'Locally sourced clay bricks, timber roof trusses, and terracotta tiles minimizing embodied carbon.',
+    '100% natural cross-ventilation eliminating mechanical cooling dependencies during school hours.',
+    'Passive daylighting through strategically positioned low and high clerestory apertures.',
+  ],
     views3D: [
       {
         title: 'Isometric Campus Perspective',
@@ -108,398 +118,398 @@ export const academicProjects: Project[] = [
       },
     ],
   },
-  {
-    id: 'rural-development-centre',
+{
+  id: 'rural-development-centre',
     number: '02',
-    name: 'Rural Development Centre',
-    location: 'Shivkar, Panvel',
-    category: 'Academic Project — Semester IV',
-    semester: 'Semester IV',
-    area: '2,100 sq.m.',
-    description:
-      'Designed a Rural Development Centre, aimed at empowering the local community through education, skill development and social engagement. The project responds to the needs of the rural context by integrating training facilities, community spaces, administrative areas, and multifunctional activity zones. The design emphasizes sustainable planning, climate-responsive architecture, and the use of locally available materials to create an environmentally conscious and economically viable development. By fostering community participation and preserving the village’s cultural identity, the proposal serves as a catalyst for rural growth, self-reliance and improved quality of life.',
+      name: 'Rural Development Centre',
+        location: 'Shivkar, Panvel',
+          category: 'Academic Project — Semester IV',
+            semester: 'Semester IV',
+              area: '2,100 sq.m.',
+                description:
+  'Designed a Rural Development Centre, aimed at empowering the local community through education, skill development and social engagement. The project responds to the needs of the rural context by integrating training facilities, community spaces, administrative areas, and multifunctional activity zones. The design emphasizes sustainable planning, climate-responsive architecture, and the use of locally available materials to create an environmentally conscious and economically viable development. By fostering community participation and preserving the village’s cultural identity, the proposal serves as a catalyst for rural growth, self-reliance and improved quality of life.',
     featured: false,
-    coverImage: './assets/rural-elevations.jpg',
-    portfolioSheets: [
-      './portfolio-pages/page-08.png',
-      './portfolio-pages/page-09.png',
-    ],
-    concept:
-      'A community empowerment enclave centered on an open circular gathering chowk, combining traditional Konkan masonry crafts with vocational training and civic facilities.',
+      coverImage: './assets/rural-elevations.jpg',
+        portfolioSheets: [
+          './works/rural-development-centre/page-01.png',
+          './works/rural-development-centre/page-02.png',
+        ],
+          concept:
+  'A community empowerment enclave centered on an open circular gathering chowk, combining traditional Konkan masonry crafts with vocational training and civic facilities.',
     siteAnalysis: [
       'Site in Shivkar, Panvel surrounded by rural agrarian settlements and green vegetation.',
       'Service road perimeter wrapping around the building to allow easy logistical access for handicraft goods and farm vehicles.',
       'Zoning segregating medical store and administrative reception from active workshops and anganwadi.',
     ],
-    conceptDevelopment: [
-      'Radial community heart: circular amphitheatre-style gathering plaza acting as the social and cultural core.',
-      'Curvilinear workshop wings housing handicraft training, carpentry workshops, library, and computer education.',
-      'Pedestrian and vehicular segregation with dedicated parking for trucks, cars, and two-wheelers.',
-    ],
-    formDevelopment: [
-      'Traditional Howe timber trusses spanning generous multi-activity workshop volumes.',
-      'Perforated brick jaali walls providing continuous airflow and diffuse natural daylighting.',
-      'Exposed stone plinths and masonry walls that naturally resist weathering during intense monsoons.',
-    ],
-    plans: [
-      {
-        title: 'Ground Floor Plan & Master Layout',
-        type: 'Plan',
-        desc: 'Handicraft workshop, computer lab, library, anganwadi, medical store, administration, circular gathering space, and weekly market area.',
-        image: './assets/rural-plan.jpg',
-      },
-    ],
-    sectionsAndElevations: [
-      {
-        title: 'North, West, South & East Elevations',
-        type: 'Elevation',
-        desc: 'Rendered architectural elevations showing pitched roofs, brick jaalis, stone plinths, and timber pergolas.',
-        image: './assets/rural-elevations.jpg',
-      },
-      {
-        title: 'Sections A-A’, B-B’ & C-C’',
-        type: 'Section',
-        desc: 'Sections illustrating Howe truss construction, interior ceiling heights, and shaded verandas.',
-        image: './portfolio-pages/page-09.png',
-      },
-    ],
-    diagrams: [
-      'Howe Timber Truss Detail: Principal rafter, batten, tie beam and stone pad anchor',
-      'Perforated Brick Jaali Wall Airflow & Shading Geometry',
-      'Village Community Gathering & Handicraft Market Circulation Flow',
-    ],
-    sustainabilityStrategy: [
-      'High thermal mass basalt stone plinths and exposed brick construction maintaining cool interior temperatures.',
-      'Passive bioclimatic cooling via large roof overhangs, clerestory roof vents, and brick screen walls.',
-      'Rainwater harvesting off pitched roofs directed to community irrigation and recharge wells.',
-    ],
-    views3D: [
-      {
-        title: 'Rendered Brickwork Elevations',
-        desc: 'Artistic color presentation board showing the warm brick texture, timber pergolas, and landscape setting.',
-        image: './assets/rural-elevations.jpg',
-      },
-      {
-        title: 'Site Plan & Activity Hub',
-        desc: 'Dimensioned technical drawing detailing the circular gathering space and workshop layout.',
-        image: './assets/rural-plan.jpg',
-      },
-    ],
+      conceptDevelopment: [
+        'Radial community heart: circular amphitheatre-style gathering plaza acting as the social and cultural core.',
+        'Curvilinear workshop wings housing handicraft training, carpentry workshops, library, and computer education.',
+        'Pedestrian and vehicular segregation with dedicated parking for trucks, cars, and two-wheelers.',
+      ],
+        formDevelopment: [
+          'Traditional Howe timber trusses spanning generous multi-activity workshop volumes.',
+          'Perforated brick jaali walls providing continuous airflow and diffuse natural daylighting.',
+          'Exposed stone plinths and masonry walls that naturally resist weathering during intense monsoons.',
+        ],
+          plans: [
+            {
+              title: 'Ground Floor Plan & Master Layout',
+              type: 'Plan',
+              desc: 'Handicraft workshop, computer lab, library, anganwadi, medical store, administration, circular gathering space, and weekly market area.',
+              image: './assets/rural-plan.jpg',
+            },
+          ],
+            sectionsAndElevations: [
+              {
+                title: 'North, West, South & East Elevations',
+                type: 'Elevation',
+                desc: 'Rendered architectural elevations showing pitched roofs, brick jaalis, stone plinths, and timber pergolas.',
+                image: './assets/rural-elevations.jpg',
+              },
+              {
+                title: 'Sections A-A’, B-B’ & C-C’',
+                type: 'Section',
+                desc: 'Sections illustrating Howe truss construction, interior ceiling heights, and shaded verandas.',
+                image: './works/rural-development-centre/page-02.png',
+              },
+            ],
+              diagrams: [
+                'Howe Timber Truss Detail: Principal rafter, batten, tie beam and stone pad anchor',
+                'Perforated Brick Jaali Wall Airflow & Shading Geometry',
+                'Village Community Gathering & Handicraft Market Circulation Flow',
+              ],
+                sustainabilityStrategy: [
+                  'High thermal mass basalt stone plinths and exposed brick construction maintaining cool interior temperatures.',
+                  'Passive bioclimatic cooling via large roof overhangs, clerestory roof vents, and brick screen walls.',
+                  'Rainwater harvesting off pitched roofs directed to community irrigation and recharge wells.',
+                ],
+                  views3D: [
+                    {
+                      title: 'Rendered Brickwork Elevations',
+                      desc: 'Artistic color presentation board showing the warm brick texture, timber pergolas, and landscape setting.',
+                      image: './assets/rural-elevations.jpg',
+                    },
+                    {
+                      title: 'Site Plan & Activity Hub',
+                      desc: 'Dimensioned technical drawing detailing the circular gathering space and workshop layout.',
+                      image: './assets/rural-plan.jpg',
+                    },
+                  ],
   },
-  {
-    id: 'the-evolving-museum',
+{
+  id: 'the-evolving-museum',
     number: '03',
-    name: 'The Evolving Museum',
-    location: 'Dadar',
-    category: 'Academic Project — Semester V',
-    semester: 'Semester V',
-    area: '5,000 sq.m.',
-    description:
-      'Designed a Historical Museum in Dadar that showcases the evolution of history and cultural heritage through engaging exhibition spaces. The project focuses on creating a seamless visitor experience with well-planned galleries, public spaces and educational facilities. The design combines contemporary architecture with cultural elements to promote learning, heritage preservation and community engagement.',
+      name: 'The Evolving Museum',
+        location: 'Dadar',
+          category: 'Academic Project — Semester V',
+            semester: 'Semester V',
+              area: '5,000 sq.m.',
+                description:
+  'Designed a Historical Museum in Dadar that showcases the evolution of history and cultural heritage through engaging exhibition spaces. The project focuses on creating a seamless visitor experience with well-planned galleries, public spaces and educational facilities. The design combines contemporary architecture with cultural elements to promote learning, heritage preservation and community engagement.',
     featured: false,
-    coverImage: './assets/museum-model-hero.jpg',
-    portfolioSheets: [
-      './portfolio-pages/page-10.png',
-      './portfolio-pages/page-11.png',
-      './portfolio-pages/page-12.png',
-    ],
-    concept:
-      'A sculptural curvilinear monument facing the Arabian Sea and Naarli Baug, orchestrating historical exhibits along continuous fluid viewing terraces and protective architectural louvers.',
+      coverImage: './assets/museum-model-hero.jpg',
+        portfolioSheets: [
+          './works/the-evolving-museum/page-01.png',
+          './works/the-evolving-museum/page-02.png',
+          './works/the-evolving-museum/page-03.png',
+        ],
+          concept:
+  'A sculptural curvilinear monument facing the Arabian Sea and Naarli Baug, orchestrating historical exhibits along continuous fluid viewing terraces and protective architectural louvers.',
     siteAnalysis: [
       'Urban coastal plot in Dadar bounded by Keluskar Road, Sant Dnyaneshwar Marg (10m wide roads), and Naarli Baug.',
       'Orientation designed to capture western sea breezes and frame coastal vistas from upper galleries.',
       'Clear segregation between public pedestrian entry plaza and rear service access / stilt parking.',
     ],
-    conceptDevelopment: [
-      'Ground level: Reception, Historical Painting Gallery, Performing Art Gallery, Life in Fort Gallery, Warfare & Weapon Gallery, and Fort Architecture Gallery.',
-      'First level: 190 sqm Cafeteria, Museum Library, 80 sqm Audio-Visual Theatre, Historical Coin Gallery, and Painting & Model-Making Workshops.',
-      'Upper levels: Auditorium (+18m), Co-working Space, Administrative Cabins, and Conference Suites.',
-    ],
-    formDevelopment: [
-      'Dynamic curved facade with stepped-back viewing terraces echoing coastal waves.',
-      'Vertical solar screen louvers mitigating intense afternoon western sunlight.',
-      'Stilt floor parking supporting urban vehicular requirements without disrupting public street presence.',
-    ],
-    plans: [
-      {
-        title: 'Site Plan & Ground Floor Plan',
-        type: 'Plan',
-        desc: 'Public arrival forecourt, Naarli Baug connection, stilt parking, museum shops, and thematic historical galleries.',
-        image: './assets/museum-plan.jpg',
-      },
-      {
-        title: 'First Floor Educational & Dining Plan',
-        type: 'Plan',
-        desc: 'Cafeteria, museum library, AV theatre, coin exhibits, and creative workshops.',
-        image: './assets/museum-plan.jpg',
-      },
-    ],
-    sectionsAndElevations: [
-      {
-        title: 'East, West, North & South Elevations',
-        type: 'Elevation',
-        desc: 'Complete architectural elevations showing stepped terraces, continuous ribbon glazing, and vertical shading louvers.',
-        image: './portfolio-pages/page-12.png',
-      },
-      {
-        title: 'Sections A-A’ & B-B’ (Full Height +22.35m)',
-        type: 'Section',
-        desc: 'Section showing the stilt floor, gallery volumes, double-height cafeteria, and top-floor auditorium.',
-        image: './portfolio-pages/page-12.png',
-      },
-    ],
-    diagrams: [
-      'Chronological Exhibition Circulation Sequence',
-      'Acoustic Buffering & Daylight Filtration Analysis',
-      'Coastal Wind Funneling & Stilt Ventilation Matrix',
-    ],
-    sustainabilityStrategy: [
-      'Vertical architectural louvers providing solar shading, drastically reducing thermal cooling loads.',
-      'Self-shading cantilevered floor plates protecting lower glazed galleries from direct sun exposure.',
-      'Deep stilt ventilation allowing sea breezes to permeate the site microclimate.',
-    ],
-    views3D: [
-      {
-        title: 'Physical Curvilinear Model',
-        desc: 'Handmade architectural study model illustrating the sculpted tiered terraces and vertical facade fins.',
-        image: './assets/museum-model-hero.jpg',
-      },
-      {
-        title: 'Lumion 3D Architectural Exterior',
-        desc: 'Exterior perspectives highlighting facade materiality, street integration, and stilt parking entry.',
-        image: './assets/museum-render.jpg',
-      },
-    ],
+      conceptDevelopment: [
+        'Ground level: Reception, Historical Painting Gallery, Performing Art Gallery, Life in Fort Gallery, Warfare & Weapon Gallery, and Fort Architecture Gallery.',
+        'First level: 190 sqm Cafeteria, Museum Library, 80 sqm Audio-Visual Theatre, Historical Coin Gallery, and Painting & Model-Making Workshops.',
+        'Upper levels: Auditorium (+18m), Co-working Space, Administrative Cabins, and Conference Suites.',
+      ],
+        formDevelopment: [
+          'Dynamic curved facade with stepped-back viewing terraces echoing coastal waves.',
+          'Vertical solar screen louvers mitigating intense afternoon western sunlight.',
+          'Stilt floor parking supporting urban vehicular requirements without disrupting public street presence.',
+        ],
+          plans: [
+            {
+              title: 'Site Plan & Ground Floor Plan',
+              type: 'Plan',
+              desc: 'Public arrival forecourt, Naarli Baug connection, stilt parking, museum shops, and thematic historical galleries.',
+              image: './assets/museum-plan.jpg',
+            },
+            {
+              title: 'First Floor Educational & Dining Plan',
+              type: 'Plan',
+              desc: 'Cafeteria, museum library, AV theatre, coin exhibits, and creative workshops.',
+              image: './assets/museum-plan.jpg',
+            },
+          ],
+            sectionsAndElevations: [
+              {
+                title: 'East, West, North & South Elevations',
+                type: 'Elevation',
+                desc: 'Complete architectural elevations showing stepped terraces, continuous ribbon glazing, and vertical shading louvers.',
+                image: './works/the-evolving-museum/page-03.png',
+              },
+              {
+                title: 'Sections A-A’ & B-B’ (Full Height +22.35m)',
+                type: 'Section',
+                desc: 'Section showing the stilt floor, gallery volumes, double-height cafeteria, and top-floor auditorium.',
+                image: './works/the-evolving-museum/page-03.png',
+              },
+            ],
+              diagrams: [
+                'Chronological Exhibition Circulation Sequence',
+                'Acoustic Buffering & Daylight Filtration Analysis',
+                'Coastal Wind Funneling & Stilt Ventilation Matrix',
+              ],
+                sustainabilityStrategy: [
+                  'Vertical architectural louvers providing solar shading, drastically reducing thermal cooling loads.',
+                  'Self-shading cantilevered floor plates protecting lower glazed galleries from direct sun exposure.',
+                  'Deep stilt ventilation allowing sea breezes to permeate the site microclimate.',
+                ],
+                  views3D: [
+                    {
+                      title: 'Physical Curvilinear Model',
+                      desc: 'Handmade architectural study model illustrating the sculpted tiered terraces and vertical facade fins.',
+                      image: './assets/museum-model-hero.jpg',
+                    },
+                    {
+                      title: 'Lumion 3D Architectural Exterior',
+                      desc: 'Exterior perspectives highlighting facade materiality, street integration, and stilt parking entry.',
+                      image: './assets/museum-render.jpg',
+                    },
+                  ],
   },
-  {
-    id: 'mizoram-state-bhavan',
+{
+  id: 'mizoram-state-bhavan',
     number: '04',
-    name: 'Mizoram State Bhavan',
-    location: 'Vashi',
-    category: 'Academic Project — Semester VI',
-    semester: 'Semester VI',
-    area: '10,000 sq.m.',
-    description:
-      'Designed the Mizoram State Bhavan as a cultural and administrative centre that reflects the heritage of Mizoram through contemporary architecture. The project integrates administrative offices, guest accommodation and cultural spaces while incorporating vernacular design elements to create a functional, welcoming and culturally significant landmark.',
+      name: 'Mizoram State Bhavan',
+        location: 'Vashi',
+          category: 'Academic Project — Semester VI',
+            semester: 'Semester VI',
+              area: '10,000 sq.m.',
+                description:
+  'Designed the Mizoram State Bhavan as a cultural and administrative centre that reflects the heritage of Mizoram through contemporary architecture. The project integrates administrative offices, guest accommodation and cultural spaces while incorporating vernacular design elements to create a functional, welcoming and culturally significant landmark.',
     featured: false,
-    coverImage: './assets/mizoram-model-hero.jpg',
-    portfolioSheets: [
-      './portfolio-pages/page-13.png',
-      './portfolio-pages/page-14.png',
-      './portfolio-pages/page-15.png',
-      './portfolio-pages/page-16.png',
-    ],
-    concept:
-      'Translating traditional Mizo craftsmanship, hill settlement geometries, and vertical green layers into an iconic civic and cultural high-rise landmark in urban Vashi.',
+      coverImage: './assets/mizoram-model-hero.jpg',
+        portfolioSheets: [
+          './works/mizoram-state-bhavan/page-01.png',
+          './works/mizoram-state-bhavan/page-02.png',
+          './works/mizoram-state-bhavan/page-03.png',
+          './works/mizoram-state-bhavan/page-04.png',
+        ],
+          concept:
+  'Translating traditional Mizo craftsmanship, hill settlement geometries, and vertical green layers into an iconic civic and cultural high-rise landmark in urban Vashi.',
     siteAnalysis: [
       'Prominent corner plot in Vashi positioned along Pranavanandji Marg and Kerala House Lane.',
       'Distinct arrival sequences for state dignitaries, VIP guests, and general public cultural visitors.',
       'Integration of stilt open event area, commercial emporium shops, and vertical tower massing.',
     ],
-    conceptDevelopment: [
-      'Ground Floor (@0.15 LVL): Stilt event space, commercial shops, reception, vehicular driveway, and lift cores.',
-      'First & Second Floors: Dining facilities, kitchen, central lightwell atrium, and cultural exhibition galleries.',
-      'Upper Tower Floors: Administrative offices, VIP state guest suites, conference halls, and official residence suites.',
-    ],
-    formDevelopment: [
-      'Geometric facade articulation inspired by traditional Mizo bamboo weaving patterns (Puan).',
-      'Continuous stepped planter balconies wrapping each level, bringing vertical landscaping to every floor.',
-      'Rooftop pavilion and landscaped deck providing civic gathering areas with panoramic skyline views.',
-    ],
-    plans: [
-      {
-        title: 'Ground Floor & Stilt Layout Plan',
-        type: 'Plan',
-        desc: 'Pranavanandji Marg frontage, vehicle entry, stilt event area, retail shops, and lift cores.',
-        image: './assets/mizoram-plan.jpg',
-      },
-      {
-        title: 'First & Second Floor Cultural Plans',
-        type: 'Plan',
-        desc: 'Exhibition galleries, banquet hall, central courtyard void, and administrative offices.',
-        image: './assets/mizoram-plan.jpg',
-      },
-    ],
-    sectionsAndElevations: [
-      {
-        title: 'North-West, South-West, South-East & North-East Elevations',
-        type: 'Elevation',
-        desc: 'Elevations showcasing vertical rhythm, green planter bands, and geometric fenestrations.',
-        image: './portfolio-pages/page-15.png',
-      },
-      {
-        title: 'Sections A-A’ & B-B’',
-        type: 'Section',
-        desc: 'Full-height 12-storey structural section through central lightwell atrium, planter boxes, and lift core.',
-        image: './portfolio-pages/page-16.png',
-      },
-    ],
-    diagrams: [
-      'Integrated Planter Box Detail: Anti-root membrane, gravel drainage, concrete slab & irrigation pipe',
-      'Mizo Cultural Motif to Architectural Facade Expression Mapping',
-      'Security & Public Zoning Segregation Diagram',
-    ],
-    sustainabilityStrategy: [
-      'Extensive vertical planter terraces mitigating solar heat gain and lowering surface ambient temperature.',
-      'Central vertical atrium inducing stack ventilation to cool internal circulation corridors naturally.',
-      'Engineered bamboo and regional timber wall cladding for renewable interior finishes and acoustics.',
-    ],
-    views3D: [
-      {
-        title: 'Architectural Scale Model',
-        desc: 'Precision physical card model showcasing window aperture framing and lush green floor bands.',
-        image: './assets/mizoram-model-hero.jpg',
-      },
-      {
-        title: 'Lumion 3D Dusk Perspective',
-        desc: 'Hero street-corner view showing evening lighting, illuminated atrium, and rooftop terrace.',
-        image: './assets/mizoram-render.jpg',
-      },
-    ],
+      conceptDevelopment: [
+        'Ground Floor (@0.15 LVL): Stilt event space, commercial shops, reception, vehicular driveway, and lift cores.',
+        'First & Second Floors: Dining facilities, kitchen, central lightwell atrium, and cultural exhibition galleries.',
+        'Upper Tower Floors: Administrative offices, VIP state guest suites, conference halls, and official residence suites.',
+      ],
+        formDevelopment: [
+          'Geometric facade articulation inspired by traditional Mizo bamboo weaving patterns (Puan).',
+          'Continuous stepped planter balconies wrapping each level, bringing vertical landscaping to every floor.',
+          'Rooftop pavilion and landscaped deck providing civic gathering areas with panoramic skyline views.',
+        ],
+          plans: [
+            {
+              title: 'Ground Floor & Stilt Layout Plan',
+              type: 'Plan',
+              desc: 'Pranavanandji Marg frontage, vehicle entry, stilt event area, retail shops, and lift cores.',
+              image: './assets/mizoram-plan.jpg',
+            },
+            {
+              title: 'First & Second Floor Cultural Plans',
+              type: 'Plan',
+              desc: 'Exhibition galleries, banquet hall, central courtyard void, and administrative offices.',
+              image: './assets/mizoram-plan.jpg',
+            },
+          ],
+            sectionsAndElevations: [
+              {
+                title: 'North-West, South-West, South-East & North-East Elevations',
+                type: 'Elevation',
+                desc: 'Elevations showcasing vertical rhythm, green planter bands, and geometric fenestrations.',
+                image: './works/mizoram-state-bhavan/page-03.png',
+              },
+              {
+                title: 'Sections A-A’ & B-B’',
+                type: 'Section',
+                desc: 'Full-height 12-storey structural section through central lightwell atrium, planter boxes, and lift core.',
+                image: './works/mizoram-state-bhavan/page-04.png',
+              },
+            ],
+              diagrams: [
+                'Integrated Planter Box Detail: Anti-root membrane, gravel drainage, concrete slab & irrigation pipe',
+                'Mizo Cultural Motif to Architectural Facade Expression Mapping',
+                'Security & Public Zoning Segregation Diagram',
+              ],
+                sustainabilityStrategy: [
+                  'Extensive vertical planter terraces mitigating solar heat gain and lowering surface ambient temperature.',
+                  'Central vertical atrium inducing stack ventilation to cool internal circulation corridors naturally.',
+                  'Engineered bamboo and regional timber wall cladding for renewable interior finishes and acoustics.',
+                ],
+                  views3D: [
+                    {
+                      title: 'Architectural Scale Model',
+                      desc: 'Precision physical card model showcasing window aperture framing and lush green floor bands.',
+                      image: './assets/mizoram-model-hero.jpg',
+                    },
+                    {
+                      title: 'Lumion 3D Dusk Perspective',
+                      desc: 'Hero street-corner view showing evening lighting, illuminated atrium, and rooftop terrace.',
+                      image: './assets/mizoram-render.jpg',
+                    },
+                  ],
   },
-  {
-    id: 'tiny-house',
+{
+  id: 'tiny-house',
     number: '05',
-    name: 'Tiny House',
-    location: 'Academic Project',
-    category: 'Academic Project — Compact Living Studio',
-    semester: 'Semester I / Space Optimization',
-    area: '15 sq.m.',
-    description:
-      'Designed an ultra-efficient compact dwelling that maximizes functionality, comfort and spatial luxury within a minimal 5.50m x 2.70m footprint. Utilizes multifunctional fold-away furniture, vertical storage optimization, and clean contemporary aesthetics to provide a complete, dignified lifestyle for modern independent living.',
+      name: 'Tiny House',
+        location: 'Academic Project',
+          category: 'Academic Project — Compact Living Studio',
+            semester: 'Semester I / Space Optimization',
+              area: '15 sq.m.',
+                description:
+  'Designed an ultra-efficient compact dwelling that maximizes functionality, comfort and spatial luxury within a minimal 5.50m x 2.70m footprint. Utilizes multifunctional fold-away furniture, vertical storage optimization, and clean contemporary aesthetics to provide a complete, dignified lifestyle for modern independent living.',
     featured: false,
-    coverImage: './assets/tiny-house-cover.jpg',
-    portfolioSheets: [
-      './portfolio-pages/page-17.png',
-    ],
-    concept:
-      'Micro-spatial efficiency: every square millimeter engineered for dual-purpose utility without compromising comfort, natural daylighting, or visual elegance.',
+      coverImage: './assets/tiny-house-cover.jpg',
+        portfolioSheets: [
+          './works/tiny-house/page-01.png',
+        ],
+          concept:
+  'Micro-spatial efficiency: every square millimeter engineered for dual-purpose utility without compromising comfort, natural daylighting, or visual elegance.',
     siteAnalysis: [
       'Modular prototype footprint (5.50m x 2.70m) adaptable to diverse urban infill or eco-retreat contexts.',
       'Strategic window positioning providing ample cross-ventilation and natural daylight across the living zone.',
     ],
-    conceptDevelopment: [
-      'Integrated living, dining, and sleeping hub with convertible Murphy bed and concealed shelving.',
-      'Ergonomic linear kitchenette equipped with two-burner cooktop, sink, overhead cabinets, and fold-down table.',
-      'Private ensuite bathroom (1.81m x 1.00m) complete with shower, toilet, and vanity module.',
-    ],
-    formDevelopment: [
-      'Clean rectilinear spatial geometry enhanced with warm timber veneers, monochrome check flooring, and red accent shelving.',
-      'Full-height wall cabinetry maximizing vertical storage volume up to ceiling level.',
-    ],
-    plans: [
-      {
-        title: 'Detailed Floor Plan (5.50m x 2.70m)',
-        type: 'Plan',
-        desc: 'Dimensioned architectural plan showing living lounge, kitchenette, fold-down furniture, and ensuite bathroom.',
-        image: './assets/tiny-house-plan.jpg',
-      },
-    ],
-    sectionsAndElevations: [
-      {
-        title: 'Longitudinal Section A-A’',
-        type: 'Section',
-        desc: 'Section showing internal cabinetry heights, Murphy bed mechanism, and window sill levels.',
-        image: './portfolio-pages/page-17.png',
-      },
-      {
-        title: 'Cross Section B-B’',
-        type: 'Section',
-        desc: 'Section through bathroom and kitchen service zones detailing wall thickness and plumb lines.',
-        image: './portfolio-pages/page-17.png',
-      },
-    ],
-    diagrams: [
-      'Micro-Space Ergonomics & Clearance Radii',
-      'Day-to-Night Spatial Reconfiguration Flow',
-    ],
-    sustainabilityStrategy: [
-      'Extremely compact built footprint drastically reducing material usage, embodied energy, and construction waste.',
-      'Low operational energy demand achievable through passive cross-ventilation and 100% natural daytime illumination.',
-    ],
-    views3D: [
-      {
-        title: 'Fold-Away Bed Living Space',
-        desc: 'Rendered perspective showing the convertible Murphy bed, modern cabinetry, and checkerboard floor.',
-        image: './assets/tiny-house-cover.jpg',
-      },
-      {
-        title: 'Axonometric Cutaway View',
-        desc: 'Top-down 3D sectional axonometric showing the spatial relationship between living room, kitchen, and bath.',
-        image: './assets/tiny-house-axon.jpg',
-      },
-    ],
+      conceptDevelopment: [
+        'Integrated living, dining, and sleeping hub with convertible Murphy bed and concealed shelving.',
+        'Ergonomic linear kitchenette equipped with two-burner cooktop, sink, overhead cabinets, and fold-down table.',
+        'Private ensuite bathroom (1.81m x 1.00m) complete with shower, toilet, and vanity module.',
+      ],
+        formDevelopment: [
+          'Clean rectilinear spatial geometry enhanced with warm timber veneers, monochrome check flooring, and red accent shelving.',
+          'Full-height wall cabinetry maximizing vertical storage volume up to ceiling level.',
+        ],
+          plans: [
+            {
+              title: 'Detailed Floor Plan (5.50m x 2.70m)',
+              type: 'Plan',
+              desc: 'Dimensioned architectural plan showing living lounge, kitchenette, fold-down furniture, and ensuite bathroom.',
+              image: './assets/tiny-house-plan.jpg',
+            },
+          ],
+            sectionsAndElevations: [
+              {
+                title: 'Longitudinal Section A-A’',
+                type: 'Section',
+                desc: 'Section showing internal cabinetry heights, Murphy bed mechanism, and window sill levels.',
+                image: './works/tiny-house/page-01.png',
+              },
+              {
+                title: 'Cross Section B-B’',
+                type: 'Section',
+                desc: 'Section through bathroom and kitchen service zones detailing wall thickness and plumb lines.',
+                image: './works/tiny-house/page-01.png',
+              },
+            ],
+              diagrams: [
+                'Micro-Space Ergonomics & Clearance Radii',
+                'Day-to-Night Spatial Reconfiguration Flow',
+              ],
+                sustainabilityStrategy: [
+                  'Extremely compact built footprint drastically reducing material usage, embodied energy, and construction waste.',
+                  'Low operational energy demand achievable through passive cross-ventilation and 100% natural daytime illumination.',
+                ],
+                  views3D: [
+                    {
+                      title: 'Fold-Away Bed Living Space',
+                      desc: 'Rendered perspective showing the convertible Murphy bed, modern cabinetry, and checkerboard floor.',
+                      image: './assets/tiny-house-cover.jpg',
+                    },
+                    {
+                      title: 'Axonometric Cutaway View',
+                      desc: 'Top-down 3D sectional axonometric showing the spatial relationship between living room, kitchen, and bath.',
+                      image: './assets/tiny-house-axon.jpg',
+                    },
+                  ],
   },
-  {
-    id: 'bungalow-design',
+{
+  id: 'bungalow-design',
     number: '06',
-    name: 'Bungalow Design',
-    location: 'Dhasai, Murbad',
-    category: 'Academic Project — Semester II',
-    semester: 'Semester II',
-    area: '201 sq.m.',
-    description:
-      'The bungalow is a contemporary interpretation of the traditional Maratha Wada. The central courtyard is taken as the primary planning element, but instead of replicating the traditional form, I have transformed it into a modern spatial experience. The courtyard acts as the social heart of the house, bringing light, ventilation, greenery and family interaction into the dwelling.',
+      name: 'Bungalow Design',
+        location: 'Dhasai, Murbad',
+          category: 'Academic Project — Semester II',
+            semester: 'Semester II',
+              area: '201 sq.m.',
+                description:
+  'The bungalow is a contemporary interpretation of the traditional Maratha Wada. The central courtyard is taken as the primary planning element, but instead of replicating the traditional form, I have transformed it into a modern spatial experience. The courtyard acts as the social heart of the house, bringing light, ventilation, greenery and family interaction into the dwelling.',
     featured: false,
-    coverImage: './assets/bungalow-hero.jpg',
-    portfolioSheets: [
-      './portfolio-pages/page-18.png',
-      './portfolio-pages/page-19.png',
-    ],
-    concept:
-      'Contemporary interpretation of the traditional Maratha Wada, re-imagining the central courtyard (chowk) as a light-filled social sanctuary linking living, devotional, and private spaces.',
+      coverImage: './assets/bungalow-hero.jpg',
+        portfolioSheets: [
+          './works/bungalow-design/page-01.png',
+          './works/bungalow-design/page-02.png',
+        ],
+          concept:
+  'Contemporary interpretation of the traditional Maratha Wada, re-imagining the central courtyard (chowk) as a light-filled social sanctuary linking living, devotional, and private spaces.',
     siteAnalysis: [
       'Peaceful rural/semi-urban parcel (20.10m x 10.00m) situated in Dhasai, Murbad.',
       '3-meter wide entry driveway leading to a private covered car porch.',
       'Oriented to maximize morning sunlight while protecting living zones from afternoon Konkan heat.',
     ],
-    conceptDevelopment: [
-      'Ground Floor: Porch, living room, devghar (prayer room), kitchen, dining, master bedroom with toilet, and central open courtyard.',
-      'First Floor: Two secondary bedrooms, shared bathroom, open terrace/seating area, and upper courtyard gallery.',
-      'Terrace Floor: Open recreational terrace overlooking the central courtyard skylight and surrounding landscape.',
-    ],
-    formDevelopment: [
-      'Bold contemporary massing highlighted by an earthy terracotta cantilevered balcony frame that creates dynamic shadow play.',
-      'Open-to-sky central courtyard puncturing vertically through the structure to create a microclimatic light well.',
-      'Seamless floor-to-ceiling glass openings connecting indoor seating areas directly with the courtyard garden.',
-    ],
-    plans: [
-      {
-        title: 'Ground, First & Terrace Plans',
-        type: 'Plan',
-        desc: 'Dimensioned 20.10m x 10.00m plans showing porch, living room, devghar, courtyard, bedrooms, and terraces.',
-        image: './assets/bungalow-plans.jpg',
-      },
-    ],
-    sectionsAndElevations: [
-      {
-        title: 'Courtyard Spatial Section',
-        type: 'Section',
-        desc: 'Vertical section demonstrating natural stack ventilation drawing air upward through the open courtyard.',
-        image: './portfolio-pages/page-19.png',
-      },
-    ],
-    diagrams: [
-      'Maratha Wada Courtyard Spatial Evolution Diagram',
-      'Interactive 3D Walkthrough QR Code Integration',
-    ],
-    sustainabilityStrategy: [
-      'Passive stack ventilation: hot air escapes through the open roof courtyard, pulling cool ground air through shaded rooms.',
-      'Cantilevered upper balcony providing passive solar shading to ground-level glass openings.',
-      'Rainwater collection basin integrated within the courtyard landscape bed.',
-    ],
-    views3D: [
-      {
-        title: 'Modern Cantilevered Front Facade',
-        desc: 'Hero Lumion exterior rendering showing the terracotta framed balcony, car porch, and landscaped perimeter.',
-        image: './assets/bungalow-hero.jpg',
-      },
-      {
-        title: 'Central Light-Filled Courtyard',
-        desc: 'Interior view looking into the double-height stone-clad courtyard with verdant plants and open sky well.',
-        image: './assets/bungalow-courtyard.jpg',
-      },
-    ],
+      conceptDevelopment: [
+        'Ground Floor: Porch, living room, devghar (prayer room), kitchen, dining, master bedroom with toilet, and central open courtyard.',
+        'First Floor: Two secondary bedrooms, shared bathroom, open terrace/seating area, and upper courtyard gallery.',
+        'Terrace Floor: Open recreational terrace overlooking the central courtyard skylight and surrounding landscape.',
+      ],
+        formDevelopment: [
+          'Bold contemporary massing highlighted by an earthy terracotta cantilevered balcony frame that creates dynamic shadow play.',
+          'Open-to-sky central courtyard puncturing vertically through the structure to create a microclimatic light well.',
+          'Seamless floor-to-ceiling glass openings connecting indoor seating areas directly with the courtyard garden.',
+        ],
+          plans: [
+            {
+              title: 'Ground, First & Terrace Plans',
+              type: 'Plan',
+              desc: 'Dimensioned 20.10m x 10.00m plans showing porch, living room, devghar, courtyard, bedrooms, and terraces.',
+              image: './assets/bungalow-plans.jpg',
+            },
+          ],
+            sectionsAndElevations: [
+              {
+                title: 'Courtyard Spatial Section',
+                type: 'Section',
+                desc: 'Vertical section demonstrating natural stack ventilation drawing air upward through the open courtyard.',
+                image: './works/bungalow-design/page-02.png',
+              },
+            ],
+              diagrams: [
+                'Maratha Wada Courtyard Spatial Evolution Diagram',
+                'Interactive 3D Walkthrough QR Code Integration',
+              ],
+                sustainabilityStrategy: [
+                  'Passive stack ventilation: hot air escapes through the open roof courtyard, pulling cool ground air through shaded rooms.',
+                  'Cantilevered upper balcony providing passive solar shading to ground-level glass openings.',
+                  'Rainwater collection basin integrated within the courtyard landscape bed.',
+                ],
+                  views3D: [
+                    {
+                      title: 'Modern Cantilevered Front Facade',
+                      desc: 'Hero Lumion exterior rendering showing the terracotta framed balcony, car porch, and landscaped perimeter.',
+                      image: './assets/bungalow-hero.jpg',
+                    },
+                    {
+                      title: 'Central Light-Filled Courtyard',
+                      desc: 'Interior view looking into the double-height stone-clad courtyard with verdant plants and open sky well.',
+                      image: './assets/bungalow-courtyard.jpg',
+                    },
+                  ],
   },
 ];
 
@@ -524,7 +534,7 @@ export const professionalProject: ProfessionalProject = {
     'Total Plot Area: 28,195 sq.m. with only 7.2% road area occupied, maximizing green sports surfaces.',
   ],
   coverImage: './assets/sports-complex-hero.jpg',
-  sheetImage: './portfolio-pages/page-28.png',
+  sheetImage: './works/sports-complex-goa/page-01.png',
   gallery: [
     { title: 'Master Circulation & Zoning Plan', desc: 'Delineation of VIP, athlete, spectator, and emergency service corridors across 28,195 sq.m.' },
     { title: 'Football Ground & Athletic Track', desc: 'Standard Olympic-dimension sports field with spectator pavilions.' },
@@ -544,7 +554,7 @@ export const workingDrawings: WorkingDrawing[] = [
     scale: '1:50',
     category: 'Substructure / Site Staking',
     description: 'Precision boundary coordinates, permanent benchmark (PBM), offset lines, and building profile along Sant Dnyaneshwar Marg & Keluskar Road.',
-    image: './portfolio-pages/page-20.png',
+    image: './works/working-drawing/page-01.png',
   },
   {
     id: 'centre-line-plan',
@@ -553,7 +563,7 @@ export const workingDrawings: WorkingDrawing[] = [
     scale: '1:50',
     category: 'Substructure / Grids',
     description: 'Grid axes A–JJ and 1–29, column schedule (C1 to C42), shear wall dimensions, and structural reference lines.',
-    image: './portfolio-pages/page-21.png',
+    image: './works/working-drawing/page-02.png',
   },
   {
     id: 'plinth-beam-plan',
@@ -562,7 +572,7 @@ export const workingDrawings: WorkingDrawing[] = [
     sheetNumber: 'WD-03',
     category: 'Structural Ground Level',
     description: 'Plinth level tie beams (PB1 to PB83), foundation schedule, column footings, and shear wall layouts.',
-    image: './portfolio-pages/page-22.png',
+    image: './works/working-drawing/page-03.png',
   },
   {
     id: 'ground-floor-plan',
@@ -571,7 +581,7 @@ export const workingDrawings: WorkingDrawing[] = [
     scale: '1:50',
     category: 'Architectural Layout',
     description: 'Detailed masonry dimensions, door & window schedule (D1–D3, W1, V1), finishes schedule, and stilt parking layouts.',
-    image: './portfolio-pages/page-23.png',
+    image: './works/working-drawing/page-04.png',
   },
   {
     id: 'terrace-plan',
@@ -580,7 +590,7 @@ export const workingDrawings: WorkingDrawing[] = [
     scale: '1:50',
     category: 'Roof & Drainage',
     description: 'Terrace drainage slopes, 100mm thk waterproofing, parapet masonry, rainwater spouts, and lift machine room.',
-    image: './portfolio-pages/page-24.png',
+    image: './works/working-drawing/page-05.png',
   },
   {
     id: 'sections',
@@ -589,7 +599,7 @@ export const workingDrawings: WorkingDrawing[] = [
     scale: '1:25',
     category: 'Sectional Details',
     description: 'Full-height building sections detailing floor heights (+0.6m to +18.0m), slab thicknesses, lintel levels, and finishes.',
-    image: './portfolio-pages/page-25.png',
+    image: './works/working-drawing/page-06.png',
   },
   {
     id: 'staircase-details',
@@ -598,7 +608,7 @@ export const workingDrawings: WorkingDrawing[] = [
     scale: '1:20',
     category: 'Special Construction Details',
     description: 'Detailed stair sections (AA’ & BB’), 1:20 typical railing detail (stainless steel pipe), and 1:20 tread & riser details with anti-slip grooves.',
-    image: './portfolio-pages/page-26.png',
+    image: './works/working-drawing/page-07.png',
   },
 ];
 

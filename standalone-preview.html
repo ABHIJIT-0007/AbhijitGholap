@@ -315,30 +315,42 @@
       studio: 'Mayur Naik & Associates',
       principalArchitect: 'Ar. Mayur Naik',
       role: 'Architectural Design Assistance',
-      description: 'A collaborative professional project developed with Mayur Naik & Associates under the guidance of Principal Architect Ar. Mayur Naik. Contributed to the architectural planning and design development of the sports complex, including organization of sports facilities, open spaces, circulation and overall site planning.',
+      description: 'A collaborative professional project involving architectural planning and design development of a sports complex, including the organization of sports facilities, open spaces, circulation, and overall site planning.',
+      pdfUrl: './public/documents/sports-complex-goa.pdf',
+      sheetImage: './public/images/sports-complex/sports_complex_sheet_web.png',
+      fullSheetImage: './public/images/sports-complex/sports_complex_sheet_page_1.png',
+      coverImage: './public/images/sports-complex/master_plan_core.png',
+      plotArea: '28,195 sq.m.',
+      totalArea: '24,268 sq.m.',
+      roadOccupancy: '2,040 sq.m. (7.2%)',
       highlights: [
-        'Comprehensive sports facility zoning conforming to standard sports federation guidelines (SAI norms).',
-        'Design and spatial coordination of indoor multi-purpose courts, outdoor stadium seating, and spectator amenities.',
-        'Pedestrian vehicular segregation ensuring safe movement during peak event crowds and tournament days.',
-        'Integration of tropical climate response strategies suitable for Goa coastal humidity and high monsoon rainfall.'
+        'Architectural planning and comprehensive spatial layout for 28,195 sq.m. sports infrastructure plot in Goa.',
+        'Clear vehicular and pedestrian circulation hierarchy delineating motorways, service roads, and organized parking.',
+        'Multi-disciplinary sports zoning integrating an Olympic-size swimming pool, 65m radius cricket ground, football stadium, and indoor stadium.',
+        'Formulation of area statements, structural PEB considerations, and standard sports flooring specifications.'
       ],
-      coverImage: 'https://images.unsplash.com/photo-1574629810360-7efbbe195018?q=80&w=1600&auto=format&fit=crop',
+      plans: [
+        { title: 'Master Plan Layout', image: './public/images/sports-complex/master_plan_layout.png', tag: 'Site Plan', desc: 'Overall 12-zone master plan including football ground, athletic track, cricket ground, and racquet courts.' },
+        { title: 'Circulation Plan', image: './public/images/sports-complex/circulation_plan.png', tag: 'Circulation Strategy', desc: 'Clear circulation routing separating motorways, service ring roads, spectator flow, and parking areas.' },
+        { title: 'Zoning Plan', image: './public/images/sports-complex/zoning_plan.png', tag: 'Macro Zoning', desc: 'Strategic division between sports activity zones, administrative services, refreshment hubs, and parking.' },
+        { title: 'Area Statement & Metrics', image: './public/images/sports-complex/area_statement.png', tag: 'Program Metrics', desc: 'Complete quantitative breakdown across 5 key sectors: Indoor Stadium, Outdoor Sports, Swimming, Fitness & Parking.' }
+      ],
       gallery: [
+        { title: 'Architectural Presentation Sheet', desc: 'Complete portfolio master sheet combining zoning, circulation, area statement, master plan, and material specs.' },
         { title: 'Master Site Circulation Plan', desc: 'Clear delineation of VIP, athlete, spectator, and emergency service corridors.' },
         { title: 'Indoor Arena Volume & Roof Structure', desc: 'Long-span steel trusses with acoustic paneling and high clerestory ventilation.' },
-        { title: 'Outdoor Sports Pavilion & Seating', desc: 'Tiered spectator grandstands shaded by lightweight tensile membrane canopies.' },
-        { title: 'Landscape & Open Recreational Plaza', desc: 'Permeable sports plaza connecting the community grounds with training facilities.' }
+        { title: 'Outdoor Sports Pavilion & Seating', desc: 'Tiered spectator grandstands shaded by lightweight tensile membrane canopies.' }
       ]
     };
 
     const workingDrawings = [
-      { id: 'wd-01', title: 'Setting Out Plan', sheetNumber: 'WD-01', scale: '1:50', category: 'Substructure', description: 'Precision boundary coordinates, grid offsets, and benchmark references for physical site staking.' },
-      { id: 'wd-02', title: 'Centre Line Plan', sheetNumber: 'WD-02', scale: '1:50', category: 'Substructure', description: 'Column grid intersections, dimensional alignments, and grid reference axes for structural execution.' },
-      { id: 'wd-03', title: 'Plinth Beam Plan', sheetNumber: 'WD-03', scale: '1:50', category: 'Structural', description: 'Plinth level tie beams, reinforcement callouts, depth notations, and foundational slab connections.' },
-      { id: 'wd-04', title: 'Ground Floor Plan', sheetNumber: 'WD-04', scale: '1:50', category: 'Architectural', description: 'Comprehensive architectural layout with masonry dimensions, door/window schedules, and level markings.' },
-      { id: 'wd-05', title: 'Terrace Plan', sheetNumber: 'WD-05', scale: '1:50', category: 'Roof & Drainage', description: 'Terrace slopes, rainwater drainage spouts, parapet details, waterproofing layers, and lift machine room.' },
-      { id: 'wd-06', title: 'Detailed Sections', sheetNumber: 'WD-06', scale: '1:25', category: 'Sectional Details', description: 'Full-height architectural section detailing foundation step-downs, lintel levels, slab thicknesses, and floor finishes.' },
-      { id: 'wd-07', title: 'Staircase Details', sheetNumber: 'WD-07', scale: '1:20', category: 'Special Details', description: 'Tread-to-riser ratios, waist slab reinforcement, handrail balustrade fixings, and nosing profiles.' }
+      { id: 'wd-01', title: 'Setting Out Plan', sheetNumber: 'WD-01', scale: '1:50', category: 'Substructure', description: 'Precision boundary coordinates, grid offsets, and benchmark references for physical site staking.', image: './public/images/working-drawings/wd_01_setting_out_plan.png', pdfUrl: './public/documents/working-drawings.pdf' },
+      { id: 'wd-02', title: 'Centre Line Plan', sheetNumber: 'WD-02', scale: '1:50', category: 'Substructure', description: 'Column grid intersections, dimensional alignments, and grid reference axes for structural execution.', image: './public/images/working-drawings/wd_02_centre_line_plan.png', pdfUrl: './public/documents/working-drawings.pdf' },
+      { id: 'wd-03', title: 'Plinth Beam Plan', sheetNumber: 'WD-03', scale: '1:50', category: 'Structural', description: 'Plinth level tie beams, reinforcement callouts, depth notations, and foundational slab connections.', image: './public/images/working-drawings/wd_03_plinth_beam_plan.png', pdfUrl: './public/documents/working-drawings.pdf' },
+      { id: 'wd-04', title: 'Ground Floor Plan', sheetNumber: 'WD-04', scale: '1:50', category: 'Architectural', description: 'Comprehensive architectural layout with masonry dimensions, door/window schedules, and level markings.', image: './public/images/working-drawings/wd_04_ground_floor_plan.png', pdfUrl: './public/documents/working-drawings.pdf' },
+      { id: 'wd-05', title: 'Terrace Plan', sheetNumber: 'WD-05', scale: '1:50', category: 'Roof & Drainage', description: 'Terrace slopes, rainwater drainage spouts, parapet details, waterproofing layers, and lift machine room.', image: './public/images/working-drawings/wd_05_terrace_plan.png', pdfUrl: './public/documents/working-drawings.pdf' },
+      { id: 'wd-06', title: 'Detailed Sections', sheetNumber: 'WD-06', scale: '1:25', category: 'Sectional Details', description: 'Full-height architectural section detailing foundation step-downs, lintel levels, slab thicknesses, and floor finishes.', image: './public/images/working-drawings/wd_06_sections.png', pdfUrl: './public/documents/working-drawings.pdf' },
+      { id: 'wd-07', title: 'Staircase Details', sheetNumber: 'WD-07', scale: '1:20', category: 'Special Details', description: 'Tread-to-riser ratios, waist slab reinforcement, handrail balustrade fixings, and nosing profiles.', image: './public/images/working-drawings/wd_08_staircase_detail.png', pdfUrl: './public/documents/working-drawings.pdf' }
     ];
 
     const skillCategories = [
@@ -858,9 +870,24 @@
                       {professionalProject.name}
                     </h3>
 
-                    <p className="text-base sm:text-lg text-neutral-200 font-light leading-relaxed max-w-3xl">
+                    <p className="text-base sm:text-lg text-neutral-200 font-light leading-relaxed max-w-3xl mb-6">
                       "{professionalProject.description}"
                     </p>
+
+                    <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 pt-4 border-t border-white/10 font-mono text-xs">
+                      <div>
+                        <span className="text-neutral-500 uppercase tracking-wider block text-[10px]">Total Plot Area</span>
+                        <span className="text-white font-bold text-sm">{professionalProject.plotArea}</span>
+                      </div>
+                      <div>
+                        <span className="text-neutral-500 uppercase tracking-wider block text-[10px]">Activity & Facilities</span>
+                        <span className="text-[#B85D3B] font-bold text-sm">{professionalProject.totalArea}</span>
+                      </div>
+                      <div>
+                        <span className="text-neutral-500 uppercase tracking-wider block text-[10px]">Road Occupancy</span>
+                        <span className="text-neutral-300 font-bold text-sm">{professionalProject.roadOccupancy}</span>
+                      </div>
+                    </div>
                   </div>
 
                   <div className="lg:col-span-4 bg-[#111111] border border-white/10 p-6 flex flex-col justify-between h-full">
@@ -871,12 +898,24 @@
                       <h4 className="text-xl font-bold uppercase text-white mb-4">
                         {professionalProject.role}
                       </h4>
-                      <p className="text-xs text-neutral-400 leading-relaxed">
-                        Collaborated on sports facilities organization, open spaces, circulation and overall site planning.
+                      <p className="text-xs text-neutral-400 leading-relaxed mb-4">
+                        Collaborated on sports facilities organization, zoning, open spaces, circulation and overall site planning under Ar. Mayur Naik.
                       </p>
                     </div>
-                    <div className="mt-6 pt-4 border-t border-white/10 text-xs font-mono text-emerald-400">
-                      ● VERIFIED COLLABORATION
+                    <div className="pt-4 border-t border-white/10 flex flex-col gap-3">
+                      <a
+                        href={professionalProject.pdfUrl}
+                        target="_blank"
+                        rel="noreferrer"
+                        className="w-full flex items-center justify-center gap-2 py-2.5 px-4 bg-white text-black font-mono text-xs uppercase tracking-widest font-semibold hover:bg-[#B85D3B] hover:text-white transition-all text-center"
+                      >
+                        <span>Open Full PDF Plan</span>
+                        <span>↗</span>
+                      </a>
+                      <div className="text-xs font-mono text-emerald-400 flex items-center justify-between">
+                        <span>MAYUR NAIK & ASSOC.</span>
+                        <span>● VERIFIED</span>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -885,10 +924,50 @@
                   <img
                     src={professionalProject.coverImage}
                     alt={professionalProject.name}
-                    className="w-full h-full object-cover filter contrast-110 brightness-95"
+                    className="w-full h-full object-cover filter contrast-110 brightness-95 cursor-pointer"
+                    onClick={() => window.open(professionalProject.pdfUrl, '_blank')}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#181818] via-transparent to-transparent opacity-80" />
+                  <div className="absolute bottom-4 right-4">
+                    <a
+                      href={professionalProject.pdfUrl}
+                      target="_blank"
+                      rel="noreferrer"
+                      className="bg-black/80 backdrop-blur-md px-3.5 py-2 border border-white/20 font-mono text-xs text-white uppercase tracking-widest hover:border-[#B85D3B] flex items-center gap-2"
+                    >
+                      <span>Open Original PDF (5 MB)</span>
+                      <span>↗</span>
+                    </a>
+                  </div>
                 </div>
+
+                {professionalProject.plans && (
+                  <div className="p-8 sm:p-12 border-b border-white/10 bg-[#141414]">
+                    <h4 className="font-mono text-xs uppercase tracking-[0.25em] text-[#B85D3B] mb-6">
+                      Architectural Plans & Site Layouts (from PDF)
+                    </h4>
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                      {professionalProject.plans.map((p, idx) => (
+                        <div
+                          key={idx}
+                          onClick={() => window.open(professionalProject.pdfUrl, '_blank')}
+                          className="bg-[#1C1C1C] border border-white/10 overflow-hidden flex flex-col justify-between hover:border-[#B85D3B] transition-all cursor-pointer"
+                        >
+                          <div className="relative aspect-[4/3] bg-neutral-900 overflow-hidden">
+                            <img src={p.image} alt={p.title} className="w-full h-full object-contain p-2" />
+                            <div className="absolute top-2 left-2">
+                              <span className="px-2 py-0.5 bg-black/80 text-[10px] font-mono text-[#B85D3B] uppercase">{p.tag}</span>
+                            </div>
+                          </div>
+                          <div className="p-4 border-t border-white/10">
+                            <h5 className="font-bold text-sm uppercase text-white mb-1">{p.title}</h5>
+                            <p className="text-xs text-neutral-400 font-light">{p.desc}</p>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                  </div>
+                )}
 
                 <div className="p-8 sm:p-12 bg-[#151515]">
                   <h4 className="font-mono text-xs uppercase tracking-[0.25em] text-[#B85D3B] mb-6">
@@ -949,14 +1028,36 @@
                       </p>
                     </div>
 
-                    <div className="aspect-[4/3] w-full bg-[#080808] border border-dashed border-white/15 p-4 flex flex-col justify-between group-hover:border-[#B85D3B]/40">
-                      <div className="flex justify-between text-[9px] font-mono text-neutral-600">
-                        <span>DWG // CAD</span>
-                        <span>MM SPECS</span>
-                      </div>
-                      <div className="text-center font-mono text-xs text-neutral-400 group-hover:text-white">
-                        Inspect Sheet +
-                      </div>
+                    <div className="aspect-[4/3] w-full bg-[#080808] border border-white/15 overflow-hidden relative group-hover:border-[#B85D3B]/60 transition-colors">
+                      {sheet.image ? (
+                        <img
+                          src={sheet.image}
+                          alt={sheet.title}
+                          className="w-full h-full object-contain p-1 filter contrast-105 group-hover:scale-105 transition-transform duration-500"
+                          loading="lazy"
+                        />
+                      ) : (
+                        <div className="w-full h-full p-4 flex flex-col justify-between">
+                          <div className="flex justify-between items-center text-[9px] font-mono text-neutral-600">
+                            <span>DWG // CAD</span>
+                            <span>MM PRECISION</span>
+                          </div>
+                          <div className="text-center font-mono text-xs text-neutral-400">{sheet.title}</div>
+                        </div>
+                      )}
+                    </div>
+                    <div className="mt-4 pt-3 border-t border-white/10 flex items-center justify-between font-mono text-[10px] text-neutral-400">
+                      <span className="group-hover:text-white transition-colors">PDF SHEET DOCUMENT</span>
+                      <a
+                        href={sheet.pdfUrl}
+                        target="_blank"
+                        rel="noreferrer"
+                        onClick={(e) => e.stopPropagation()}
+                        className="text-[#B85D3B] hover:underline flex items-center gap-1 font-bold"
+                      >
+                        <span>Open PDF</span>
+                        <span>↗</span>
+                      </a>
                     </div>
                   </div>
                 ))}

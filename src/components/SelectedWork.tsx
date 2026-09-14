@@ -7,9 +7,6 @@ interface SelectedWorkProps {
 }
 
 export const SelectedWork: React.FC<SelectedWorkProps> = ({ onSelectProject }) => {
-  const featuredProject = academicProjects[0];
-  const otherProjects = academicProjects.slice(1);
-
   return (
     <section id="work" className="relative w-full py-28 px-5 sm:px-8 md:px-12 bg-[#0B0B0B] border-t border-white/10">
       <div className="max-w-7xl mx-auto">
@@ -26,80 +23,15 @@ export const SelectedWork: React.FC<SelectedWorkProps> = ({ onSelectProject }) =
           <div className="font-mono text-xs text-neutral-400 uppercase tracking-widest flex items-center gap-3">
             <span>Academic Projects</span>
             <span>•</span>
-            <span>Semesters I – VII</span>
+            <span>Semesters I – VI</span>
           </div>
         </div>
 
         {/* ========================================================================= */}
-        {/* FEATURED PROJECT: 01 — STUDENT HOUSING (Largest Visual Treatment)         */}
-        {/* ========================================================================= */}
-        <div className="mb-20">
-          <div
-            onClick={() => onSelectProject(featuredProject)}
-            className="group cursor-pointer relative bg-[#141414] border border-white/15 overflow-hidden transition-all duration-500 hover:border-[#B85D3B]"
-          >
-            <div className="grid grid-cols-1 lg:grid-cols-12">
-              {/* Large Image Column */}
-              <div className="lg:col-span-8 relative aspect-[16/10] sm:aspect-[16/9] lg:aspect-auto min-h-[380px] sm:min-h-[500px] overflow-hidden bg-neutral-900">
-                <img
-                  src={featuredProject.coverImage}
-                  alt={featuredProject.name}
-                  className="w-full h-full object-cover filter grayscale contrast-110 group-hover:scale-105 group-hover:grayscale-0 transition-all duration-700 ease-out"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-[#141414] via-transparent to-transparent opacity-70 lg:hidden" />
-
-                {/* Featured Badge */}
-                <div className="absolute top-4 left-4 font-mono text-xs tracking-[0.2em] uppercase px-3 py-1.5 bg-[#B85D3B] text-white font-semibold">
-                  Featured Academic Project
-                </div>
-              </div>
-
-              {/* Information Column */}
-              <div className="lg:col-span-4 p-8 sm:p-12 flex flex-col justify-between bg-[#141414]">
-                <div>
-                  <div className="flex items-center justify-between font-mono text-xs text-neutral-400 mb-6 pb-4 border-b border-white/10">
-                    <span className="text-2xl font-bold text-white group-hover:text-[#B85D3B] transition-colors">
-                      {featuredProject.number}
-                    </span>
-                    <span className="tracking-[0.2em]">{featuredProject.area}</span>
-                  </div>
-
-                  <span className="inline-block text-[11px] font-mono text-[#B85D3B] uppercase tracking-[0.2em] mb-2">
-                    {featuredProject.category}
-                  </span>
-
-                  <h3 className="text-3xl sm:text-4xl font-extrabold uppercase tracking-tight text-white mb-4">
-                    {featuredProject.name}
-                  </h3>
-
-                  <p className="font-mono text-xs text-neutral-400 uppercase tracking-widest mb-6">
-                    Location: {featuredProject.location}
-                  </p>
-
-                  <p className="text-sm sm:text-base text-neutral-300 font-light leading-relaxed mb-8">
-                    {featuredProject.description}
-                  </p>
-                </div>
-
-                {/* View Project Interaction */}
-                <div className="pt-6 border-t border-white/10 flex items-center justify-between">
-                  <span className="text-xs font-mono uppercase tracking-[0.25em] text-white group-hover:text-[#B85D3B] transition-colors flex items-center gap-2">
-                    View Project Case Study
-                  </span>
-                  <span className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center text-white group-hover:bg-[#B85D3B] group-hover:border-[#B85D3B] transition-all transform group-hover:translate-x-1">
-                    →
-                  </span>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* ========================================================================= */}
-        {/* REMAINING 6 ACADEMIC PROJECTS (Grid Cards)                                 */}
+        {/* ALL ACADEMIC PROJECTS (Uniform Grid Cards)                                 */}
         {/* ========================================================================= */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {otherProjects.map((project) => (
+          {academicProjects.map((project) => (
             <div
               key={project.id}
               onClick={() => onSelectProject(project)}

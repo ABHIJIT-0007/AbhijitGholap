@@ -13,11 +13,18 @@ export const ProjectCaseStudyModal: React.FC<ProjectCaseStudyModalProps> = ({
   onClose,
   onSelectProject,
 }) => {
-  const [activeTab, setActiveTab] = useState<'overview' | 'drawings' | 'process' | 'sustainability' | 'renders'>('overview');
+  const [activeTab, setActiveTab] = useState<'overview' | 'drawings' | 'process' | 'sustainability' | 'renders' | 'pdf'>('overview');
+  const [lightboxImage, setLightboxImage] = useState<{ src: string; title: string } | null>(null);
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') onClose();
+      if (e.key === 'Escape') {
+        if (lightboxImage) {
+          setLightboxImage(null);
+        } else {
+          onClose();
+        }
+      }
     };
     if (project) {
       document.body.style.overflow = 'hidden';
@@ -27,7 +34,7 @@ export const ProjectCaseStudyModal: React.FC<ProjectCaseStudyModalProps> = ({
       document.body.style.overflow = 'unset';
       window.removeEventListener('keydown', handleKeyDown);
     };
-  }, [project, onClose]);
+  }, [project, lightboxImage, onClose]);
 
   if (!project) return null;
 
@@ -51,8 +58,21 @@ export const ProjectCaseStudyModal: React.FC<ProjectCaseStudyModalProps> = ({
           </span>
         </div>
 
-        {/* Controls: Prev/Next & Close */}
+        {/* Controls: PDF, Prev/Next & Close */}
         <div className="flex items-center space-x-3">
+          {project.pdfUrl && (
+            <a
+              href={project.pdfUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hidden sm:flex items-center gap-1.5 px-3 py-1.5 bg-[#B85D3B] text-white font-mono text-xs uppercase font-semibold hover:bg-[#a34f31] transition-colors"
+            >
+              <svg className="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+              </svg>
+              <span>View Full PDF</span>
+            </a>
+          )}
           <button
             onClick={() => onSelectProject(prevProject)}
             className="px-3 py-1.5 border border-white/20 text-white font-mono text-xs uppercase hover:bg-white/10 transition-colors"
@@ -100,8 +120,20 @@ export const ProjectCaseStudyModal: React.FC<ProjectCaseStudyModalProps> = ({
                 {project.name}
               </h1>
             </div>
-            <div className="font-mono text-xs text-neutral-300 bg-black/80 backdrop-blur-md px-4 py-2 border border-white/15">
-              <span>{project.location}</span> • <span>{project.area}</span>
+            <div className="flex flex-wrap items-center gap-3">
+              <div className="font-mono text-xs text-neutral-300 bg-black/80 backdrop-blur-md px-4 py-2 border border-white/15">
+                <span>{project.location}</span> • <span>{project.area}</span>
+              </div>
+              {project.pdfUrl && (
+                <a
+                  href={project.pdfUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-mono text-xs text-white bg-[#B85D3B] px-4 py-2 uppercase font-semibold tracking-wider hover:bg-[#a34f31] transition-colors flex items-center gap-2"
+                >
+                  📄 Open Project PDF
+                </a>
+              )}
             </div>
           </div>
         </div>
@@ -136,6 +168,9 @@ export const ProjectCaseStudyModal: React.FC<ProjectCaseStudyModalProps> = ({
             { key: 'drawings', label: '03 Plans & Sections' },
             { key: 'sustainability', label: '04 Sustainability' },
             { key: 'renders', label: '05 3D Visualizations' },
+            ...(project.fullPdfPages && project.fullPdfPages.length > 0
+              ? [{ key: 'pdf', label: '06 Full Presentation Sheets' }]
+              : []),
           ].map((tab) => (
             <button
               key={tab.key}
@@ -156,9 +191,21 @@ export const ProjectCaseStudyModal: React.FC<ProjectCaseStudyModalProps> = ({
           <div className="space-y-12 animate-fadeIn">
             {/* Design Concept */}
             <div className="bg-[#141414] border border-white/10 p-8">
-              <span className="font-mono text-xs text-[#B85D3B] uppercase tracking-[0.25em] block mb-3">
-                Architectural Narrative
-              </span>
+              <div className="flex items-center justify-between mb-3">
+                <span className="font-mono text-xs text-[#B85D3B] uppercase tracking-[0.25em] block">
+                  Architectural Narrative
+                </span>
+                {project.pdfUrl && (
+                  <a
+                    href={project.pdfUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-mono text-[11px] text-white bg-white/10 border border-white/20 px-3 py-1 uppercase tracking-wider hover:bg-[#B85D3B] hover:border-[#B85D3B] transition-colors"
+                  >
+                    View Original PDF Document ↗
+                  </a>
+                )}
+              </div>
               <h3 className="text-2xl font-bold uppercase tracking-tight text-white mb-4">
                 Design Concept
               </h3>
@@ -259,28 +306,46 @@ export const ProjectCaseStudyModal: React.FC<ProjectCaseStudyModalProps> = ({
               <h3 className="text-2xl font-bold uppercase tracking-tight text-white mb-6">
                 Architectural Plans
               </h3>
-              <div className="grid grid-cols-1 gap-6">
+              <div className="grid grid-cols-1 gap-8">
                 {project.plans.map((plan, idx) => (
-                  <div key={idx} className="bg-[#141414] border border-white/10 p-6">
+                  <div key={idx} className="bg-[#141414] border border-white/10 p-6 sm:p-8">
                     <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-white/10 pb-4 mb-4">
                       <div className="flex items-center space-x-3">
-                        <span className="font-mono text-xs px-2 py-0.5 bg-white/5 border border-white/10 text-white">
+                        <span className="font-mono text-xs px-2.5 py-1 bg-white/5 border border-white/10 text-white font-semibold">
                           {plan.type}
                         </span>
-                        <h4 className="text-lg font-bold text-white uppercase">{plan.title}</h4>
+                        <h4 className="text-xl font-bold text-white uppercase">{plan.title}</h4>
                       </div>
-                      <span className="font-mono text-xs text-neutral-400">Scale 1:100 / 1:200</span>
+                      <span className="font-mono text-xs text-neutral-400">Technical Drawing</span>
                     </div>
-                    <p className="text-sm text-neutral-300 font-light leading-relaxed mb-4">{plan.desc}</p>
-                    {/* Architectural Drawing Placeholder / Preview Box */}
-                    <div className="aspect-[21/9] bg-[#0A0A0A] border border-dashed border-white/20 flex flex-col items-center justify-center p-6 text-center">
-                      <span className="font-mono text-xs text-neutral-400 uppercase tracking-widest mb-1">
-                        [Technical Drawing Sheet]
-                      </span>
-                      <span className="font-mono text-[11px] text-neutral-500">
-                        {plan.title} • {project.name}
-                      </span>
-                    </div>
+                    <p className="text-sm text-neutral-300 font-light leading-relaxed mb-6">{plan.desc}</p>
+                    
+                    {plan.image ? (
+                      <div
+                        onClick={() => setLightboxImage({ src: plan.image!, title: `${plan.title} - ${project.name}` })}
+                        className="group relative cursor-pointer bg-neutral-900 border border-white/15 overflow-hidden rounded-sm"
+                      >
+                        <img
+                          src={plan.image}
+                          alt={plan.title}
+                          className="w-full h-auto object-contain max-h-[500px] mx-auto filter contrast-105 group-hover:scale-102 transition-transform duration-500"
+                        />
+                        <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                          <span className="font-mono text-xs uppercase tracking-widest text-white bg-black/80 px-4 py-2 border border-white/30">
+                            🔍 Click to Enlarge High-Res Drawing
+                          </span>
+                        </div>
+                      </div>
+                    ) : (
+                      <div className="aspect-[21/9] bg-[#0A0A0A] border border-dashed border-white/20 flex flex-col items-center justify-center p-6 text-center">
+                        <span className="font-mono text-xs text-neutral-400 uppercase tracking-widest mb-1">
+                          [Technical Drawing Sheet]
+                        </span>
+                        <span className="font-mono text-[11px] text-neutral-500">
+                          {plan.title} • {project.name}
+                        </span>
+                      </div>
+                    )}
                   </div>
                 ))}
               </div>
@@ -294,27 +359,46 @@ export const ProjectCaseStudyModal: React.FC<ProjectCaseStudyModalProps> = ({
               <h3 className="text-2xl font-bold uppercase tracking-tight text-white mb-6">
                 Sections & Elevations
               </h3>
-              <div className="grid grid-cols-1 gap-6">
+              <div className="grid grid-cols-1 gap-8">
                 {project.sectionsAndElevations.map((sec, idx) => (
-                  <div key={idx} className="bg-[#141414] border border-white/10 p-6">
+                  <div key={idx} className="bg-[#141414] border border-white/10 p-6 sm:p-8">
                     <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-white/10 pb-4 mb-4">
                       <div className="flex items-center space-x-3">
-                        <span className="font-mono text-xs px-2 py-0.5 bg-white/5 border border-white/10 text-white">
+                        <span className="font-mono text-xs px-2.5 py-1 bg-white/5 border border-white/10 text-white font-semibold">
                           {sec.type}
                         </span>
-                        <h4 className="text-lg font-bold text-white uppercase">{sec.title}</h4>
+                        <h4 className="text-xl font-bold text-white uppercase">{sec.title}</h4>
                       </div>
-                      <span className="font-mono text-xs text-neutral-400">Scale 1:100</span>
+                      <span className="font-mono text-xs text-neutral-400">Technical Section</span>
                     </div>
-                    <p className="text-sm text-neutral-300 font-light leading-relaxed mb-4">{sec.desc}</p>
-                    <div className="aspect-[21/9] bg-[#0A0A0A] border border-dashed border-white/20 flex flex-col items-center justify-center p-6 text-center">
-                      <span className="font-mono text-xs text-neutral-400 uppercase tracking-widest mb-1">
-                        [Sectional Sheet View]
-                      </span>
-                      <span className="font-mono text-[11px] text-neutral-500">
-                        {sec.title}
-                      </span>
-                    </div>
+                    <p className="text-sm text-neutral-300 font-light leading-relaxed mb-6">{sec.desc}</p>
+                    
+                    {sec.image ? (
+                      <div
+                        onClick={() => setLightboxImage({ src: sec.image!, title: `${sec.title} - ${project.name}` })}
+                        className="group relative cursor-pointer bg-neutral-900 border border-white/15 overflow-hidden rounded-sm"
+                      >
+                        <img
+                          src={sec.image}
+                          alt={sec.title}
+                          className="w-full h-auto object-contain max-h-[500px] mx-auto filter contrast-105 group-hover:scale-102 transition-transform duration-500"
+                        />
+                        <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                          <span className="font-mono text-xs uppercase tracking-widest text-white bg-black/80 px-4 py-2 border border-white/30">
+                            🔍 Click to Enlarge High-Res Section
+                          </span>
+                        </div>
+                      </div>
+                    ) : (
+                      <div className="aspect-[21/9] bg-[#0A0A0A] border border-dashed border-white/20 flex flex-col items-center justify-center p-6 text-center">
+                        <span className="font-mono text-xs text-neutral-400 uppercase tracking-widest mb-1">
+                          [Sectional Sheet View]
+                        </span>
+                        <span className="font-mono text-[11px] text-neutral-500">
+                          {sec.title}
+                        </span>
+                      </div>
+                    )}
                   </div>
                 ))}
               </div>
@@ -362,13 +446,21 @@ export const ProjectCaseStudyModal: React.FC<ProjectCaseStudyModalProps> = ({
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {project.views3D.map((view, idx) => (
-                <div key={idx} className="bg-[#141414] border border-white/10 overflow-hidden">
-                  <div className="aspect-[16/10] bg-neutral-900 overflow-hidden">
+                <div key={idx} className="bg-[#141414] border border-white/10 overflow-hidden flex flex-col justify-between">
+                  <div
+                    onClick={() => setLightboxImage({ src: view.image || project.coverImage, title: view.title })}
+                    className="group relative cursor-pointer aspect-[16/10] bg-neutral-900 overflow-hidden"
+                  >
                     <img
-                      src={project.coverImage}
+                      src={view.image || project.coverImage}
                       alt={view.title}
-                      className="w-full h-full object-cover filter contrast-110"
+                      className="w-full h-full object-cover filter contrast-110 group-hover:scale-105 transition-transform duration-700"
                     />
+                    <div className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                      <span className="font-mono text-xs uppercase tracking-widest text-white bg-black/80 px-3 py-1.5 border border-white/30">
+                        🔍 View Render
+                      </span>
+                    </div>
                   </div>
                   <div className="p-6">
                     <span className="font-mono text-[10px] text-[#B85D3B] uppercase tracking-[0.2em] block mb-1">
@@ -376,6 +468,61 @@ export const ProjectCaseStudyModal: React.FC<ProjectCaseStudyModalProps> = ({
                     </span>
                     <h4 className="text-base font-bold text-white uppercase mb-2">{view.title}</h4>
                     <p className="text-xs text-neutral-300 font-light leading-relaxed">{view.desc}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
+        {/* TAB 6: FULL PRESENTATION SHEETS (PDF PAGES) */}
+        {activeTab === 'pdf' && project.fullPdfPages && (
+          <div className="space-y-10 animate-fadeIn">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-[#141414] border border-white/10 p-6">
+              <div>
+                <span className="font-mono text-xs text-[#B85D3B] uppercase tracking-[0.25em] block mb-1">
+                  High-Resolution Document Sheets
+                </span>
+                <h3 className="text-xl font-bold uppercase text-white">Full Presentation Sheets</h3>
+              </div>
+              {project.pdfUrl && (
+                <a
+                  href={project.pdfUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-5 py-2.5 bg-[#B85D3B] text-white font-mono text-xs uppercase font-bold tracking-wider hover:bg-[#a34f31] transition-colors flex items-center gap-2"
+                >
+                  📄 Download / View Complete PDF
+                </a>
+              )}
+            </div>
+
+            <div className="grid grid-cols-1 gap-12">
+              {project.fullPdfPages.map((pageSrc, pageIdx) => (
+                <div key={pageIdx} className="bg-[#141414] border border-white/15 p-4 sm:p-6">
+                  <div className="flex items-center justify-between mb-4 font-mono text-xs text-neutral-400 pb-3 border-b border-white/10">
+                    <span className="text-white font-bold">Sheet Page 0{pageIdx + 1}</span>
+                    <button
+                      onClick={() => setLightboxImage({ src: pageSrc, title: `Presentation Sheet 0${pageIdx + 1} - ${project.name}` })}
+                      className="text-[#B85D3B] hover:underline uppercase tracking-wider"
+                    >
+                      🔍 Open Full-Screen Lightbox
+                    </button>
+                  </div>
+                  <div
+                    onClick={() => setLightboxImage({ src: pageSrc, title: `Presentation Sheet 0${pageIdx + 1} - ${project.name}` })}
+                    className="group relative cursor-pointer bg-neutral-900 border border-white/10 overflow-hidden"
+                  >
+                    <img
+                      src={pageSrc}
+                      alt={`Page ${pageIdx + 1}`}
+                      className="w-full h-auto object-contain filter contrast-105 group-hover:scale-101 transition-transform duration-500"
+                    />
+                    <div className="absolute inset-0 bg-black/30 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                      <span className="font-mono text-xs uppercase tracking-widest text-white bg-black/80 px-4 py-2 border border-white/30">
+                        🔍 Click to Expand Sheet View
+                      </span>
+                    </div>
                   </div>
                 </div>
               ))}
@@ -403,6 +550,34 @@ export const ProjectCaseStudyModal: React.FC<ProjectCaseStudyModalProps> = ({
         </div>
 
       </div>
+
+      {/* LIGHTBOX MODAL OVERLAY */}
+      {lightboxImage && (
+        <div
+          onClick={() => setLightboxImage(null)}
+          className="fixed inset-0 z-[100] bg-black/95 backdrop-blur-2xl flex flex-col items-center justify-center p-4 sm:p-8 cursor-zoom-out"
+        >
+          <div className="absolute top-6 right-6 flex items-center space-x-4">
+            <span className="font-mono text-xs text-white uppercase tracking-widest bg-black/80 px-3 py-1.5 border border-white/20">
+              {lightboxImage.title}
+            </span>
+            <button
+              onClick={() => setLightboxImage(null)}
+              className="p-2.5 bg-white/10 border border-white/30 text-white hover:bg-[#B85D3B] hover:border-[#B85D3B] transition-colors"
+            >
+              ✕ Close
+            </button>
+          </div>
+          <div className="max-w-7xl max-h-[90vh] w-full h-full flex items-center justify-center p-2">
+            <img
+              src={lightboxImage.src}
+              alt={lightboxImage.title}
+              className="max-w-full max-h-full object-contain filter contrast-105 shadow-2xl border border-white/10"
+              onClick={(e) => e.stopPropagation()}
+            />
+          </div>
+        </div>
+      )}
     </div>
   );
 };

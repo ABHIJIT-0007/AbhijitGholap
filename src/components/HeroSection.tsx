@@ -10,7 +10,7 @@ export const HeroSection: React.FC = () => {
         <div
           className="absolute inset-0 bg-cover bg-center opacity-30 transform scale-105 transition-transform duration-1000 ease-out filter contrast-125 brightness-90"
           style={{
-            backgroundImage: `url('./assets/bungalow-hero.jpg')`,
+            backgroundImage: `url('./images/bungalow-design/page-01.png')`,
           }}
         />
         {/* Architectural Vignette Gradient */}

@@ -442,7 +442,7 @@ export const professionalProject: ProfessionalProject = {
   category: 'Collaborative Professional Work',
   description:
     'A collaborative professional project involving architectural planning and design development of a sports complex, including the organization of sports facilities, open spaces, circulation, and overall site planning.',
-  pdfUrl: '/documents/Portfolio.pdf',
+  pdfUrl: '/documents/SPORTS COMPLEX — GOA.pdf',
   sheetImage: '/images/sports-complex-goa/page-01.png',
   fullSheetImage: '/images/sports-complex-goa/page-01.png',
   coverImage: '/images/sports-complex-goa/page-01.png',
@@ -455,70 +455,8 @@ export const professionalProject: ProfessionalProject = {
     'Multi-disciplinary sports zoning integrating an Olympic-size swimming pool, 65m radius cricket ground, football stadium, and indoor stadium.',
     'Formulation of area statements, structural PEB considerations, and standard sports flooring specifications.',
   ],
-  plans: [
-    {
-      title: 'Master Plan Layout',
-      image: '/images/sports-complex-goa/page-01.png',
-      tag: 'Site Plan',
-      desc: 'Overall 12-zone master plan including football ground, athletic track, cricket ground, racquet courts, and viewing decks.',
-    },
-    {
-      title: 'Circulation Plan',
-      image: '/images/sports-complex-goa/page-01.png',
-      tag: 'Circulation Strategy',
-      desc: 'Clear circulation routing separating motorways, service ring roads, spectator flow, and designated parking areas.',
-    },
-    {
-      title: 'Zoning Plan',
-      image: '/images/sports-complex-goa/page-01.png',
-      tag: 'Macro Zoning',
-      desc: 'Strategic division between sports activity zones, administrative services, refreshment hubs, and parking enclaves.',
-    },
-    {
-      title: 'Area Statement & Metrics',
-      image: '/images/sports-complex-goa/page-01.png',
-      tag: 'Program Metrics',
-      desc: 'Complete quantitative breakdown across 5 key sectors: Indoor Stadium, Outdoor Sports, Swimming, Fitness & Parking.',
-    },
-  ],
-  facilities: [
-    {
-      name: 'Multipurpose Sports Hall',
-      specs: 'PEB Steel structure, PU/Wooden sports flooring, acoustic wall panels, suspended acoustic ceiling, LED sports lighting.',
-      image: '/images/sports-complex-goa/page-01.png',
-      area: '1,461 sq.m.',
-    },
-    {
-      name: 'Cricket Ground & Viewing Deck',
-      specs: '65m radius natural grass outfield, clay match pitch with subsurface drainage, integrated spectator viewing deck.',
-      image: '/images/sports-complex-goa/page-01.png',
-      area: '8,551 sq.m.',
-    },
-    {
-      name: 'Football Ground & Athletics Track',
-      specs: '100m x 64m standard football field with 8-lane synthetic polyurethane anti-skid running track.',
-      image: '/images/sports-complex-goa/page-01.png',
-      area: '5,882 sq.m.',
-    },
-    {
-      name: 'Olympic Size Swimming Facility',
-      specs: '50m Olympic competition pool, dedicated 25m x 50m diving pool area, with dedicated locker and shower suites.',
-      image: '/images/sports-complex-goa/page-01.png',
-      area: '1,875 sq.m.',
-    },
-    {
-      name: 'Pickleball & Badminton Courts',
-      specs: 'Concrete/asphalt sub-base with UV-resistant anti-skid acrylic sports coating and professional lighting.',
-      image: '/images/sports-complex-goa/page-01.png',
-      area: '1,035 sq.m.',
-    },
-    {
-      name: 'Indoor Fitness, Yoga & Spa',
-      specs: 'Multi-layer rubberized & vinyl impact flooring, mirror assemblies, exposed acoustic baffles, and wellness zones.',
-      image: '/images/sports-complex-goa/page-01.png',
-      area: '310 sq.m.',
-    },
-  ],
+  plans: [],
+  facilities: [],
   gallery: [
     {
       title: 'Architectural Presentation Sheet',

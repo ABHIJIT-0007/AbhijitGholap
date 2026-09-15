@@ -15,6 +15,7 @@ export const personalInfo = {
     'A dedicated and enthusiastic Architecture student passionate about architectural design, planning and sustainable development. I enjoy exploring innovative design solutions that balance functionality, aesthetics and environmental responsibility.',
   languages: ['Marathi', 'Hindi', 'English'],
   status: 'Open for Architectural Internships & Collaborations',
+  profileImage: '/images/profile.png',
 };
 
 export const academicProjects: Project[] = [

@@ -170,7 +170,14 @@ export const academicProjects: Project[] = [
     description:
       "Designed a cultural and administrative centre celebrating Mizoram's heritage through contemporary architecture.",
     featured: true,
-    coverImage: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1600&auto=format&fit=crop',
+    coverImage: '/images/mizoram-state-bhavan/page-01.png',
+    pdfUrl: '/documents/Mizoram State Bhavan.pdf',
+    fullPdfPages: [
+      '/images/mizoram-state-bhavan/page-01.png',
+      '/images/mizoram-state-bhavan/page-02.png',
+      '/images/mizoram-state-bhavan/page-03.png',
+      '/images/mizoram-state-bhavan/page-04.png',
+    ],
     concept:
       'Translating traditional Mizo craftsmanship, bamboo joinery geometries, and sloped hill settlement forms into an iconic civic and cultural landmark in urban Vashi.',
     siteAnalysis: [
@@ -186,24 +193,42 @@ export const academicProjects: Project[] = [
       'Podium and tower massing balancing street-level public openness with private VIP guest floors.',
     ],
     plans: [
-      { title: 'Ground Floor Cultural Promenade', type: 'Plan', desc: 'Exhibition galleries, craft emporium, auditorium, and banquet hall.' },
-      { title: 'Level 03 Administrative & VIP Suites', type: 'Plan', desc: 'State representative offices, conference suites, and official residence quarters.' },
+      {
+        title: 'Master Layout & Site Zoning Plan',
+        type: 'Master Plan',
+        desc: 'Site entrance, vehicular drop-off, parking zoning, and landscaped courtyard connections.',
+        image: '/images/mizoram-state-bhavan/page-02.png',
+      },
+      {
+        title: 'Ground & Level Architectural Floor Plans',
+        type: 'Floor Plan',
+        desc: 'Exhibition galleries, craft emporium, administration, and VIP residence suites.',
+        image: '/images/mizoram-state-bhavan/page-03.png',
+      },
     ],
     sectionsAndElevations: [
-      { title: 'Longitudinal Section across Cultural Atrium', type: 'Section', desc: 'Showing triple-height skylit atrium with decorative timber ceiling ribs.' },
-      { title: 'Front Civic Facade Elevation', type: 'Elevation', desc: 'Modern curtain glazing layered with custom bronze sunscreen motifs.' },
+      {
+        title: 'Building Sections & Facade Elevations',
+        type: 'Section / Elevation',
+        desc: 'Longitudinal sections showing central skylit atrium, bamboo ceiling structures, and solar screen facade.',
+        image: '/images/mizoram-state-bhavan/page-04.png',
+      },
     ],
     diagrams: [
       'Cultural Symbolism to Architectural Form Mapping',
       'Security & Public Zoning Segregation Diagram',
+      'Bamboo Lattice & Thermal Buffer Envelope',
     ],
     sustainabilityStrategy: [
       'Solar responsive screen facade minimizing solar heat gain on western frontage.',
       'Integration of engineered bamboo wall claddings for acoustic and renewable interior finishes.',
+      'Deep verandas and high thermal mass podium reducing artificial cooling demand.',
     ],
     views3D: [
-      { title: 'Grand Entry Plaza & Canopy View', desc: 'Hero view showing the angular illuminated roof canopy at dusk.' },
-      { title: 'Cultural Exhibition Hall', desc: 'Atmospheric gallery with focused spot illumination and warm timber textures.' },
+      { title: 'Sheet 01 - Concept & Cultural Context', desc: 'Site concept, zoning, and cultural design philosophy.', image: '/images/mizoram-state-bhavan/page-01.png' },
+      { title: 'Sheet 02 - Master Plan & Site Layout', desc: 'Master plan, ground layout, and circulation diagrams.', image: '/images/mizoram-state-bhavan/page-02.png' },
+      { title: 'Sheet 03 - Detailed Architectural Floor Plans', desc: 'Detailed floor plans and spatial program distribution.', image: '/images/mizoram-state-bhavan/page-03.png' },
+      { title: 'Sheet 04 - Sections & Structural Details', desc: 'Building sections, structural details, and elevation views.', image: '/images/mizoram-state-bhavan/page-04.png' },
     ],
   },
   {
@@ -217,7 +242,13 @@ export const academicProjects: Project[] = [
     description:
       'Created a museum that offers an interactive and dynamic journey showcasing the evolution of knowledge and culture.',
     featured: false,
-    coverImage: 'https://images.unsplash.com/photo-1513694203232-719a280e022f?q=80&w=1600&auto=format&fit=crop',
+    coverImage: '/images/the-evolving-museum/page-01.png',
+    pdfUrl: '/documents/The Evolution of Museum.pdf',
+    fullPdfPages: [
+      '/images/the-evolving-museum/page-01.png',
+      '/images/the-evolving-museum/page-02.png',
+      '/images/the-evolving-museum/page-03.png',
+    ],
     concept:
       'An architectural spatial spiral where visitors experience the progression of time and human knowledge through continuous vertical movement, light, and materiality.',
     siteAnalysis: [
@@ -233,23 +264,40 @@ export const academicProjects: Project[] = [
       'Cantilevered viewing box framing Dadar urban vistas at the conclusion of the museum sequence.',
     ],
     plans: [
-      { title: 'Ground Level Entry & Amphitheatre Plan', type: 'Plan', desc: 'Ticketing pavilion, orientation hall, cafe, and sculpture courtyard.' },
-      { title: 'Helical Gallery Level Plan', type: 'Plan', desc: 'Continuous barrier-free exhibit circulation with tactile display pockets.' },
+      {
+        title: 'Master Layout & Entry Level Plan',
+        type: 'Floor Plan',
+        desc: 'Ticketing pavilion, orientation hall, central open courtyard, and sculpture gardens.',
+        image: '/images/the-evolving-museum/page-02.png',
+      },
+      {
+        title: 'Helical Gallery Circulation Plan',
+        type: 'Gallery Plan',
+        desc: 'Continuous barrier-free exhibit circulation with tactile display alcoves.',
+        image: '/images/the-evolving-museum/page-03.png',
+      },
     ],
     sectionsAndElevations: [
-      { title: 'Central Void Spiral Section', type: 'Section', desc: 'Continuous experiential ramp and top-lit light well illuminating all levels.' },
+      {
+        title: 'Longitudinal & Void Spiral Sections',
+        type: 'Section',
+        desc: 'Continuous experiential ramp and top-lit light well illuminating all gallery levels.',
+        image: '/images/the-evolving-museum/page-03.png',
+      },
     ],
     diagrams: [
       'Visitor Chronological Experience Loop',
       'Controlled Indirect Daylight Penetration Diagram',
+      'Acoustical Buffer & Concrete Thermal Massing',
     ],
     sustainabilityStrategy: [
       'Thermal mass of board-marked insulated concrete keeping gallery temperatures stable.',
       'Indirect north-light skylights eliminating glare and UV damage on historical exhibits.',
     ],
     views3D: [
-      { title: 'Monolithic Facade Composition', desc: 'Sculptural concrete planes with dramatic shadow lines in bright daylight.' },
-      { title: 'Spiral Gallery Interior Void', desc: 'Dramatic vertical shaft with ascending bridges and floating display volumes.' },
+      { title: 'Sheet 01 - Concept & Dadar Site Context', desc: 'Concept statement, site location in Dadar, and urban contextual analysis.', image: '/images/the-evolving-museum/page-01.png' },
+      { title: 'Sheet 02 - Architectural Layout & Floor Plans', desc: 'Detailed floor plans, orientation hall, and courtyard layouts.', image: '/images/the-evolving-museum/page-02.png' },
+      { title: 'Sheet 03 - Sections, Light Shafts & Helical Ramp', desc: 'Architectural sections, helical ramp circulation, and light well details.', image: '/images/the-evolving-museum/page-03.png' },
     ],
   },
   {
@@ -263,7 +311,12 @@ export const academicProjects: Project[] = [
     description:
       'Designed a community-focused centre to support rural development, skill enhancement and local empowerment.',
     featured: false,
-    coverImage: 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=1600&auto=format&fit=crop',
+    coverImage: '/images/rural-development-centre/page-01.png',
+    pdfUrl: '/documents/Portfolio.pdf',
+    fullPdfPages: [
+      '/images/rural-development-centre/page-01.png',
+      '/images/rural-development-centre/page-02.png',
+    ],
     concept:
       'A low-impact vernacular campus built with participatory design principles, using locally available stone, CSEB blocks, and expansive pitched roofs.',
     siteAnalysis: [
@@ -279,10 +332,20 @@ export const academicProjects: Project[] = [
       'Sloped roofs harvesting roof runoff directed into community percolation ponds.',
     ],
     plans: [
-      { title: 'Campus Master Ground Plan', type: 'Plan', desc: 'Artisan workshops, vocational classrooms, agro-testing clinic, and central courtyard.' },
+      {
+        title: 'Campus Master Layout & Vernacular Plan',
+        type: 'Master Plan',
+        desc: 'Artisan workshops, vocational classrooms, agro-testing clinic, and central courtyard.',
+        image: '/images/rural-development-centre/page-01.png',
+      },
     ],
     sectionsAndElevations: [
-      { title: 'Courtyard Section showing Timber Truss Roofs', type: 'Section', desc: 'Natural ventilation through high clerestory vents beneath Mangalore tiled roofs.' },
+      {
+        title: 'Courtyard Sections & Roof Details',
+        type: 'Section',
+        desc: 'Natural ventilation through high clerestory vents beneath Mangalore tiled roofs.',
+        image: '/images/rural-development-centre/page-02.png',
+      },
     ],
     diagrams: [
       'Community Gathering & Circulation Patterns',
@@ -293,7 +356,8 @@ export const academicProjects: Project[] = [
       'Zero-energy passive cooling achieved via orientation, high thermal mass, and shaded verandas.',
     ],
     views3D: [
-      { title: 'Courtyard Chowk View', desc: 'Warm earth tones, exposed timber posts, and stone plinths under leafy canopies.' },
+      { title: 'Sheet 01 - Campus Master Layout & Workshops', desc: 'Master plan, workshop clusters, and courtyard spaces.', image: '/images/rural-development-centre/page-01.png' },
+      { title: 'Sheet 02 - Vernacular Sections & Earth Construction', desc: 'Building sections, CSEB details, and timber roof trusses.', image: '/images/rural-development-centre/page-02.png' },
     ],
   },
   {
@@ -307,7 +371,14 @@ export const academicProjects: Project[] = [
     description:
       'Developed an educational facility that promotes learning and community engagement through functional design.',
     featured: false,
-    coverImage: 'https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1600&auto=format&fit=crop',
+    coverImage: '/images/ngo-learning-centre/page-01.png',
+    pdfUrl: '/documents/Portfolio.pdf',
+    fullPdfPages: [
+      '/images/ngo-learning-centre/page-01.png',
+      '/images/ngo-learning-centre/page-02.png',
+      '/images/ngo-learning-centre/page-03.png',
+      '/images/ngo-learning-centre/page-04.png',
+    ],
     concept:
       'Flexible, playful educational architecture that breaks the rigid classroom mold to nurture curiosity, collaboration, and safe play for underprivileged youth.',
     siteAnalysis: [
@@ -323,18 +394,40 @@ export const academicProjects: Project[] = [
       'Perforated screen facade offering privacy from neighbouring streets while letting in gentle dappled light.',
     ],
     plans: [
-      { title: 'Ground Floor Flexible Learning Plan', type: 'Plan', desc: 'Early learning studios, computer lab, community pantry, and open deck.' },
+      {
+        title: 'Flexible Learning Floor Plans',
+        type: 'Floor Plan',
+        desc: 'Early learning studios, computer lab, community pantry, and open deck.',
+        image: '/images/ngo-learning-centre/page-02.png',
+      },
     ],
     sectionsAndElevations: [
-      { title: 'Stepped Activity Section', type: 'Section', desc: 'Multi-level play and study sequence demonstrating visual connectivity.' },
+      {
+        title: 'Building Elevations & Facade Detailing',
+        type: 'Elevation',
+        desc: 'Front, left side, and rear elevations showing pitched roofs, brick textures, and timber pergolas.',
+        image: '/images/ngo-learning-centre/page-03.png',
+      },
+      {
+        title: "Stepped Activity Sections X-X' & Y-Y'",
+        type: 'Section',
+        desc: 'Demonstrating generous vertical headroom and natural cross-ventilation draft.',
+        image: '/images/ngo-learning-centre/page-04.png',
+      },
     ],
-    diagrams: ['Multi-Use Spatial Reconfiguration Diagrams'],
+    diagrams: [
+      'Multi-Use Spatial Reconfiguration Diagrams',
+      'Microclimatic Breeze Channels & Daylight Optimization',
+    ],
     sustainabilityStrategy: [
       'Cross-ventilation reducing dependence on mechanical air conditioning.',
       'Non-toxic interior paints and recyclable rubberized flooring.',
     ],
     views3D: [
-      { title: 'Sunlit Multi-Purpose Learning Atrium', desc: 'Bright, cheerful spaces with flexible timber modular furniture.' },
+      { title: 'Sheet 01 - Master Concept & Spatial Zoning', desc: 'Master concept and spatial organization.', image: '/images/ngo-learning-centre/page-01.png' },
+      { title: 'Sheet 02 - Learning Studios & Floor Layouts', desc: 'Floor plans and learning space layouts.', image: '/images/ngo-learning-centre/page-02.png' },
+      { title: 'Sheet 03 - Elevations & Brick Materiality', desc: 'Elevations and structural details.', image: '/images/ngo-learning-centre/page-03.png' },
+      { title: 'Sheet 04 - Longitudinal & Cross Sections', desc: 'Sections and microclimatic breeze channels.', image: '/images/ngo-learning-centre/page-04.png' },
     ],
   },
   {
@@ -348,7 +441,9 @@ export const academicProjects: Project[] = [
     description:
       'Planned a peaceful holiday home focused on comfort, relaxation and a strong connection with nature.',
     featured: false,
-    coverImage: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1600&auto=format&fit=crop',
+    coverImage: '/portfolio-pages/page-24.png',
+    pdfUrl: '/documents/Portfolio.pdf',
+    fullPdfPages: ['/portfolio-pages/page-24.png'],
     concept:
       'A retreat pavilion blurring boundaries between indoors and outdoors, oriented towards picturesque views of the Sahyadri foothills.',
     siteAnalysis: [
@@ -364,10 +459,10 @@ export const academicProjects: Project[] = [
       'Floor-to-ceiling glass sliding doors that retract completely into wall pockets.',
     ],
     plans: [
-      { title: 'Ground Floor Layout Plan', type: 'Plan', desc: 'Open-concept living lounge, kitchenette, master suite, and viewing terrace.' },
+      { title: 'Ground Floor Layout Plan', type: 'Plan', desc: 'Open-concept living lounge, kitchenette, master suite, and viewing terrace.', image: '/portfolio-pages/page-24.png' },
     ],
     sectionsAndElevations: [
-      { title: 'Longitudinal Elevation Facing Orchard', type: 'Elevation', desc: 'Exposed black basalt stone foundation with sleek steel and timber roof.' },
+      { title: 'Longitudinal Elevation Facing Orchard', type: 'Elevation', desc: 'Exposed black basalt stone foundation with sleek steel and timber roof.', image: '/portfolio-pages/page-24.png' },
     ],
     diagrams: ['Indoor-Outdoor Spatial Threshold Diagram'],
     sustainabilityStrategy: [
@@ -375,7 +470,7 @@ export const academicProjects: Project[] = [
       'Deep roof overhangs shielding interiors from direct summer sun.',
     ],
     views3D: [
-      { title: 'Evening Dusk View from Deck', desc: 'Illuminated living spaces opening directly to the private pool and orchard.' },
+      { title: 'Portfolio Presentation Page 24', desc: 'Illuminated living spaces opening directly to private terrace and orchard.', image: '/portfolio-pages/page-24.png' },
     ],
   },
   {
@@ -389,7 +484,9 @@ export const academicProjects: Project[] = [
     description:
       'Designed a creative workspace that integrates artistic activities with the natural landscape.',
     featured: false,
-    coverImage: 'https://images.unsplash.com/photo-1513519245088-0e12902e5a38?q=80&w=1600&auto=format&fit=crop',
+    coverImage: '/portfolio-pages/page-25.png',
+    pdfUrl: '/documents/Portfolio.pdf',
+    fullPdfPages: ['/portfolio-pages/page-25.png'],
     concept:
       'A compact, contemplative micro-sanctuary tailored for a visual artist, celebrating northern daylight, timber warmth, and direct contact with nature.',
     siteAnalysis: [
@@ -404,10 +501,10 @@ export const academicProjects: Project[] = [
       'Crisp asymmetric pavilion resting lightly on minimal pile footings to protect tree roots.',
     ],
     plans: [
-      { title: 'Studio Floor Plan & Loft Level', type: 'Plan', desc: 'Workstation, easel zone, wash sink, material racks, and mezzanine rest perch.' },
+      { title: 'Studio Floor Plan & Loft Level', type: 'Plan', desc: 'Workstation, easel zone, wash sink, material racks, and mezzanine rest perch.', image: '/portfolio-pages/page-25.png' },
     ],
     sectionsAndElevations: [
-      { title: 'Cross Section through Light Well', type: 'Section', desc: 'Demonstrating northern roof angle and natural stack ventilation draft.' },
+      { title: 'Cross Section through Light Well', type: 'Section', desc: 'Demonstrating northern roof angle and natural stack ventilation draft.', image: '/portfolio-pages/page-25.png' },
     ],
     diagrams: ['Micro-space Ergonomics & Light Angle Geometry'],
     sustainabilityStrategy: [
@@ -415,7 +512,7 @@ export const academicProjects: Project[] = [
       'Natural linseed oil finishes and wood fiber insulation.',
     ],
     views3D: [
-      { title: 'Studio in the Woods', desc: 'Weathered timber facade blending organically into surrounding forest foliage.' },
+      { title: 'Portfolio Presentation Page 25', desc: 'Weathered timber facade blending organically into surrounding forest foliage.', image: '/portfolio-pages/page-25.png' },
     ],
   },
 ];
@@ -430,10 +527,10 @@ export const professionalProject: ProfessionalProject = {
   category: 'Collaborative Professional Work',
   description:
     'A collaborative professional project involving architectural planning and design development of a sports complex, including the organization of sports facilities, open spaces, circulation, and overall site planning.',
-  pdfUrl: '/documents/sports-complex-goa.pdf',
-  sheetImage: '/images/sports-complex/sports_complex_sheet_web.png',
-  fullSheetImage: '/images/sports-complex/sports_complex_sheet_page_1.png',
-  coverImage: '/images/sports-complex/master_plan_core.png',
+  pdfUrl: '/documents/Portfolio.pdf',
+  sheetImage: '/images/sports-complex-goa/page-01.png',
+  fullSheetImage: '/images/sports-complex-goa/page-01.png',
+  coverImage: '/images/sports-complex-goa/page-01.png',
   plotArea: '28,195 sq.m.',
   totalArea: '24,268 sq.m.',
   roadOccupancy: '2,040 sq.m. (7.2%)',
@@ -446,25 +543,25 @@ export const professionalProject: ProfessionalProject = {
   plans: [
     {
       title: 'Master Plan Layout',
-      image: '/images/sports-complex/master_plan_layout.png',
+      image: '/images/sports-complex-goa/page-01.png',
       tag: 'Site Plan',
       desc: 'Overall 12-zone master plan including football ground, athletic track, cricket ground, racquet courts, and viewing decks.',
     },
     {
       title: 'Circulation Plan',
-      image: '/images/sports-complex/circulation_plan.png',
+      image: '/images/sports-complex-goa/page-01.png',
       tag: 'Circulation Strategy',
       desc: 'Clear circulation routing separating motorways, service ring roads, spectator flow, and designated parking areas.',
     },
     {
       title: 'Zoning Plan',
-      image: '/images/sports-complex/zoning_plan.png',
+      image: '/images/sports-complex-goa/page-01.png',
       tag: 'Macro Zoning',
       desc: 'Strategic division between sports activity zones, administrative services, refreshment hubs, and parking enclaves.',
     },
     {
       title: 'Area Statement & Metrics',
-      image: '/images/sports-complex/area_statement.png',
+      image: '/images/sports-complex-goa/page-01.png',
       tag: 'Program Metrics',
       desc: 'Complete quantitative breakdown across 5 key sectors: Indoor Stadium, Outdoor Sports, Swimming, Fitness & Parking.',
     },
@@ -473,37 +570,37 @@ export const professionalProject: ProfessionalProject = {
     {
       name: 'Multipurpose Sports Hall',
       specs: 'PEB Steel structure, PU/Wooden sports flooring, acoustic wall panels, suspended acoustic ceiling, LED sports lighting.',
-      image: '/images/sports-complex/facility_multipurpose.png',
+      image: '/images/sports-complex-goa/page-01.png',
       area: '1,461 sq.m.',
     },
     {
       name: 'Cricket Ground & Viewing Deck',
       specs: '65m radius natural grass outfield, clay match pitch with subsurface drainage, integrated spectator viewing deck.',
-      image: '/images/sports-complex/facility_cricket.png',
+      image: '/images/sports-complex-goa/page-01.png',
       area: '8,551 sq.m.',
     },
     {
       name: 'Football Ground & Athletics Track',
       specs: '100m x 64m standard football field with 8-lane synthetic polyurethane anti-skid running track.',
-      image: '/images/sports-complex/facility_athletics.png',
+      image: '/images/sports-complex-goa/page-01.png',
       area: '5,882 sq.m.',
     },
     {
       name: 'Olympic Size Swimming Facility',
       specs: '50m Olympic competition pool, dedicated 25m x 50m diving pool area, with dedicated locker and shower suites.',
-      image: '/images/sports-complex/facility_swimming.png',
+      image: '/images/sports-complex-goa/page-01.png',
       area: '1,875 sq.m.',
     },
     {
       name: 'Pickleball & Badminton Courts',
       specs: 'Concrete/asphalt sub-base with UV-resistant anti-skid acrylic sports coating and professional lighting.',
-      image: '/images/sports-complex/facility_pickleball.png',
+      image: '/images/sports-complex-goa/page-01.png',
       area: '1,035 sq.m.',
     },
     {
       name: 'Indoor Fitness, Yoga & Spa',
       specs: 'Multi-layer rubberized & vinyl impact flooring, mirror assemblies, exposed acoustic baffles, and wellness zones.',
-      image: '/images/sports-complex/facility_fitness.png',
+      image: '/images/sports-complex-goa/page-01.png',
       area: '310 sq.m.',
     },
   ],
@@ -511,22 +608,22 @@ export const professionalProject: ProfessionalProject = {
     {
       title: 'Architectural Presentation Sheet',
       desc: 'Complete portfolio master sheet combining zoning, circulation, area statement, master plan, and material specs.',
-      image: '/images/sports-complex/sports_complex_sheet_web.png',
+      image: '/images/sports-complex-goa/page-01.png',
     },
     {
       title: 'Master Plan & Facility Layout',
       desc: 'Comprehensive master plan detailing outdoor stadiums, athletic tracks, indoor halls, and spectator zones.',
-      image: '/images/sports-complex/master_plan_layout.png',
+      image: '/images/sports-complex-goa/page-01.png',
     },
     {
       title: 'Circulation & Road Network',
       desc: 'Pedestrian and vehicular circulation strategy occupying 7.2% of total site area for seamless accessibility.',
-      image: '/images/sports-complex/circulation_plan.png',
+      image: '/images/sports-complex-goa/page-01.png',
     },
     {
       title: 'Functional Zoning Strategy',
       desc: 'Color-coded macro zoning segregating sports activities, services, refreshment zones, and parking lots.',
-      image: '/images/sports-complex/zoning_plan.png',
+      image: '/images/sports-complex-goa/page-01.png',
     },
   ],
 };

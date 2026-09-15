@@ -35,6 +35,14 @@ export const CVModal: React.FC<CVModalProps> = ({ isOpen, onClose }) => {
           </div>
 
           <div className="flex items-center space-x-3">
+            <a
+              href="/documents/CV.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-3 py-1.5 bg-[#B85D3B] text-white font-mono text-xs uppercase font-semibold hover:bg-[#a34f31] transition-colors flex items-center gap-1.5"
+            >
+              📄 Download CV.pdf
+            </a>
             <button
               onClick={() => window.print()}
               className="px-3 py-1.5 border border-white/20 text-white font-mono text-xs uppercase hover:bg-white hover:text-black transition-colors"

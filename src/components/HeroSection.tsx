@@ -8,9 +8,9 @@ export const HeroSection: React.FC = () => {
       <div className="absolute inset-0 pointer-events-none z-0">
         {/* Large Architectural Hero Image with Dramatic Vignette & Texture */}
         <div
-          className="absolute inset-0 bg-cover bg-center opacity-35 transform scale-105 transition-transform duration-1000 ease-out filter grayscale contrast-125"
+          className="absolute inset-0 bg-cover bg-center opacity-35 transform scale-105 transition-transform duration-1000 ease-out filter contrast-125"
           style={{
-            backgroundImage: `url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2000&auto=format&fit=crop')`,
+            backgroundImage: `url('/images/bungalow-design/cover.png')`,
           }}
         />
         {/* Architectural Vignette Gradient */}
@@ -67,7 +67,7 @@ export const HeroSection: React.FC = () => {
           </p>
         </div>
 
-        {/* Two Primary Action Buttons */}
+        {/* Primary Action Buttons */}
         <div className="mt-10 flex flex-wrap items-center gap-4 sm:gap-6">
           <a
             href="#work"
@@ -75,6 +75,15 @@ export const HeroSection: React.FC = () => {
           >
             <span>View Portfolio</span>
             <span className="transform group-hover:translate-x-1 transition-transform">→</span>
+          </a>
+
+          <a
+            href="/documents/Portfolio.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 px-8 py-4 bg-[#B85D3B] text-white font-semibold text-xs sm:text-sm uppercase tracking-[0.2em] transition-all duration-300 hover:bg-[#a34f31]"
+          >
+            <span>📄 Download Portfolio PDF</span>
           </a>
 
           <a

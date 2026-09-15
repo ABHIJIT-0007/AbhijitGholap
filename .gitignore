@@ -2,3 +2,7 @@ node_modules/
 dist/
 .env
 .env.local
+
+# Large extracted assets — keep out of git
+public/extracted/
+compress_image.ps1

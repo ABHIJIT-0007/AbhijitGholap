@@ -23,8 +23,8 @@ export const academicProjects: Project[] = [
     number: '01',
     name: 'Bungalow Design',
     location: 'Dhasai, Murbad',
-    category: 'Academic Project — Courtyard Bungalow',
-    semester: 'Semester V',
+    category: 'Additional Project — Courtyard Bungalow',
+    semester: 'Additional Project',
     area: '201 sq.m.',
     description:
       'A contemporary interpretation of the traditional Maratha Wada, organizing spatial experience around a central courtyard as the social and ecological heart of the home.',
@@ -99,8 +99,8 @@ export const academicProjects: Project[] = [
     number: '02',
     name: 'Tiny House',
     location: 'Navi Mumbai',
-    category: 'Compact Micro-Housing Project',
-    semester: 'Semester III',
+    category: 'Additional Project — Compact Micro-Housing',
+    semester: 'Additional Project',
     area: '15 sq.m. (5.5m x 2.7m)',
     description:
       'An efficiently planned micro-housing unit featuring multi-functional space saving mechanisms, integrated storage walls, and sleek modern interior styling.',

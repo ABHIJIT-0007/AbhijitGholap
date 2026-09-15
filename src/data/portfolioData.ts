@@ -312,7 +312,7 @@ export const academicProjects: Project[] = [
       'Designed a community-focused centre to support rural development, skill enhancement and local empowerment.',
     featured: false,
     coverImage: '/images/rural-development-centre/page-01.png',
-    pdfUrl: '/documents/Portfolio.pdf',
+    pdfUrl: undefined,
     fullPdfPages: [
       '/images/rural-development-centre/page-01.png',
       '/images/rural-development-centre/page-02.png',
@@ -372,7 +372,7 @@ export const academicProjects: Project[] = [
       'Developed an educational facility that promotes learning and community engagement through functional design.',
     featured: false,
     coverImage: '/images/ngo-learning-centre/page-01.png',
-    pdfUrl: '/documents/Portfolio.pdf',
+    pdfUrl: undefined,
     fullPdfPages: [
       '/images/ngo-learning-centre/page-01.png',
       '/images/ngo-learning-centre/page-02.png',

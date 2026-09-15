@@ -1,33 +1,4 @@
-# Dependencies
 node_modules/
-.pnp
-.pnp.js
-
-# Build output
 dist/
-build/
-
-# Large binary files (too big for GitHub without LFS)
-Portfolio.pdf
-CV.pdf
-*.pdf
-
-# Large extracted images from PDF (>50MB, GitHub rejects >100MB)
-public/extract*/
-public/extracted*/
-/Works/
-*.ps1
-
-# OS & editor
-.DS_Store
-Thumbs.db
-.vscode/
-*.log
-
-# Environment
 .env
 .env.local
-.env.*.local
-
-# TypeScript cache
-*.tsbuildinfo

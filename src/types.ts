@@ -9,7 +9,8 @@ export interface Project {
   description: string;
   featured?: boolean;
   coverImage: string;
-  portfolioSheets?: string[];
+  pdfUrl?: string;
+  fullPdfPages?: string[];
   concept: string;
   siteAnalysis: string[];
   conceptDevelopment: string[];
@@ -32,8 +33,15 @@ export interface ProfessionalProject {
   description: string;
   highlights: string[];
   coverImage: string;
+  pdfUrl?: string;
   sheetImage?: string;
-  gallery: { title: string; desc: string }[];
+  fullSheetImage?: string;
+  plotArea?: string;
+  totalArea?: string;
+  roadOccupancy?: string;
+  plans?: { title: string; image: string; tag: string; desc: string }[];
+  facilities?: { name: string; specs: string; image?: string; area?: string }[];
+  gallery: { title: string; desc: string; image?: string }[];
 }
 
 export interface WorkingDrawing {
@@ -44,6 +52,8 @@ export interface WorkingDrawing {
   category: string;
   description: string;
   image?: string;
+  pdfUrl?: string;
+  pdfPage?: number;
 }
 
 export interface SkillCategory {

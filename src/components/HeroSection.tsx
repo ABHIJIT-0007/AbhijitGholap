@@ -8,9 +8,9 @@ export const HeroSection: React.FC = () => {
       <div className="absolute inset-0 pointer-events-none z-0">
         {/* Large Architectural Hero Image with Dramatic Vignette & Texture */}
         <div
-          className="absolute inset-0 bg-cover bg-center opacity-30 transform scale-105 transition-transform duration-1000 ease-out filter contrast-125 brightness-90"
+          className="absolute inset-0 bg-cover bg-center opacity-35 transform scale-105 transition-transform duration-1000 ease-out filter grayscale contrast-125"
           style={{
-            backgroundImage: `url('./images/bungalow-design/page-01.png')`,
+            backgroundImage: `url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=2000&auto=format&fit=crop')`,
           }}
         />
         {/* Architectural Vignette Gradient */}
@@ -89,7 +89,7 @@ export const HeroSection: React.FC = () => {
       {/* Hero Bottom Meta & Scroll Indicator */}
       <div className="relative z-10 max-w-7xl w-full mx-auto pt-6 border-t border-white/10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
         <div className="flex items-center space-x-6 text-[11px] font-mono uppercase tracking-[0.2em] text-neutral-400">
-          <span>06 Portfolio Works</span>
+          <span>07 Academic Projects</span>
           <span>•</span>
           <span>01 Professional Collaboration</span>
           <span>•</span>

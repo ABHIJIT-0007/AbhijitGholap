@@ -22,9 +22,9 @@ export const AboutSection: React.FC<AboutSectionProps> = ({ onOpenCV }) => {
             <div className="relative aspect-[3/4] w-full max-w-md mx-auto overflow-hidden bg-neutral-900 border border-white/10">
               {/* Profile Image */}
               <img
-                src={personalInfo.portraitImage || './assets/abhijit-portrait.jpg'}
+                src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=1200&auto=format&fit=crop"
                 alt="Abhijit Gholap - Architecture Student"
-                className="w-full h-full object-cover filter contrast-105 group-hover:scale-105 transition-transform duration-700 ease-out"
+                className="w-full h-full object-cover grayscale contrast-110 group-hover:scale-105 transition-transform duration-700 ease-out"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#121212] via-transparent to-transparent opacity-80" />
 

@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { personalInfo, cvProjects, educationTimeline, skillCategories } from '../data/portfolioData';
+import { personalInfo, academicProjects, educationTimeline, skillCategories } from '../data/portfolioData';
 
 interface CVModalProps {
   isOpen: boolean;
@@ -96,15 +96,15 @@ export const CVModal: React.FC<CVModalProps> = ({ isOpen, onClose }) => {
           {/* Academic Architectural Projects */}
           <div>
             <h2 className="font-mono text-xs uppercase tracking-[0.25em] text-[#B85D3B] border-b border-white/10 pb-2 mb-4">
-              Academic Design Projects (Semesters I – VII from CV)
+              Academic Design Projects (Semesters I – VII)
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
-              {cvProjects.map((p, idx) => (
-                <div key={idx} className="p-3 bg-white/[0.02] border border-white/5">
-                  <span className="font-mono text-[10px] text-[#B85D3B]">{p.semester}</span>
+              {academicProjects.map((p) => (
+                <div key={p.id} className="p-3 bg-white/[0.02] border border-white/5">
+                  <span className="font-mono text-[10px] text-[#B85D3B]">{p.number} • {p.semester}</span>
                   <p className="font-bold text-white print:text-black text-sm">{p.name}</p>
                   <p className="text-neutral-400 font-mono text-[11px]">{p.location} • {p.area}</p>
-                  <p className="text-neutral-400 mt-1 font-light">{p.desc}</p>
+                  <p className="text-neutral-400 mt-1 font-light">{p.description}</p>
                 </div>
               ))}
             </div>

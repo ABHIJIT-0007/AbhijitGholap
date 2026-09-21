@@ -7,7 +7,7 @@ export const WorkingDrawingsGallery: React.FC = () => {
 
   const openPdf = (pdfUrl?: string) => {
     const targetUrl = pdfUrl || '/documents/working-drawings.pdf';
-    window.open(targetUrl, '_blank', 'noopener,noreferrer');
+    window.open(encodeURI(targetUrl), '_blank', 'noopener,noreferrer');
   };
 
   return (

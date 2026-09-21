@@ -159,7 +159,14 @@
         semester: 'Semester VI',
         area: '10,000 sq.m.',
         description: "Designed a cultural and administrative centre celebrating Mizoram's heritage through contemporary architecture.",
-        coverImage: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=1600&auto=format&fit=crop',
+        coverImage: '/images/mizoram-state-bhavan/page-01.png',
+        pdfUrl: '/documents/Mizoram State Bhavan.pdf',
+        fullPdfPages: [
+          '/images/mizoram-state-bhavan/page-01.png',
+          '/images/mizoram-state-bhavan/page-02.png',
+          '/images/mizoram-state-bhavan/page-03.png',
+          '/images/mizoram-state-bhavan/page-04.png'
+        ],
         concept: 'Translating traditional Mizo craftsmanship, bamboo joinery geometries, and sloped hill settlement forms into an iconic civic and cultural landmark in urban Vashi.',
         siteAnalysis: [
           'Prominent urban corner plot in Vashi with high visibility from commercial boulevards.',
@@ -199,6 +206,7 @@
         area: '5,000 sq.m.',
         description: 'Created a museum that offers an interactive and dynamic journey showcasing the evolution of knowledge and culture.',
         coverImage: 'https://images.unsplash.com/photo-1513694203232-719a280e022f?q=80&w=1600&auto=format&fit=crop',
+        pdfUrl: '/documents/The Evolution of Museum.pdf',
         concept: 'An architectural spatial spiral where visitors experience the progression of time and human knowledge through continuous vertical movement, light, and materiality.',
         siteAnalysis: [
           'Dense urban fabric of Dadar demanding sound mitigation and an introverted spatial experience.',
@@ -236,6 +244,7 @@
         area: '2,100 sq.m.',
         description: 'Designed a community-focused centre to support rural development, skill enhancement and local empowerment.',
         coverImage: 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?q=80&w=1600&auto=format&fit=crop',
+        pdfUrl: '/documents/Rural Development Centre.pdf',
         concept: 'A low-impact vernacular campus built with participatory design principles, using locally available stone, CSEB blocks, and expansive pitched roofs.',
         siteAnalysis: ['Agrarian parcel in Shivkar with natural water runoff channels and gentle slopes.'],
         conceptDevelopment: ['Cluster arrangement inspired by traditional Indian wada architecture with central shared chowk.'],
@@ -256,6 +265,7 @@
         area: '1,000 sq.m.',
         description: 'Developed an educational facility that promotes learning and community engagement through functional design.',
         coverImage: 'https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1600&auto=format&fit=crop',
+        pdfUrl: '/documents/NGO Learning Centre.pdf',
         concept: 'Flexible, playful educational architecture that breaks the rigid classroom mold to nurture curiosity, collaboration, and safe play for underprivileged youth.',
         siteAnalysis: ['Compact plot in Kopar Khairane nestled within a bustling residential neighbourhood.'],
         conceptDevelopment: ['Movable partitions allowing classrooms to expand into larger community assembly halls.'],
@@ -276,6 +286,7 @@
         area: '170 sq.m.',
         description: 'Planned a peaceful holiday home focused on comfort, relaxation and a strong connection with nature.',
         coverImage: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1600&auto=format&fit=crop',
+        pdfUrl: '/documents/bungalow-design.pdf',
         concept: 'A retreat pavilion blurring boundaries between indoors and outdoors, oriented towards picturesque views of the Sahyadri foothills.',
         siteAnalysis: ['Gently contoured rural parcel in Badlapur surrounded by fruit orchards and stream frontage.'],
         conceptDevelopment: ['Linear organization keeping living, dining, and sleeping spaces along the panoramic view edge.'],
@@ -296,6 +307,7 @@
         area: '15 sq.m.',
         description: 'Designed a creative workspace that integrates artistic activities with the natural landscape.',
         coverImage: 'https://images.unsplash.com/photo-1513519245088-0e12902e5a38?q=80&w=1600&auto=format&fit=crop',
+        pdfUrl: '/documents/tiny-house.pdf',
         concept: 'A compact, contemplative micro-sanctuary tailored for a visual artist, celebrating northern daylight, timber warmth, and direct contact with nature.',
         siteAnalysis: ['Secluded wooded setting in Vangani with gentle elevation and quiet acoustics.'],
         conceptDevelopment: ['Minimalist footprint maximizing every cubic meter through built-in furniture and loft storage.'],
@@ -316,7 +328,7 @@
       principalArchitect: 'Ar. Mayur Naik',
       role: 'Architectural Design Assistance',
       description: 'A collaborative professional project involving architectural planning and design development of a sports complex, including the organization of sports facilities, open spaces, circulation, and overall site planning.',
-      pdfUrl: './public/documents/sports-complex-goa.pdf',
+      pdfUrl: '/documents/SPORTS COMPLEX — GOA.pdf',
       sheetImage: './public/images/sports-complex/sports_complex_sheet_web.png',
       fullSheetImage: './public/images/sports-complex/sports_complex_sheet_page_1.png',
       coverImage: './public/images/sports-complex/master_plan_core.png',
@@ -1246,12 +1258,24 @@
                     {selectedProject.name}
                   </h2>
                 </div>
-                <button
-                  onClick={() => setSelectedProject(null)}
-                  className="p-2 border border-white/30 text-white hover:bg-[#B85D3B] hover:border-[#B85D3B] transition-colors cursor-pointer"
-                >
-                  ✕ Close
-                </button>
+                <div className="flex items-center space-x-3">
+                  {selectedProject.pdfUrl && (
+                    <a
+                      href={encodeURI(selectedProject.pdfUrl)}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="hidden sm:flex items-center gap-1.5 px-3 py-1.5 bg-[#B85D3B] text-white font-mono text-xs uppercase font-semibold hover:bg-[#a34f31] transition-colors"
+                    >
+                      📄 View Full PDF
+                    </a>
+                  )}
+                  <button
+                    onClick={() => setSelectedProject(null)}
+                    className="p-2 border border-white/30 text-white hover:bg-[#B85D3B] hover:border-[#B85D3B] transition-colors cursor-pointer"
+                  >
+                    ✕ Close
+                  </button>
+                </div>
               </div>
 
               <div className="max-w-6xl w-full mx-auto px-5 sm:px-8 py-10">
@@ -1267,8 +1291,20 @@
                         {selectedProject.name}
                       </h1>
                     </div>
-                    <div className="font-mono text-xs text-neutral-300 bg-black/80 px-4 py-2 border border-white/15">
-                      {selectedProject.location} • {selectedProject.area}
+                    <div className="flex flex-wrap items-center gap-3">
+                      <div className="font-mono text-xs text-neutral-300 bg-black/80 px-4 py-2 border border-white/15">
+                        {selectedProject.location} • {selectedProject.area}
+                      </div>
+                      {selectedProject.pdfUrl && (
+                        <a
+                          href={encodeURI(selectedProject.pdfUrl)}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="font-mono text-xs text-white bg-[#B85D3B] px-4 py-2 uppercase font-semibold tracking-wider hover:bg-[#a34f31] transition-colors flex items-center gap-2"
+                        >
+                          📄 Open Project PDF
+                        </a>
+                      )}
                     </div>
                   </div>
                 </div>
@@ -1294,7 +1330,19 @@
                 {caseStudyTab === 'overview' && (
                   <div className="space-y-8 animate-fadeIn">
                     <div className="bg-[#141414] border border-white/10 p-8">
-                      <span className="font-mono text-xs text-[#B85D3B] uppercase block mb-2">Design Concept</span>
+                      <div className="flex items-center justify-between mb-3">
+                        <span className="font-mono text-xs text-[#B85D3B] uppercase block">Design Concept</span>
+                        {selectedProject.pdfUrl && (
+                          <a
+                            href={encodeURI(selectedProject.pdfUrl)}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="font-mono text-[11px] text-white bg-white/10 border border-white/20 px-3 py-1 uppercase tracking-wider hover:bg-[#B85D3B] hover:border-[#B85D3B] transition-colors"
+                          >
+                            View Original PDF Document ↗
+                          </a>
+                        )}
+                      </div>
                       <p className="text-lg text-neutral-200 font-light leading-relaxed mb-6">{selectedProject.concept}</p>
                       <p className="text-sm text-neutral-400 leading-relaxed">{selectedProject.description}</p>
                     </div>

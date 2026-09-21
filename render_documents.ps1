@@ -58,7 +58,15 @@ foreach ($item in $items) {
         $flushTask = $stream.FlushAsync()
         $netFlushTask = $asTaskGeneric.MakeGenericMethod([bool]).Invoke($null, @($flushTask))
         $netFlushTask.Wait(-1) | Out-Null
-        $stream.Dispose()
-        Write-Host "  -> $fileName rendered" -ForegroundColor Green
+        # Copy/save both page-XX.png and page_XX.png for compatibility
+        $altFileName = ("page-{0:D2}.png" -f $pageNum)
+        $altDestFileTask = $folder.CreateFileAsync($altFileName, [Windows.Storage.CreationCollisionOption]::ReplaceExisting)
+        $altDestFile = Await $altDestFileTask ([Windows.Storage.StorageFile])
+        $copyTask = $destFile.CopyAndReplaceAsync($altDestFile)
+        $asTaskNoResult = [System.WindowsRuntimeSystemExtensions].GetMethods() | Where-Object { $_.Name -eq 'AsTask' -and $_.GetParameters().Count -eq 1 -and $_.GetParameters()[0].ParameterType.Name -eq 'IAsyncAction' }
+        $netCopyTask = $asTaskNoResult[0].Invoke($null, @($copyTask))
+        $netCopyTask.Wait(-1) | Out-Null
+
+        Write-Host "  -> $fileName & $altFileName rendered" -ForegroundColor Green
     }
 }

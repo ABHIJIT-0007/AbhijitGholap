@@ -62,7 +62,7 @@ export const ProjectCaseStudyModal: React.FC<ProjectCaseStudyModalProps> = ({
         <div className="flex items-center space-x-3">
           {project.pdfUrl && (
             <a
-              href={project.pdfUrl}
+              href={encodeURI(project.pdfUrl)}
               target="_blank"
               rel="noopener noreferrer"
               className="hidden sm:flex items-center gap-1.5 px-3 py-1.5 bg-[#B85D3B] text-white font-mono text-xs uppercase font-semibold hover:bg-[#a34f31] transition-colors"
@@ -126,7 +126,7 @@ export const ProjectCaseStudyModal: React.FC<ProjectCaseStudyModalProps> = ({
               </div>
               {project.pdfUrl && (
                 <a
-                  href={project.pdfUrl}
+                  href={encodeURI(project.pdfUrl)}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="font-mono text-xs text-white bg-[#B85D3B] px-4 py-2 uppercase font-semibold tracking-wider hover:bg-[#a34f31] transition-colors flex items-center gap-2"
@@ -197,7 +197,7 @@ export const ProjectCaseStudyModal: React.FC<ProjectCaseStudyModalProps> = ({
                 </span>
                 {project.pdfUrl && (
                   <a
-                    href={project.pdfUrl}
+                    href={encodeURI(project.pdfUrl)}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="font-mono text-[11px] text-white bg-white/10 border border-white/20 px-3 py-1 uppercase tracking-wider hover:bg-[#B85D3B] hover:border-[#B85D3B] transition-colors"
@@ -487,7 +487,7 @@ export const ProjectCaseStudyModal: React.FC<ProjectCaseStudyModalProps> = ({
               </div>
               {project.pdfUrl && (
                 <a
-                  href={project.pdfUrl}
+                  href={encodeURI(project.pdfUrl)}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="px-5 py-2.5 bg-[#B85D3B] text-white font-mono text-xs uppercase font-bold tracking-wider hover:bg-[#a34f31] transition-colors flex items-center gap-2"

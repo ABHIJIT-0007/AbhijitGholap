@@ -6,7 +6,7 @@ export const ProfessionalWork: React.FC = () => {
 
   const openPdf = () => {
     if (professionalProject.pdfUrl) {
-      window.open(professionalProject.pdfUrl, '_blank', 'noopener,noreferrer');
+      window.open(encodeURI(professionalProject.pdfUrl), '_blank', 'noopener,noreferrer');
     }
   };
 

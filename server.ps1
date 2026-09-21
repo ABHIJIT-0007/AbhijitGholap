@@ -28,6 +28,7 @@ $mimeTypes = @{
     ".jpg"  = "image/jpeg"
     ".jpeg" = "image/jpeg"
     ".ico"  = "image/x-icon"
+    ".pdf"  = "application/pdf"
 }
 
 while ($listener.IsListening) {
@@ -36,12 +37,19 @@ while ($listener.IsListening) {
         $request = $context.Request
         $response = $context.Response
 
-        $rawPath = $request.Url.LocalPath
-        if ($rawPath -eq "/" -or $rawPath -eq "/index.html") {
+        $decodedPath = [System.Net.WebUtility]::UrlDecode($request.Url.LocalPath)
+
+        if ($decodedPath -eq "/" -or $decodedPath -eq "/index.html") {
             $filePath = Join-Path $PSScriptRoot "standalone-preview.html"
         } else {
-            $relativePath = $rawPath.TrimStart('/').Replace('/', [System.IO.Path]::DirectorySeparatorChar)
+            $relativePath = $decodedPath.TrimStart('/').Replace('/', [System.IO.Path]::DirectorySeparatorChar)
             $filePath = Join-Path $PSScriptRoot $relativePath
+            if (-not (Test-Path $filePath -PathType Leaf)) {
+                $publicPath = Join-Path $PSScriptRoot (Join-Path "public" $relativePath)
+                if (Test-Path $publicPath -PathType Leaf) {
+                    $filePath = $publicPath
+                }
+            }
         }
 
         if (Test-Path $filePath -PathType Leaf) {
@@ -54,7 +62,7 @@ while ($listener.IsListening) {
             $response.StatusCode = 200
             $response.OutputStream.Write($bytes, 0, $bytes.Length)
         } else {
-            $msg = [System.Text.Encoding]::UTF8.GetBytes("404 Not Found: $rawPath")
+            $msg = [System.Text.Encoding]::UTF8.GetBytes("404 Not Found: $decodedPath")
             $response.StatusCode = 404
             $response.ContentType = "text/plain; charset=utf-8"
             $response.ContentLength64 = $msg.Length

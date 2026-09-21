@@ -36,7 +36,7 @@ export const CVModal: React.FC<CVModalProps> = ({ isOpen, onClose }) => {
 
           <div className="flex items-center space-x-3">
             <a
-              href="/documents/CV.pdf"
+              href={encodeURI('/documents/CV.pdf')}
               target="_blank"
               rel="noopener noreferrer"
               className="px-3 py-1.5 bg-[#B85D3B] text-white font-mono text-xs uppercase font-semibold hover:bg-[#a34f31] transition-colors flex items-center gap-1.5"

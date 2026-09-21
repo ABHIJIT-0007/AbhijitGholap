@@ -14,7 +14,7 @@ Function Await($WinRtTask, $ResultType) {
 [Windows.Storage.StorageFile, Windows.Storage, ContentType = WindowsRuntime] | Out-Null
 
 $items = @(
-    @{ pdf = ".\public\documents\Mizoram State Bhavan.pdf"; outDir = ".\public\images\mizoram-state-bhavan" },
+    @{ pdf = ".\public\documents\mizoram bhavan work.pdf"; outDir = ".\public\images\mizoram-state-bhavan" },
     @{ pdf = ".\public\documents\The Evolution of Museum.pdf"; outDir = ".\public\images\the-evolving-museum" }
 )
 

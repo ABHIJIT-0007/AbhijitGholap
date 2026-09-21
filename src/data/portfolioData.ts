@@ -171,8 +171,8 @@ export const academicProjects: Project[] = [
     description:
       "Designed a cultural and administrative centre celebrating Mizoram's heritage through contemporary architecture.",
     featured: true,
-    coverImage: '/images/mizoram-state-bhavan/page-01.png',
-    pdfUrl: '/documents/Mizoram State Bhavan.pdf',
+    coverImage: '/images/mizoram-state-bhavan/cover.png',
+    pdfUrl: '/documents/mizoram bhavan work.pdf',
     fullPdfPages: [
       '/images/mizoram-state-bhavan/page-01.png',
       '/images/mizoram-state-bhavan/page-02.png',
